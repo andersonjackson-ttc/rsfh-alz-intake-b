@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	public void start(Stage arg0) throws Exception {
-		// TODO Auto-generated method stub
+		// instantiate initial user window here
 
 	}
 

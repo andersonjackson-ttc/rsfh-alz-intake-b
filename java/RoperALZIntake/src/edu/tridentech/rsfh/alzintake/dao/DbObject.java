@@ -1,3 +1,9 @@
+/**
+ * Interface for access to the database through the DAO
+ * 
+ * @author Kevin Franks
+ */
+
 package edu.tridentech.rsfh.alzintake.dao;
 
 import java.util.Date;

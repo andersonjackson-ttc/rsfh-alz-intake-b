@@ -6,7 +6,6 @@
 
 package edu.tridentech.rsfh.alzintake.dao;
 
-import java.util.Date;
 
 public class DataBaseTest implements DbObject
 {

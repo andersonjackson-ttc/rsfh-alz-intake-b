@@ -6,7 +6,15 @@
 
 package edu.tridentech.rsfh.alzintake.dao;
 
+import java.util.Date;
+
 public interface PartRecord  
 {
-	String getName();
+	String getFirstName();
+	String getLastName();
+	Date getDOB();
+	String getRace();
+	char getGender();
+	
+	
 }

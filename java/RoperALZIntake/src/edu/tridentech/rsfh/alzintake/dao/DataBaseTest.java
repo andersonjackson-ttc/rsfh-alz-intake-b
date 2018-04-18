@@ -23,22 +23,6 @@ public class DataBaseTest implements DbObject
 		return false;
 	}
 
-	@Override
-	public PartRecord findRecord(int idNum) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public PartRecord findRecord(String lastName, int phone) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public PartRecord findRecord(String lastName, Date dob) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 }

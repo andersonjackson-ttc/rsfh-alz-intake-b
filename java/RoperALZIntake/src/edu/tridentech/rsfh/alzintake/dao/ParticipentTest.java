@@ -22,7 +22,7 @@ public class ParticipentTest implements PartRecord
 		firstName = "Kevin";
 		lastName = "Franks";
 		DOB = new Date(06/05/1969);
-		race = "Alien";
+		race = "Aliens";
 		gender = 'C';
 	}
 

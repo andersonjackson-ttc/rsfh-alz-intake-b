@@ -12,5 +12,4 @@ public interface DbObject
 {
 	boolean saveRecord(PartRecord pr);
 	boolean updateRecord(PartRecord pr);
-	
 }

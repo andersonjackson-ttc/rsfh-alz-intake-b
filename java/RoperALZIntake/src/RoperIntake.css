@@ -1,15 +1,18 @@
 .root{
 
-	-fx-background-color: #c0392b;
-	-fx-font-size: 11pt;
-
+	-fx-background-color: #f5eef8;
+	-fx-font-size: 14px;
+   	-fx-font-family: "Arial";
+   	-fx-fill: #ffffff;
 }
-
-
-#subjectFirstNameTxtBx{
+.label{
+	-fx-color: white;
+}
+.text-feild{
 	-fx-font-size: 15px;
    	-fx-font-family: "Arial Black";
-   	-fx-fill: #818181;
-
-
+   	-fx-fill: #ffffff;
+}
+#studyPartnerStatusTglBtn{
+	-fx-font-size: 12px;
 }

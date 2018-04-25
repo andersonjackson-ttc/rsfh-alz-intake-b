@@ -14,7 +14,7 @@ public interface PartRecord
 	String getLastName();
 	Date getDOB();
 	String getRace();
-	char getGender();
+	String getGender();
 	
 	
 }

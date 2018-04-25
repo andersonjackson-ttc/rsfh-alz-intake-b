@@ -14,16 +14,16 @@ public class ParticipentTest implements PartRecord
 	private String lastName;
 	private Date DOB;
 	private String race;
-	private char gender;
+	private String gender;
 	
 	
 	public ParticipentTest()
 	{
 		firstName = "Kevin";
 		lastName = "Franks";
-		DOB = new Date(06/05/1969);
+		DOB = new Date(06/05/1987);
 		race = "Aliens";
-		gender = 'C';
+		gender = "C";
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public class ParticipentTest implements PartRecord
 	}
 
 	@Override
-	public char getGender() {
+	public String getGender() {
 		// TODO Auto-generated method stub
 		return gender;
 	}

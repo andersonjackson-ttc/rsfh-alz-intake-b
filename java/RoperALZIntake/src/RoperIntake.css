@@ -1,0 +1,15 @@
+.root{
+
+	-fx-background-color: #c0392b;
+	-fx-font-size: 11pt;
+
+}
+
+
+#subjectFirstNameTxtBx{
+	-fx-font-size: 15px;
+   	-fx-font-family: "Arial Black";
+   	-fx-fill: #818181;
+
+
+}

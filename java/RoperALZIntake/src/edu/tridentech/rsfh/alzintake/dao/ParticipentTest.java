@@ -55,5 +55,23 @@ public class ParticipentTest implements PartRecord
 		// TODO Auto-generated method stub
 		return gender;
 	}
+
+	@Override
+	public void setFirstName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setLastName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setDOB(Date dob) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

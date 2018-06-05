@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="896.0" prefWidth="1136.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cbri_alz_intake_ui.FXMLDocumentController">
+  <children>
+    <ComboBox fx:id="intakeScreenByDrpDn" layoutX="256.0" layoutY="70.0" prefHeight="25.0" prefWidth="291.0" promptText="Screened by" />
+    <Separator layoutX="251.0" layoutY="122.0" prefHeight="20.0" prefWidth="858.0" />
+    <TextField fx:id="subjectFirstNameTxtBx" layoutX="55.0" layoutY="180.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
+    <TextField fx:id="subjectMITxtBx" layoutX="214.0" layoutY="180.0" prefHeight="20.0" prefWidth="30.0" promptText="MI" />
+    <TextField fx:id="subjectLastNameTxtBx" layoutX="262.0" layoutY="180.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
+    <TextField fx:id="subjectDOBTxtBx" layoutX="479.0" layoutY="180.0" prefHeight="20.0" prefWidth="100.0" promptText="Date of Birth" />
+    <TextField fx:id="subjectEmailTxtBx" layoutX="595.0" layoutY="180.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
+    <TextField fx:id="subjectAddressTxtBx" layoutX="56.0" layoutY="242.0" prefHeight="20.0" prefWidth="363.0" promptText="Street Address" />
+    <TextField fx:id="subjectCityTxtBx" layoutX="439.0" layoutY="240.0" prefHeight="25.0" prefWidth="291.0" promptText="City" />
+    <TextField fx:id="subjectStateTxtBx" layoutX="749.0" layoutY="240.0" prefHeight="25.0" prefWidth="45.0" promptText="State" />
+    <TextField fx:id="subjectZipTxtBx" layoutX="813.0" layoutY="240.0" prefHeight="20.0" prefWidth="96.0" promptText="Zip Code" />
+    <TextField fx:id="subjectPhoneTxtBx" layoutX="55.0" layoutY="300.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
+    <TextField fx:id="subjectCellTxtBx" layoutX="210.0" layoutY="300.0" prefHeight="20.0" prefWidth="136.0" promptText="Cell Phone" />
+    <TextField fx:id="subjectPcpTxtBx" layoutX="440.0" layoutY="300.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject PCP" />
+    <TextField fx:id="subjectSpecialistTxtBx" layoutX="718.0" layoutY="300.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject Specialist" />
+    <CheckBox fx:id="studyPartnerStatusTglBtn" layoutX="55.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="455.0" text="Study partner that has contact 10 or more hours per week and can attend the visit" />
+    <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="56.0" layoutY="460.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
+    <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="216.0" layoutY="460.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
+    <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="426.0" layoutY="460.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
+    <TextField fx:id="studyPartnerEmailTxtBx" layoutX="571.0" layoutY="460.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
+    <TextField fx:id="studyPartnerRelationTxtBx" layoutX="833.0" layoutY="460.0" prefHeight="20.0" prefWidth="265.0" promptText="Relationship" />
+    <CheckBox fx:id="hpoaStatusCkBxY" layoutX="70.0" layoutY="604.0" mnemonicParsing="false" text="Yes" />
+    <CheckBox fx:id="hpoaStatusCkBxN" layoutX="129.0" layoutY="604.0" mnemonicParsing="false" text="No" />
+    <TextField fx:id="hpoaFirstNameTxtBx" layoutX="192.0" layoutY="600.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA First Name" />
+    <TextField fx:id="hpoaLastNameTxtBx" layoutX="447.0" layoutY="600.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA Last Name" />
+    <TextField fx:id="hpoaPhoneTxtBx" layoutX="707.0" layoutY="600.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA Home Phone" />
+    <CheckBox fx:id="hpoaMarriedStatusCkBxY" layoutX="71.0" layoutY="679.0" mnemonicParsing="false" text="Yes" />
+    <CheckBox fx:id="hpoaMarriedStatusCkBxN" layoutX="130.0" layoutY="679.0" mnemonicParsing="false" text="No" />
+    <TextField fx:id="hpoaSpouseFirstNameTxtBx" layoutX="193.0" layoutY="675.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse First Name" />
+    <TextField fx:id="hpoaSpouseLastNameTxtBx" layoutX="448.0" layoutY="675.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse Last Name" />
+    <TextField fx:id="hpoaSpousePhoneTxtBx" layoutX="708.0" layoutY="675.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse Phone" />
+    <CheckBox fx:id="hpoaChildStatusCkBxY" layoutX="71.0" layoutY="756.0" mnemonicParsing="false" text="Yes" />
+    <CheckBox fx:id="hpoaChildStatusCkBxN" layoutX="130.0" layoutY="756.0" mnemonicParsing="false" text="No" />
+    <TextField fx:id="hpoaChildFirstNameTxtBx" layoutX="193.0" layoutY="752.0" prefHeight="20.0" prefWidth="229.0" promptText="Child First Name" />
+    <TextField fx:id="hpoaChildLastNameTxtBx" layoutX="448.0" layoutY="752.0" prefHeight="20.0" prefWidth="229.0" promptText="Child  Last Name" />
+    <TextField fx:id="hpoaChildPhoneTxtBx" layoutX="708.0" layoutY="752.0" prefHeight="20.0" prefWidth="229.0" promptText="Child Phone" />
+    <Label layoutX="20.0" layoutY="116.0" text="Subject Information">
+      <!--         <font>
+            <Font name="Calibri Bold Italic" size="27.0" />
+         </font>-->
+    </Label>
+    <Region layoutY="-3.0" prefHeight="43.0" prefWidth="1127.0" style="-fx-background-color: darkgrey;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label layoutX="192.0" layoutY="6.0" text="Clinical Biotechnology Research Institute Alzheimer's Research Center- Patient Intake Pre-Screen Form">
+      <!--         <font>
+            <Font name="Calibri Bold Italic" size="21.0" />
+         </font>-->
+    </Label>
+    <ComboBox fx:id="subjectReferralDrpDn" layoutX="861.0" layoutY="180.0" prefHeight="25.0" prefWidth="229.0" promptText="Referral Source" />
+    <Label layoutX="20.0" layoutY="350.0" text="Study Partner Information">
+      <!--         <font>
+            <Font name="Calibri Bold Italic" size="27.0" />
+         </font>-->
+    </Label>
+    <Separator layoutX="322.0" layoutY="356.0" prefHeight="20.0" prefWidth="788.0" />
+    <Separator layoutX="461.0" layoutY="522.0" prefHeight="20.0" prefWidth="655.0" />
+    <Label layoutX="20.0" layoutY="516.0" text="Healthcare Power of  Attorney (HPOA)">
+      <!--         <font>
+            <Font name="Calibri Bold Italic" size="27.0" />
+         </font>-->
+    </Label>
+    <Label layoutX="55.0" layoutY="560.0" text="Does anyone HPOA for the subject?" />
+    <Label layoutX="56.0" layoutY="635.0" text="If no HPOA, is the subject legally married?" />
+    <Label layoutX="55.0" layoutY="712.0" text="If not married, does the subject have children?" />
+    <Label layoutX="56.0" layoutY="53.0" text="Intake date" />
+    <Label layoutX="57.0" layoutY="163.0" text="First Name" />
+    <Label layoutX="216.0" layoutY="163.0" text="MI" />
+    <Label layoutX="263.0" layoutY="163.0" text="Last Name" />
+    <Label layoutX="481.0" layoutY="163.0" text="Date of Birth" />
+    <Label layoutX="596.0" layoutY="163.0" text="Email Address" />
+    <Label layoutX="56.0" layoutY="223.0" text="Street Address" />
+    <Label layoutX="447.0" layoutY="223.0" text="City" />
+    <Label layoutX="749.0" layoutY="223.0" text="State" />
+    <Label layoutX="812.0" layoutY="223.0" text="Zip Code" />
+    <Label layoutX="56.0" layoutY="283.0" text="Home Phone" />
+    <Label layoutX="210.0" layoutY="283.0" text="Cell Phone" />
+    <Label layoutX="444.0" layoutY="283.0" text="Primary Care  Physician" />
+    <Label layoutX="720.0" layoutY="283.0" text="Specialist Physician" />
+    <Label layoutX="56.0" layoutY="443.0" text="First Name" />
+    <Label layoutX="216.0" layoutY="443.0" text="Last Name" />
+    <Label layoutX="426.0" layoutY="443.0" text="Home Phone" />
+    <Label layoutX="572.0" layoutY="443.0" text="Email Address" />
+    <Label layoutX="831.0" layoutY="443.0" text="Relationship to Subject" />
+    <Label layoutX="705.0" layoutY="583.0" text="HPOA Home Phone" />
+    <Label layoutX="447.0" layoutY="583.0" text="HPOA Last Name" />
+    <Label layoutX="191.0" layoutY="583.0" text="HPOA First Name" />
+    <Label layoutX="191.0" layoutY="658.0" text="Spouse First Name" />
+    <Label layoutX="447.0" layoutY="658.0" text="Spouse Last Name" />
+    <Label layoutX="705.0" layoutY="658.0" text="Spouse Home Phone" />
+    <Label layoutX="705.0" layoutY="735.0" text="Child Home Phone" />
+    <Label layoutX="447.0" layoutY="735.0" text="Child Last Name" />
+    <Label layoutX="192.0" layoutY="735.0" text="Child First Name" />
+    <Button fx:id="submitIntakeBtn" layoutX="51.0" layoutY="817.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="43.0" prefWidth="116.0" style="-fx-background-color: black;" text="SUBMIT" textFill="WHITE" />
+  </children>
+</AnchorPane>

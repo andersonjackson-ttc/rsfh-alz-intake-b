@@ -1,7 +1,7 @@
 /*
  * see FXML variables commented out below
  */
-package cbri_alz_intake_ui;
+package edu.tridentech.rsfh.alzintake.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 /**
@@ -17,13 +18,23 @@ import javafx.scene.text.Text;
  */
 public class FXMLDocumentController implements Initializable {
     
-    @FXML
-    private Text actiontarget;
-    
-    @FXML
-    private void handleSubmitButtonAction(ActionEvent event) {
-        
-    }
+	 @FXML
+	    private Text actiontarget;
+	    @FXML private TextField subjectFirstNameTxtBx;
+	    @FXML private TextField subjectMITxtBx;
+	    @FXML private TextField subjectLastNameTxtBx;
+	    
+	    @FXML
+	    private void handleSubmitButtonAction(ActionEvent event) {
+	    	String subFirstName = "";
+	    	String subMiddleInit = "";
+	    	String subLastName = "";
+	    	
+	    	subFirstName = subjectFirstNameTxtBx.getText();
+	    	subMiddleInit = subjectMITxtBx.getText();
+	    	subLastName = subjectLastNameTxtBx.getText();
+	    	subFirstName = subjectFirstNameTxtBx.getText();
+	    }
     
     
     @Override

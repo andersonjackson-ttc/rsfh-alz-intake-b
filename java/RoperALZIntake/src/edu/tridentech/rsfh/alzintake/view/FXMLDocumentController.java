@@ -11,29 +11,75 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.scene.control.ComboBox;
+//import javafx.
+
 
 /**
  *
  * @author 5JLBt1
  */
+
 public class FXMLDocumentController implements Initializable {
     
+	
+	
 	 @FXML
 	    private Text actiontarget;
 	    @FXML private TextField subjectFirstNameTxtBx;
 	    @FXML private TextField subjectMITxtBx;
 	    @FXML private TextField subjectLastNameTxtBx;
+	    @FXML private TextField subjectDOBTxtBx;
+	    @FXML private TextField subjectAddressTxtBx;    
+	    @FXML private TextField subjectCityTxtBx;
+	    @FXML private TextField subjectStateTxtBx;
+	    @FXML private TextField subjectZipTxtBx;
+	    @FXML private TextField subjectEmailTxtBx;
+	    @FXML private TextField subjectPhoneTxtBx;
+	    @FXML private TextField subjectCellTxtBx;
+	    @FXML private TextField subjectPcpTxtBx;
+	    @FXML private TextField subjectSpecialistTxtBx;
+	    
+	    @FXML private ComboBox<String> subjectReferralDrpDn;
+	    
+	    private ObservableList <String> TYPE = FXCollections.obserableArrayList("","");
+	    
+	    @FXML private CheckBox<boolean> hpoaStatusCkBxY;
+	    
+	    
 	    
 	    @FXML
 	    private void handleSubmitButtonAction(ActionEvent event) {
 	    	String subFirstName = "";
 	    	String subMiddleInit = "";
 	    	String subLastName = "";
+	    	String subDOB = "";
+	    	String subAddress = "";
+	    	String subCity = "";
+	    	String subState = "";
+	    	String subZip = "";
+	    	String subEmail = "";
+	    	String subPhone = "";
+	    	String subCell = "";
+	    	String subPCP = "";
+	    	String subSpecialist = "";
+	    	String subjectReferral = "";
+	    	
 	    	
 	    	subFirstName = subjectFirstNameTxtBx.getText();
 	    	subMiddleInit = subjectMITxtBx.getText();
 	    	subLastName = subjectLastNameTxtBx.getText();
-	    	subFirstName = subjectFirstNameTxtBx.getText();
+	    	subDOB = subjectDOBTxtBx.getText();
+	    	subAddress = subjectAddressTxtBx.getText();
+	    	subCity = subjectCityTxtBx.getText();
+	    	subState = subjectStateTxtBx.getText();
+	    	subZip = subjectZipTxtBx.getText();
+	    	subEmail = subjectEmailTxtBx.getText();
+	    	subPhone = subjectPhoneTxtBx.getText();
+	    	subCell = subjectCellTxtBx.getText();
+	    	subPCP = subjectPcpTxtBx.getText();
+	    	subSpecialist = subjectSpecialistTxtBx.getText();
+	    	subjectReferral = subjectReferralDrpDn.getText();
 	    }
     
     

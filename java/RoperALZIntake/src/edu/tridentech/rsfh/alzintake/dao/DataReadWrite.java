@@ -46,7 +46,7 @@ public class DataReadWrite
 	 * @param rd
 	 * @return boolean true if write was successful
 	 */
-	public static boolean writeRecord(PartRecord rd)
+	public boolean writeRecord(PartRecord rd)
 	{
 		String file = "RoperSpreadSheet2.xlsx";
 		

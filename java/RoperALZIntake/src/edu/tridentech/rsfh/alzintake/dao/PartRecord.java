@@ -30,6 +30,8 @@ public interface PartRecord
 	void setReferral(String ref);
 	String getAddress();
 	void setAddress(String address);
+	String getAddress2();
+	void setAddress2();
 	String getCity();
 	void setCity(String city);
 	String getState();

@@ -102,6 +102,18 @@ public class DataReadWrite
 			cell = row.createCell(map.get("Address"));
 			cell.setCellValue(rd.getAddress());
 			
+			cell = row.createCell(map.get("Address2"));
+			cell.setCellValue(rd.getAddress2());
+			
+			cell = row.createCell(map.get("City"));
+			cell.setCellValue(rd.getAddress());
+			
+			cell = row.createCell(map.get("State"));
+			cell.setCellValue(rd.getState());
+			
+			cell = row.createCell(map.get("Zip"));
+			cell.setCellValue(rd.getZip());
+			
 			cell = row.createCell(map.get("Email"));
 			cell.setCellValue(rd.getEmail());
 			

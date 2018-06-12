@@ -72,7 +72,6 @@ public class Participant implements PartRecord {
 		
 	}
 	
-// RACE NOT SET IN PART RECORD
 
 	String Race;
 	
@@ -408,6 +407,19 @@ public class Participant implements PartRecord {
 	@Override
 	public void setChildPhone(String phone) {
 		childPhone = phone;
+		
+	}
+	
+	String address2;
+	
+	@Override
+	public String getAddress2() {
+		return address2;
+	}
+
+	@Override
+	public void setAddress2(String address) {
+		address2 = address;
 		
 	}
 	

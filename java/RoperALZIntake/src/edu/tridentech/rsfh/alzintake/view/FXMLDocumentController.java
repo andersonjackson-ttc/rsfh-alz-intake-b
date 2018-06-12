@@ -4,8 +4,13 @@
 package edu.tridentech.rsfh.alzintake.view;
 
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import edu.tridentech.rsfh.alzintake.dao.DataReadWrite;
+import edu.tridentech.rsfh.alzintake.model.Participant;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -53,11 +58,12 @@ public class FXMLDocumentController implements Initializable {
 	    
 	   
 	    @FXML
-	    private void handleSubmitButtonAction(ActionEvent event) {
+	    private void handleSubmitButtonAction(ActionEvent event) throws ParseException {
 	    	String subFirstName = "";
 	    	String subMiddleInit = "";
 	    	String subLastName = "";
-	    	String subDOB = "";
+	    	String subDOBStr = "";
+	    	Date subDOB;
 	    	String subAddress = "";
 	    	String subCity = "";
 	    	String subState = "";
@@ -69,11 +75,14 @@ public class FXMLDocumentController implements Initializable {
 	    	String subSpecialist = "";
 	    	String subjectReferral = "";
 	    	
+	    	SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
+	    	
 	    	
 	    	subFirstName = subjectFirstNameTxtBx.getText();
 	    	subMiddleInit = subjectMITxtBx.getText();
 	    	subLastName = subjectLastNameTxtBx.getText();
-	    	subDOB = subjectDOBTxtBx.getText();
+	    	subDOBStr = subjectDOBTxtBx.getText();
+	    	subDOB = dateParser.parse(subDOBStr);
 	    	subAddress = subjectAddressTxtBx.getText();
 	    	subCity = subjectCityTxtBx.getText();
 	    	subState = subjectStateTxtBx.getText();
@@ -84,6 +93,26 @@ public class FXMLDocumentController implements Initializable {
 	    	subPCP = subjectPcpTxtBx.getText();
 	    	subSpecialist = subjectSpecialistTxtBx.getText();
 	    	subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
+	
+	     
+	    	Participant partic = new Participant();
+	    	partic.setFirstName(subFirstName);
+	    	partic.setLastName(subLastName);
+	    	partic.setDOB(subDOB);
+	    	partic.setAddress(subAddress);
+	    	partic.setCity(subCity);
+	    	partic.setState(subState);
+	    	partic.setZip(subZip);
+	    	partic.setEmail(subEmail);
+	    	partic.setPhone(subPhone);
+	    	partic.setCell(subCell);
+	    	partic.setPcp(subPCP);
+	    	partic.setSpec(subSpecialist);
+	    	partic.setReferral(subjectReferral);
+	    	
+	    	DataReadWrite writer = DataReadWrite.getInstance();
+	    	writer.writeRecord(partic);
+	    	
 	    }
     
     

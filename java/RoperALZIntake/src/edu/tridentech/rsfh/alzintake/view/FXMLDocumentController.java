@@ -5,14 +5,18 @@ package edu.tridentech.rsfh.alzintake.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
-//import javafx.
+
 
 
 /**
@@ -42,12 +46,12 @@ public class FXMLDocumentController implements Initializable {
 	    
 	    @FXML private ComboBox<String> subjectReferralDrpDn;
 	    
-	    private ObservableList <String> TYPE = FXCollections.obserableArrayList("","");
-	    
-	    @FXML private CheckBox<boolean> hpoaStatusCkBxY;
+	    @FXML private CheckBox hpoaStatusCkBxY;
 	    
 	    
+//	    private ObservableList<String> TYPE = FXCollections.observableList("","");
 	    
+	   
 	    @FXML
 	    private void handleSubmitButtonAction(ActionEvent event) {
 	    	String subFirstName = "";

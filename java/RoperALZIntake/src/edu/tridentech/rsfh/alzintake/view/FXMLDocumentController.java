@@ -83,7 +83,7 @@ public class FXMLDocumentController implements Initializable {
 	    	subCell = subjectCellTxtBx.getText();
 	    	subPCP = subjectPcpTxtBx.getText();
 	    	subSpecialist = subjectSpecialistTxtBx.getText();
-	    	subjectReferral = subjectReferralDrpDn.getText();
+	    	subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
 	    }
     
     

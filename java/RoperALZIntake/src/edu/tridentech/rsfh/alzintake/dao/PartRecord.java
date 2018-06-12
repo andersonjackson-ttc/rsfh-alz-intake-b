@@ -31,7 +31,7 @@ public interface PartRecord
 	String getAddress();
 	void setAddress(String address);
 	String getAddress2();
-	void setAddress2();
+	void setAddress2(String Address2);
 	String getCity();
 	void setCity(String city);
 	String getState();

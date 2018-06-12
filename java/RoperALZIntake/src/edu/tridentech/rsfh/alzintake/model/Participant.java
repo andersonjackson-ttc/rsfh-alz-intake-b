@@ -4,6 +4,8 @@ import java.util.Date;
 
 import edu.tridentech.rsfh.alzintake.dao.PartRecord;
 
+//participant record to be passed to dao
+
 public class Participant implements PartRecord {
 
 	String screener;

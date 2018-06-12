@@ -21,7 +21,7 @@ public interface PartRecord
 	Date getDOB();
 	void setDOB(Date dob);
 	String getRace();
-	void setRace();
+	void setRace(String race);
 	String getGender();
 	void setGender(String gender);
 	String getEmail();

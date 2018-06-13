@@ -54,7 +54,7 @@ public class FXMLDocumentController implements Initializable {
 	    @FXML private CheckBox hpoaStatusCkBxY;
 	    
 	    
-//	    private ObservableList<String> TYPE = FXCollections.observableList("","");
+	    private ObservableList<String> TYPE = FXCollections.observableList("23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry", "Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
 	    
 	   
 	    @FXML

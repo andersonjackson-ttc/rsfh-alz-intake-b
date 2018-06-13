@@ -6,8 +6,11 @@ package edu.tridentech.rsfh.alzintake.view;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import edu.tridentech.rsfh.alzintake.dao.DataReadWrite;
 import edu.tridentech.rsfh.alzintake.model.Participant;
@@ -54,7 +57,7 @@ public class FXMLDocumentController implements Initializable {
 	    @FXML private CheckBox hpoaStatusCkBxY;
 	    
 	    
-	    private ObservableList<String> TYPE = FXCollections.observableList("23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry", "Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
+//	    private ObservableList<String> TYPE = FXCollections.observableList("hello", "");        
 	    
 	   
 	    @FXML
@@ -75,14 +78,26 @@ public class FXMLDocumentController implements Initializable {
 	    	String subSpecialist = "";
 	    	String subjectReferral = "";
 	    	
+	    	
 	    	SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 	    	
-	    	
+	    	subDOBStr = subjectDOBTxtBx.getText();
+    		subDOB = dateParser.parse(subDOBStr);
+    		
+	    	try 
+	    	{
+	    		Calendar calendar = Calendar.getInstance();
+	    		calendar.setTime(subDOB);
+	    		
+	    	}
+	    	catch (ParseException e)
+	    	{
+	    		JOptionPane.showMessageDialog(null, "Date is not Valid. Please enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
+	    	}
+	    		
 	    	subFirstName = subjectFirstNameTxtBx.getText();
 	    	subMiddleInit = subjectMITxtBx.getText();
 	    	subLastName = subjectLastNameTxtBx.getText();
-	    	subDOBStr = subjectDOBTxtBx.getText();
-	    	subDOB = dateParser.parse(subDOBStr);
 	    	subAddress = subjectAddressTxtBx.getText();
 	    	subCity = subjectCityTxtBx.getText();
 	    	subState = subjectStateTxtBx.getText();

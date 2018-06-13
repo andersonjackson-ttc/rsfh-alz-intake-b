@@ -55,22 +55,22 @@ public class DataReadWrite
 		map.put("LastName", 1);
 		map.put("FirstName", 2);
 		map.put("DOB", 3);
-		map.put("Race", 4);
-		map.put("Gender", 5);
-		map.put("Address", 6);
-		map.put("Address2", 7);
-		map.put("City", 8);
-		map.put("State", 9);
-		map.put("Zip", 10);
-		map.put("Email", 11);
-		map.put("Phone", 12);
-		map.put("Status", 13);
-		map.put("Deseased", 14);
-		map.put("PCP", 15);
-		map.put("Spec", 16);
-		map.put("CurrentStudy", 17);
-		map.put("Referral", 18);
-		map.put("Mail", 19);
+		map.put("Race", 5);
+		map.put("Gender", 6);
+		map.put("Address", 7);
+		map.put("Address2", 8);
+		map.put("City", 9);
+		map.put("State", 10);
+		map.put("Zip", 11);
+		map.put("Email", 12);
+		map.put("Phone", 13);
+		map.put("Status", 14);
+		map.put("Deseased", 15);
+		map.put("PCP", 16);
+		map.put("Spec", 17);
+		map.put("CurrentStudy", 18);
+		map.put("Referral", 19);
+		map.put("Mail", 20);
 		
 		
 		try
@@ -106,7 +106,7 @@ public class DataReadWrite
 			cell.setCellValue(rd.getAddress2());
 			
 			cell = row.createCell(map.get("City"));
-			cell.setCellValue(rd.getAddress());
+			cell.setCellValue(rd.getCity());
 			
 			cell = row.createCell(map.get("State"));
 			cell.setCellValue(rd.getState());

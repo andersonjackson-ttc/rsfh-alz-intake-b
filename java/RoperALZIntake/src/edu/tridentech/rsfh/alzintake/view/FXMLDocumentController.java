@@ -61,12 +61,12 @@ public class FXMLDocumentController implements Initializable {
 	    
 	   
 	    @FXML
-	    private void handleSubmitButtonAction(ActionEvent event) throws ParseException {
+	    private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
 	    	String subFirstName = "";
 	    	String subMiddleInit = "";
 	    	String subLastName = "";
 	    	String subDOBStr = "";
-	    	Date subDOB;
+	    	Date subDOB = new Date();
 	    	String subAddress = "";
 	    	String subCity = "";
 	    	String subState = "";
@@ -82,11 +82,12 @@ public class FXMLDocumentController implements Initializable {
 	    	SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 	    	
 	    	subDOBStr = subjectDOBTxtBx.getText();
-    		subDOB = dateParser.parse(subDOBStr);
+    		
     		
 	    	try 
 	    	{
 	    		Calendar calendar = Calendar.getInstance();
+	    		subDOB = dateParser.parse(subDOBStr);
 	    		calendar.setTime(subDOB);
 	    		
 	    	}
@@ -112,6 +113,7 @@ public class FXMLDocumentController implements Initializable {
 	     
 	    	Participant partic = new Participant();
 	    	partic.setFirstName(subFirstName);
+	    	partic.setMiddleI(subMiddleInit);
 	    	partic.setLastName(subLastName);
 	    	partic.setDOB(subDOB);
 	    	partic.setAddress(subAddress);

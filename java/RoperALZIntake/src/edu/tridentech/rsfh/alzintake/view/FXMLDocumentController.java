@@ -93,7 +93,7 @@ public class FXMLDocumentController implements Initializable {
 	    	}
 	    	catch (ParseException e)
 	    	{
-	    		JOptionPane.showMessageDialog(null, "Date is not Valid. Please enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
+	    		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
 	    	}
 	    		
 	    	subFirstName = subjectFirstNameTxtBx.getText();
@@ -135,6 +135,10 @@ public class FXMLDocumentController implements Initializable {
 	    
 
     
+	    @FXML
+	    private void handleClearButtonAction(ActionEvent event) {
+	    	
+	    }
     
     private void clearForm() {
 		subjectFirstNameTxtBx.setText("");

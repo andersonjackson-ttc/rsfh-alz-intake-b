@@ -22,6 +22,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 
@@ -33,138 +35,144 @@ import javafx.scene.control.ComboBox;
  */
 
 public class FXMLDocumentController implements Initializable {
-    
-	
-	
-	 @FXML
-	    private Text actiontarget;
-	    @FXML private TextField subjectFirstNameTxtBx;
-	    @FXML private TextField subjectMITxtBx;
-	    @FXML private TextField subjectLastNameTxtBx;
-	    @FXML private TextField subjectDOBTxtBx;
-	    @FXML private TextField subjectAddressTxtBx;    
-	    @FXML private TextField subjectCityTxtBx;
-	    @FXML private TextField subjectStateTxtBx;
-	    @FXML private TextField subjectZipTxtBx;
-	    @FXML private TextField subjectEmailTxtBx;
-	    @FXML private TextField subjectPhoneTxtBx;
-	    @FXML private TextField subjectCellTxtBx;
-	    @FXML private TextField subjectPcpTxtBx;
-	    @FXML private TextField subjectSpecialistTxtBx;
-	    
-	    @FXML private ComboBox<String> subjectReferralDrpDn;
-	    
-	    @FXML private CheckBox hpoaStatusCkBxY;
-	    
-	    
-//	    private ObservableList<String> TYPE = FXCollections.observableList("hello", "");        
-	    
-	   
-	    @FXML
-	    private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
-	    	String subFirstName = "";
-	    	String subMiddleInit = "";
-	    	String subLastName = "";
-	    	String subDOBStr = "";
-	    	Date subDOB = new Date();
-	    	String subAddress = "";
-	    	String subCity = "";
-	    	String subState = "";
-	    	String subZip = "";
-	    	String subEmail = "";
-	    	String subPhone = "";
-	    	String subCell = "";
-	    	String subPCP = "";
-	    	String subSpecialist = "";
-	    	String subjectReferral = "";
-	    	
-	    	
-	    	SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
-	    	
-	    	subDOBStr = subjectDOBTxtBx.getText();
-    		
-    		
-	    	try 
-	    	{
-	    		Calendar calendar = Calendar.getInstance();
-	    		subDOB = dateParser.parse(subDOBStr);
-	    		calendar.setTime(subDOB);
-	    		
-	    	}
-	    	catch (ParseException e)
-	    	{
-	    		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
-	    	}
-	    		
-	    	subFirstName = subjectFirstNameTxtBx.getText();
-	    	subMiddleInit = subjectMITxtBx.getText();
-	    	subLastName = subjectLastNameTxtBx.getText();
-	    	subAddress = subjectAddressTxtBx.getText();
-	    	subCity = subjectCityTxtBx.getText();
-	    	subState = subjectStateTxtBx.getText();
-	    	subZip = subjectZipTxtBx.getText();
-	    	subEmail = subjectEmailTxtBx.getText();
-	    	subPhone = subjectPhoneTxtBx.getText();
-	    	subCell = subjectCellTxtBx.getText();
-	    	subPCP = subjectPcpTxtBx.getText();
-	    	subSpecialist = subjectSpecialistTxtBx.getText();
-	    	subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
-	
-	     
-	    	Participant partic = new Participant();
-	    	partic.setFirstName(subFirstName);
-	    	partic.setMiddleI(subMiddleInit);
-	    	partic.setLastName(subLastName);
-	    	partic.setDOB(subDOB);
-	    	partic.setAddress(subAddress);
-	    	partic.setCity(subCity);
-	    	partic.setState(subState);
-	    	partic.setZip(subZip);
-	    	partic.setEmail(subEmail);
-	    	partic.setPhone(subPhone);
-	    	partic.setCell(subCell);
-	    	partic.setPcp(subPCP);
-	    	partic.setSpec(subSpecialist);
-	    	partic.setReferral(subjectReferral);
-	    	
-	    	DataReadWrite writer = DataReadWrite.getInstance();
-	    	writer.writeRecord(partic);
-	    	
-    	
-	    }
-	    
 
-    
-	    @FXML
-	    private void handleClearButtonAction(ActionEvent event) {
-	    	
-	    }
-    
-    private void clearForm() {
+
+
+	@FXML
+	private Text actiontarget;
+	@FXML private TextField subjectFirstNameTxtBx;
+	@FXML private TextField subjectMITxtBx;
+	@FXML private TextField subjectLastNameTxtBx;
+	@FXML private TextField subjectDOBTxtBx;
+	@FXML private TextField subjectAddressTxtBx;    
+	@FXML private TextField subjectCityTxtBx;
+	@FXML private TextField subjectStateTxtBx;
+	@FXML private TextField subjectZipTxtBx;
+	@FXML private TextField subjectEmailTxtBx;
+	@FXML private TextField subjectPhoneTxtBx;
+	@FXML private TextField subjectCellTxtBx;
+	@FXML private TextField subjectPcpTxtBx;
+	@FXML private TextField subjectSpecialistTxtBx;
+
+	@FXML private ComboBox<String> subjectReferralDrpDn;
+
+	@FXML private CheckBox hpoaStatusCkBxY;
+
+
+	//	    private ObservableList<String> TYPE = FXCollections.observableList("hello", "");        
+
+
+	@FXML
+	private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
+		String subFirstName = "";
+		String subMiddleInit = "";
+		String subLastName = "";
+		String subDOBStr = "";
+		Date subDOB = new Date();
+		String subAddress = "";
+		String subCity = "";
+		String subState = "";
+		String subZip = "";
+		String subEmail = "";
+		String subPhone = "";
+		String subCell = "";
+		String subPCP = "";
+		String subSpecialist = "";
+		String subjectReferral = "";
+
+
+		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
+
+		subDOBStr = subjectDOBTxtBx.getText();
+
+
+		try 
+		{
+			//	    		Calendar calendar = Calendar.getInstance();
+			dateParser.setLenient(false);
+			subDOB = dateParser.parse(subDOBStr);
+			//	    		calendar.setTime(subDOB);
+		}
+		catch (ParseException e)
+		{
+			//	    		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
+			Alert dateError = new Alert(AlertType.ERROR, "Date is not Valid. \nPlease enter date as MM/DD/YYYY");
+			dateError.showAndWait();
+			return;
+		}
+
+		subFirstName = subjectFirstNameTxtBx.getText();
+		subMiddleInit = subjectMITxtBx.getText();
+		subLastName = subjectLastNameTxtBx.getText();
+		subAddress = subjectAddressTxtBx.getText();
+		subCity = subjectCityTxtBx.getText();
+		subState = subjectStateTxtBx.getText();
+		subZip = subjectZipTxtBx.getText();
+		subEmail = subjectEmailTxtBx.getText();
+		subPhone = subjectPhoneTxtBx.getText();
+		subCell = subjectCellTxtBx.getText();
+		subPCP = subjectPcpTxtBx.getText();
+		subSpecialist = subjectSpecialistTxtBx.getText();
+		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
+
+
+		Participant partic = new Participant();
+		partic.setFirstName(subFirstName);
+		partic.setMiddleI(subMiddleInit);
+		partic.setLastName(subLastName);
+		partic.setDOB(subDOB);
+		partic.setAddress(subAddress);
+		partic.setCity(subCity);
+		partic.setState(subState);
+		partic.setZip(subZip);
+		partic.setEmail(subEmail);
+		partic.setPhone(subPhone);
+		partic.setCell(subCell);
+		partic.setPcp(subPCP);
+		partic.setSpec(subSpecialist);
+		partic.setReferral(subjectReferral);
+
+		DataReadWrite writer = DataReadWrite.getInstance();
+		writer.writeRecord(partic);
+
+
+	}
+
+
+
+	@FXML
+	private void handleClearButtonAction(ActionEvent event) {
+
+		clearForm();
+
+
+	}
+
+	private void clearForm() {
 		subjectFirstNameTxtBx.setText("");
-    	subjectMITxtBx.setText("");
-    	subjectLastNameTxtBx.setText("");
-    	subjectAddressTxtBx.setText("");
-    	subjectCityTxtBx.setText("");
-    	subjectStateTxtBx.setText("");
-    	subjectZipTxtBx.setText("");
-    	subjectEmailTxtBx.setText("");
-    	subjectPhoneTxtBx.setText("");
-    	subjectCellTxtBx.setText("");
-    	subjectPcpTxtBx.setText("");
-    	subjectSpecialistTxtBx.setText("");
-    	subjectReferralDrpDn.getSelectionModel();
-    	subjectDOBTxtBx.setText("");
-    	
-	
-}
+		subjectMITxtBx.setText("");
+		subjectLastNameTxtBx.setText("");
+		subjectAddressTxtBx.setText("");
+		subjectCityTxtBx.setText("");
+		subjectStateTxtBx.setText("");
+		subjectZipTxtBx.setText("");
+		subjectEmailTxtBx.setText("");
+		subjectPhoneTxtBx.setText("");
+		subjectCellTxtBx.setText("");
+		subjectPcpTxtBx.setText("");
+		subjectSpecialistTxtBx.setText("");
+		subjectReferralDrpDn.getSelectionModel();
+		subjectDOBTxtBx.setText("");
+
+
+	}
 
 
 	@Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+	public void initialize(URL url, ResourceBundle rb) {
+		// TODO
+	}    
+
 }
 // @FXML private DatePicker intakeScreenDateTxtBx;
 //   @FXML private ComboBox intakeScreenByDrpDn;

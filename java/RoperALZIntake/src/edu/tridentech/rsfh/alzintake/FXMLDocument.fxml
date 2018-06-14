@@ -20,7 +20,7 @@
             <TextField fx:id="subjectFirstNameTxtBx" layoutX="55.0" layoutY="180.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
             <TextField fx:id="subjectMITxtBx" layoutX="214.0" layoutY="180.0" prefHeight="20.0" prefWidth="30.0" promptText="MI" />
             <TextField fx:id="subjectLastNameTxtBx" layoutX="262.0" layoutY="180.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
-            <TextField fx:id="subjectDOBTxtBx" layoutX="479.0" layoutY="180.0" prefHeight="20.0" prefWidth="100.0" promptText="Date of Birth" />
+            <TextField fx:id="subjectDOBTxtBx" layoutX="479.0" layoutY="180.0" prefHeight="20.0" prefWidth="100.0" promptText="DD/MM/YYYY" />
             <TextField fx:id="subjectEmailTxtBx" layoutX="595.0" layoutY="180.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
             <ComboBox fx:id="subjectReferralDrpDn" layoutX="861.0" layoutY="180.0" prefHeight="25.0" prefWidth="229.0" promptText="Referral Source" />
             <TextField fx:id="subjectAddressTxtBx" layoutX="55.0" layoutY="241.0" prefHeight="20.0" prefWidth="363.0" promptText="Street Address" />

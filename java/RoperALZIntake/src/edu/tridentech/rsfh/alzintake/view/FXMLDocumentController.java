@@ -6,8 +6,11 @@ package edu.tridentech.rsfh.alzintake.view;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
 
 import edu.tridentech.rsfh.alzintake.dao.DataReadWrite;
 import edu.tridentech.rsfh.alzintake.model.Participant;
@@ -54,16 +57,16 @@ public class FXMLDocumentController implements Initializable {
 	    @FXML private CheckBox hpoaStatusCkBxY;
 	    
 	    
-//	    private ObservableList<String> TYPE = FXCollections.observableList("","");
+//	    private ObservableList<String> TYPE = FXCollections.observableList("hello", "");        
 	    
 	   
 	    @FXML
-	    private void handleSubmitButtonAction(ActionEvent event) throws ParseException {
+	    private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
 	    	String subFirstName = "";
 	    	String subMiddleInit = "";
 	    	String subLastName = "";
 	    	String subDOBStr = "";
-	    	Date subDOB;
+	    	Date subDOB = new Date();
 	    	String subAddress = "";
 	    	String subCity = "";
 	    	String subState = "";
@@ -75,14 +78,27 @@ public class FXMLDocumentController implements Initializable {
 	    	String subSpecialist = "";
 	    	String subjectReferral = "";
 	    	
+	    	
 	    	SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 	    	
-	    	
+	    	subDOBStr = subjectDOBTxtBx.getText();
+    		
+    		
+	    	try 
+	    	{
+	    		Calendar calendar = Calendar.getInstance();
+	    		subDOB = dateParser.parse(subDOBStr);
+	    		calendar.setTime(subDOB);
+	    		
+	    	}
+	    	catch (ParseException e)
+	    	{
+	    		JOptionPane.showMessageDialog(null, "Date is not Valid. Please enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
+	    	}
+	    		
 	    	subFirstName = subjectFirstNameTxtBx.getText();
 	    	subMiddleInit = subjectMITxtBx.getText();
 	    	subLastName = subjectLastNameTxtBx.getText();
-	    	subDOBStr = subjectDOBTxtBx.getText();
-	    	subDOB = dateParser.parse(subDOBStr);
 	    	subAddress = subjectAddressTxtBx.getText();
 	    	subCity = subjectCityTxtBx.getText();
 	    	subState = subjectStateTxtBx.getText();
@@ -97,6 +113,7 @@ public class FXMLDocumentController implements Initializable {
 	     
 	    	Participant partic = new Participant();
 	    	partic.setFirstName(subFirstName);
+	    	partic.setMiddleI(subMiddleInit);
 	    	partic.setLastName(subLastName);
 	    	partic.setDOB(subDOB);
 	    	partic.setAddress(subAddress);

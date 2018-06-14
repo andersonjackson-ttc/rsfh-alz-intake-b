@@ -199,7 +199,7 @@ public class FXMLDocumentController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) 
 	{
 		subjectReferralDrpDn.setItems(TYPE);
-		subjectReferralDrpDn.getSelectionModel().select(0);
+		// subjectReferralDrpDn.getSelectionModel().select(0);
 	}    
 
 }

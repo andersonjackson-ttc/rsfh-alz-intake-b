@@ -130,10 +130,33 @@ public class FXMLDocumentController implements Initializable {
 	    	DataReadWrite writer = DataReadWrite.getInstance();
 	    	writer.writeRecord(partic);
 	    	
+    	
 	    }
+	    
+
     
     
-    @Override
+    private void clearForm() {
+		subjectFirstNameTxtBx.setText("");
+    	subjectMITxtBx.setText("");
+    	subjectLastNameTxtBx.setText("");
+    	subjectAddressTxtBx.setText("");
+    	subjectCityTxtBx.setText("");
+    	subjectStateTxtBx.setText("");
+    	subjectZipTxtBx.setText("");
+    	subjectEmailTxtBx.setText("");
+    	subjectPhoneTxtBx.setText("");
+    	subjectCellTxtBx.setText("");
+    	subjectPcpTxtBx.setText("");
+    	subjectSpecialistTxtBx.setText("");
+    	subjectReferralDrpDn.getSelectionModel();
+    	subjectDOBTxtBx.setText("");
+    	
+	
+}
+
+
+	@Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    

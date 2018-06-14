@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -64,13 +66,13 @@ public class DataReadWrite
 		map.put("Zip", 11);
 		map.put("Email", 12);
 		map.put("Phone", 13);
-		map.put("Status", 14);
-		map.put("Deseased", 15);
-		map.put("PCP", 16);
-		map.put("Spec", 17);
-		map.put("CurrentStudy", 18);
-		map.put("Referral", 19);
-		map.put("Mail", 20);
+		map.put("Status", 17);
+		map.put("Deceased", 18);
+		map.put("PCP", 19);
+		map.put("Spec", 20);
+		map.put("CurrentStudy", 21);
+		map.put("Referral", 22);
+		map.put("Mail", 23);
 		
 		
 		try
@@ -84,14 +86,25 @@ public class DataReadWrite
 			
 			Row row = sheet.createRow(++rowCount);
 			
+			String formula = String.format("IF(ISBLANK(D%d), \"\", (DATEDIF(D%d, NOW(), \"Y\")))", ++rowCount,rowCount);
+			
 			Cell cell = row.createCell(map.get("LastName"));
 			cell.setCellValue(rd.getLastName());
 			
 			cell = row.createCell(map.get("FirstName"));
 			cell.setCellValue(rd.getFirstName());
 			
+			CellStyle cellStyle = workbook.createCellStyle();
+			CreationHelper createHelper = workbook.getCreationHelper();
+			cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("MM/dd/yyyy"));
+			
+			
 			cell = row.createCell(map.get("DOB"));
 			cell.setCellValue(rd.getDOB());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(4);
+			cell.setCellFormula(formula);
 			
 			cell = row.createCell(map.get("Race"));
 			cell.setCellValue(rd.getRace());
@@ -120,14 +133,14 @@ public class DataReadWrite
 			cell = row.createCell(map.get("Phone"));
 			cell.setCellValue(rd.getPhone());
 			
-			//cell = row.createCell(15);
-			//cell.setCellValue(rd.getScores());
-			
-			//cell = row.createCell(16);
-			//cell.setCellValue(rd.getStatus());
+			cell = row.createCell(map.get("Status"));
+			cell.setCellValue(" ");
 			
 			cell = row.createCell(map.get("PCP"));
 			cell.setCellValue(rd.getPcp());
+			
+			cell = row.createCell(map.get("Deceased"));
+			cell.setCellValue(" ");
 			
 			cell = row.createCell(map.get("Spec"));
 			cell.setCellValue(rd.getSpec());

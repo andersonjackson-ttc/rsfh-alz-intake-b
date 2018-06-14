@@ -3,6 +3,7 @@
  */
 package edu.tridentech.rsfh.alzintake.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -157,10 +158,17 @@ public class FXMLDocumentController implements Initializable {
 			Alert dateError = new Alert(AlertType.ERROR, "Unexpected Error. Contact IT Deptment");
 			dateError.showAndWait();
 		} 
+		catch (FileNotFoundException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
+			dateError.showAndWait();
+		}
 		catch (IOException e) 
 		{
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
+			e.printStackTrace();
 			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
 			dateError.showAndWait();
 		}

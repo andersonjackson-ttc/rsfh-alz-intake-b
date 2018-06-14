@@ -160,8 +160,10 @@ public class DataReadWrite
 			
 			return true;
 		} catch (IOException | InvalidFormatException ex) {
+			
 			ex.printStackTrace();
 		}
+		
 		return false;
 	}
 }

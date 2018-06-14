@@ -3,6 +3,7 @@
  */
 package edu.tridentech.rsfh.alzintake.view;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,6 +12,8 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import edu.tridentech.rsfh.alzintake.dao.DataReadWrite;
 import edu.tridentech.rsfh.alzintake.model.Participant;
@@ -82,16 +85,18 @@ public class FXMLDocumentController implements Initializable {
 
 
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
+		DataReadWrite writer = DataReadWrite.getInstance();
+		Participant partic = new Participant();
 
 		subDOBStr = subjectDOBTxtBx.getText();
 
 
 		try 
 		{
-			//	    		Calendar calendar = Calendar.getInstance();
+//			Calendar calendar = Calendar.getInstance();
 			dateParser.setLenient(false);
 			subDOB = dateParser.parse(subDOBStr);
-			//	    		calendar.setTime(subDOB);
+//			calendar.setTime(subDOB);
 		}
 		catch (ParseException e)
 		{
@@ -116,7 +121,7 @@ public class FXMLDocumentController implements Initializable {
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
 
 
-		Participant partic = new Participant();
+		
 		partic.setFirstName(subFirstName);
 		partic.setMiddleI(subMiddleInit);
 		partic.setLastName(subLastName);
@@ -132,8 +137,30 @@ public class FXMLDocumentController implements Initializable {
 		partic.setSpec(subSpecialist);
 		partic.setReferral(subjectReferral);
 
-		DataReadWrite writer = DataReadWrite.getInstance();
-		writer.writeRecord(partic);
+		
+		
+		
+		try 
+		{
+			writer.writeRecord(partic);
+		} 
+		catch (InvalidFormatException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Alert dateError = new Alert(AlertType.ERROR, "Unexpected Error. Contact IT Deptment");
+			dateError.showAndWait();
+		} 
+		catch (IOException e) 
+		{
+			// TODO Auto-generated catch block
+//			e.printStackTrace();
+			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
+			dateError.showAndWait();
+		}
+		
+		
+		
 
 
 	}

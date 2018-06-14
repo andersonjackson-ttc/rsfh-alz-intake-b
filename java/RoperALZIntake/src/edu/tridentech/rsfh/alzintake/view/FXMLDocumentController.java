@@ -188,7 +188,7 @@ public class FXMLDocumentController implements Initializable {
 		subjectCellTxtBx.setText("");
 		subjectPcpTxtBx.setText("");
 		subjectSpecialistTxtBx.setText("");
-		subjectReferralDrpDn.getSelectionModel();
+		subjectReferralDrpDn.setValue(null);
 		subjectDOBTxtBx.setText("");
 
 

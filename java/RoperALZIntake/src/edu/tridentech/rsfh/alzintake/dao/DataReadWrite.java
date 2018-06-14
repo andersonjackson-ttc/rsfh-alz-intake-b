@@ -52,7 +52,7 @@ public class DataReadWrite
 	 * @throws InvalidFormatException 
 	 * @throws EncryptedDocumentException 
 	 */
-	public boolean writeRecord(PartRecord rd) throws IOException, EncryptedDocumentException, InvalidFormatException
+	public boolean writeRecord(PartRecord rd) throws IOException, InvalidFormatException
 	{
 		String file = "RoperSpreadSheet2.xlsx";
 		

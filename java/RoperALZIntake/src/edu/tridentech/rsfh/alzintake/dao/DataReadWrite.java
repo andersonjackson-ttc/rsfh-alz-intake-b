@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -47,8 +48,11 @@ public class DataReadWrite
 	 * 
 	 * @param rd
 	 * @return boolean true if write was successful
+	 * @throws IOException 
+	 * @throws InvalidFormatException 
+	 * @throws EncryptedDocumentException 
 	 */
-	public boolean writeRecord(PartRecord rd)
+	public boolean writeRecord(PartRecord rd) throws IOException, EncryptedDocumentException, InvalidFormatException
 	{
 		String file = "RoperSpreadSheet2.xlsx";
 		
@@ -75,8 +79,7 @@ public class DataReadWrite
 		map.put("Mail", 23);
 		
 		
-		try
-		{
+		
 			FileInputStream inputStream = new FileInputStream(new File(file));
 			Workbook workbook = WorkbookFactory.create(inputStream);
 			
@@ -159,13 +162,9 @@ public class DataReadWrite
 			outputStream.close();
 			
 			return true;
-		} catch (IOException | InvalidFormatException ex) {
-			
-			ex.printStackTrace();
-		}
 		
-		return false;
 	}
 }
+
 	
 

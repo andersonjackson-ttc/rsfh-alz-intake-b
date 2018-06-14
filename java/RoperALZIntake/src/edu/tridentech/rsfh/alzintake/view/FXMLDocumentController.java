@@ -62,7 +62,7 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox hpoaStatusCkBxY;
 
 
-	//	    private ObservableList<String> TYPE = FXCollections.observableList("hello", "");        
+	private ObservableList<String> TYPE = FXCollections.observableArrayList("hello");        
 
 
 	@FXML
@@ -196,8 +196,10 @@ public class FXMLDocumentController implements Initializable {
 
 
 	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
+	public void initialize(URL url, ResourceBundle rb) 
+	{
+		subjectReferralDrpDn.setItems(TYPE);
+		subjectReferralDrpDn.getSelectionModel().select(0);
 	}    
 
 }

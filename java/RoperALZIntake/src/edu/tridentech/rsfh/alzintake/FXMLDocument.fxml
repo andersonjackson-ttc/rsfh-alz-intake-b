@@ -19,7 +19,7 @@
             <TextField fx:id="subjectFirstNameTxtBx" layoutX="55.0" layoutY="180.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
             <TextField fx:id="subjectMITxtBx" layoutX="214.0" layoutY="180.0" prefHeight="20.0" prefWidth="30.0" promptText="MI" />
             <TextField fx:id="subjectLastNameTxtBx" layoutX="262.0" layoutY="180.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
-            <TextField fx:id="subjectDOBTxtBx" layoutX="479.0" layoutY="180.0" prefHeight="20.0" prefWidth="100.0" promptText="DD/MM/YYYY" />
+            <TextField fx:id="subjectDOBTxtBx" layoutX="479.0" layoutY="180.0" prefHeight="20.0" prefWidth="100.0" promptText="MM/DD/YYYY" />
             <TextField fx:id="subjectEmailTxtBx" layoutX="595.0" layoutY="180.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
             <ComboBox fx:id="subjectReferralDrpDn" layoutX="861.0" layoutY="180.0" prefHeight="25.0" prefWidth="229.0" promptText="Referral Source" />
             <TextField fx:id="subjectAddressTxtBx" layoutX="55.0" layoutY="241.0" prefHeight="20.0" prefWidth="363.0" promptText="Street Address" />
@@ -31,10 +31,10 @@
             <TextField fx:id="subjectPcpTxtBx" layoutX="440.0" layoutY="300.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject PCP" />
             <TextField fx:id="subjectSpecialistTxtBx" layoutX="718.0" layoutY="300.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject Specialist" />
             <CheckBox fx:id="studyPartnerStatusTglBtn" layoutX="55.0" layoutY="400.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="455.0" text="Study partner that has contact 10 or more hours per week and can attend the visit" />
-            <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="56.0" layoutY="460.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
-            <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="216.0" layoutY="460.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
-            <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="426.0" layoutY="460.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
-            <TextField fx:id="studyPartnerEmailTxtBx" layoutX="571.0" layoutY="460.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
+            <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="56.0" layoutY="460.0" prefHeight="20.0" prefWidth="150.0" promptText="Partner First Name" />
+            <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="216.0" layoutY="460.0" prefHeight="20.0" prefWidth="200.0" promptText="Partner  Name" />
+            <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="426.0" layoutY="460.0" prefHeight="20.0" prefWidth="136.0" promptText=" Partner Home Phone" />
+            <TextField fx:id="studyPartnerEmailTxtBx" layoutX="571.0" layoutY="460.0" prefHeight="20.0" prefWidth="250.0" promptText="Partner Email" />
             <TextField fx:id="studyPartnerRelationTxtBx" layoutX="833.0" layoutY="460.0" prefHeight="20.0" prefWidth="265.0" promptText="Relationship" />
             <CheckBox fx:id="hpoaStatusCkBxY" layoutX="70.0" layoutY="604.0" mnemonicParsing="false" text="Yes" />
             <CheckBox fx:id="hpoaStatusCkBxN" layoutX="129.0" layoutY="604.0" mnemonicParsing="false" text="No" />

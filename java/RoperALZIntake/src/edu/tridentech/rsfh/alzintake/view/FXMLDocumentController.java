@@ -144,7 +144,7 @@ public class FXMLDocumentController implements Initializable {
 		try 
 		{
 			
-			writer.writeRecord(partic);
+			//writer.writeRecord(partic);
 			if (writer.writeRecord(partic))
 			{
 				Alert successWrite = new Alert(AlertType.INFORMATION, "Information successfully submitted to the Excel Spreadsheet.");

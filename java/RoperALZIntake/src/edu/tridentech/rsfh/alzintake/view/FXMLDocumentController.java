@@ -60,7 +60,12 @@ public class FXMLDocumentController implements Initializable {
 
 	@FXML private ComboBox<String> subjectReferralDrpDn;
 
-	@FXML private CheckBox hpoaStatusCkBxY;
+	@FXML private CheckBox hpoaStatusCkBxY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx
+	@FXML private CheckBox hpoaMarriedStatusCkBxY;  //hpoaSpouseFirstNameTxtBx
+	@FXML private CheckBox hpoaChildStatusCkBxY;  //
+	@FXML private CheckBox hpoaChildStatusCkBxY;  //
+	@FXML private CheckBox hpoaChildStatusCkBxY;  //
+	@FXML private CheckBox hpoaChildStatusCkBxY;  //
 
 
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
@@ -162,14 +167,14 @@ public class FXMLDocumentController implements Initializable {
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
+			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
 			dateError.showAndWait();
 		}
-		catch (IOException e) 
+		catch (IOException hpoaSpouseFirstNameTxtBx e) 
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
+			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
 			dateError.showAndWait();
 		}
 		

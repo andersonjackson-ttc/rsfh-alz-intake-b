@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
 
-
-<ScrollPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbri_alz_intake_ui.FXMLDocumentController">
+<ScrollPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cbri_alz_intake_ui.FXMLDocumentController">
    <content>
       <AnchorPane id="AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="896.0" prefWidth="1136.0">
          <children>
@@ -27,6 +26,7 @@
             <TextField fx:id="subjectCityTxtBx" layoutX="440.0" layoutY="240.0" prefHeight="25.0" prefWidth="291.0" promptText="City" />
             <TextField fx:id="subjectStateTxtBx" layoutX="749.0" layoutY="240.0" prefHeight="25.0" prefWidth="45.0" promptText="State" />
             <TextField fx:id="subjectZipTxtBx" layoutX="813.0" layoutY="240.0" prefHeight="20.0" prefWidth="96.0" promptText="Zip Code" />
+            <CheckBox fx:id="subjectMailListStatusCkBxY" layoutX="988.0" layoutY="244.0" mnemonicParsing="false" text="Yes" />
             <TextField fx:id="subjectPhoneTxtBx" layoutX="55.0" layoutY="300.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
             <TextField fx:id="subjectCellTxtBx" layoutX="210.0" layoutY="300.0" prefHeight="20.0" prefWidth="136.0" promptText="Cell Phone" />
             <TextField fx:id="subjectPcpTxtBx" layoutX="440.0" layoutY="300.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject PCP" />
@@ -111,6 +111,7 @@
             <Label layoutX="705.0" layoutY="735.0" text="Child Home Phone" />
             <Label layoutX="447.0" layoutY="735.0" text="Child Last Name" />
             <Label layoutX="192.0" layoutY="735.0" text="Child First Name" />
+            <Label layoutX="946.0" layoutY="223.0" text="Include on mailing list?" />
          </children>
       </AnchorPane>
    </content>

@@ -30,7 +30,6 @@
             <TextField fx:id="subjectCityTxtBx" layoutX="440.0" layoutY="240.0" prefHeight="25.0" prefWidth="291.0" promptText="City" />
             <TextField fx:id="subjectStateTxtBx" layoutX="749.0" layoutY="240.0" prefHeight="25.0" prefWidth="45.0" promptText="State" />
             <TextField fx:id="subjectZipTxtBx" layoutX="813.0" layoutY="240.0" prefHeight="20.0" prefWidth="96.0" promptText="Zip Code" />
-            <CheckBox fx:id="subjectMailListStatusCkBxN" layoutX="1042.0" layoutY="245.0" mnemonicParsing="false" text="No" />
             <CheckBox fx:id="subjectMailListStatusCkBxY" layoutX="983.0" layoutY="245.0" mnemonicParsing="false" text="Yes" />
             <TextField fx:id="subjectPhoneTxtBx" layoutX="55.0" layoutY="300.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
             <TextField fx:id="subjectCellTxtBx" layoutX="210.0" layoutY="300.0" prefHeight="20.0" prefWidth="136.0" promptText="Cell Phone" />

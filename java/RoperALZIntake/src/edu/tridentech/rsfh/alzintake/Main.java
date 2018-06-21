@@ -20,11 +20,18 @@ public class Main extends Application {
 	    Parent root = loader.load();
 
 	    List<String> args = this.getParameters().getRaw();
-		String filePath = args.get(0);
+	    // default is here
+		String filePath = "RoperSpreadsheet2.xlsx";
+
+		// read path from the command line
+		if (args.size() > 0) {
+			filePath = args.get(0);
+		}
 
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(Main.class.getClassLoader().getResource("RoperIntake.css").toExternalForm());
 		controller = (FXMLDocumentController)loader.getController();
+		controller.setFilePath(filePath);
 
 		stage.setTitle("Patient Intake Pre-Screen Form");
 		stage.setScene(scene);

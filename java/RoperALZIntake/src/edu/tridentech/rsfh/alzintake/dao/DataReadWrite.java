@@ -52,9 +52,9 @@ public class DataReadWrite
 	 * @throws InvalidFormatException 
 	 * @throws EncryptedDocumentException 
 	 */
-	public boolean writeRecord(PartRecord rd) throws IOException, InvalidFormatException
+	public boolean writeRecord(PartRecord rd, String fileName) throws IOException, InvalidFormatException
 	{
-		String file = "RoperSpreadSheet2.xlsx";
+		String file = fileName;
 		
 		HashMap<String, Integer> map = new HashMap<>();
 		

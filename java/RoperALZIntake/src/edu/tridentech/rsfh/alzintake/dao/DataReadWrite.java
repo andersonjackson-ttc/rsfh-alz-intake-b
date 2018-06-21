@@ -52,9 +52,9 @@ public class DataReadWrite
 	 * @throws InvalidFormatException 
 	 * @throws EncryptedDocumentException 
 	 */
-	public boolean writeRecord(PartRecord rd) throws IOException, InvalidFormatException
+	public boolean writeRecord(PartRecord rd, String fileName) throws IOException, InvalidFormatException
 	{
-		String file = "RoperSpreadSheet2.xlsx";
+		String file = fileName;
 		
 		HashMap<String, Integer> map = new HashMap<>();
 		
@@ -79,9 +79,18 @@ public class DataReadWrite
 		map.put("Mail", 23);
 		
 		
+			File testFile = new File(file);
+			
+			if(!testFile.exists())
+			{
+				throw new IOException("File not found!");
+			}
+			
 		
-			FileInputStream inputStream = new FileInputStream(new File(file));
+		    FileInputStream inputStream = new FileInputStream(testFile);
 			Workbook workbook = WorkbookFactory.create(inputStream);
+			
+						
 			
 			Sheet sheet = workbook.getSheetAt(0);
 			

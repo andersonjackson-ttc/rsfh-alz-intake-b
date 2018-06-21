@@ -70,8 +70,16 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField alzMemDiagnosisTxtBx;
 	@FXML private TextField alzMemDiagnosisClinicianTxtBx;
 	@FXML private TextField alzMemDiagnosisDateTxtBx;
-	@FXML private TextField 
-	@FXML private TextField 
+	@FXML private TextField donepezilStartDateTxtBx;
+	@FXML private TextField donepezilEndDateTxtBx;	
+	@FXML private TextField memantineStartDateTxtBx;
+	@FXML private TextField memantineEndDateTxtBx;
+	@FXML private TextField rivastigmineStartDateTxtBx;
+	@FXML private TextField rivastigmineEndDateTxtBx;	
+	@FXML private TextField galantamineStartDateTxtBx;
+	@FXML private TextField galantamineEndDateTxtBx;
+	@FXML private TextField nammzaricStartDateTxtBx;
+	@FXML private TextField nammzaricEndDateTxtBx;
 	
 
 	@FXML private ComboBox<String> subjectReferralDrpDn;
@@ -87,12 +95,17 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox memLossNotedCkBxY;  //memLossNotedDateTxtBx
 //	private TextField[]
 	@FXML private CheckBox alzFamHistoryStatusCkBxY;  //alzFamHistoryStatusRelationTxtBx
+	
 	@FXML private CheckBox donepezilStatusTglBtn;
-	private TextField[] donepezilBeginEnd = {};
+	private TextField[] donepezilBeginEnd = {donepezilStartDateTxtBx, donepezilEndDateTxtBx};
 	@FXML private CheckBox memantineStatusTglBtn;
+	private TextField[] memantineBeginEnd = {memantineStartDateTxtBx, memantineEndDateTxtBx};
 	@FXML private CheckBox rivastigmineStatusTglBtn;
+	private TextField[] rivastigmineBeginEnd = {rivastigmineStartDateTxtBx, rivastigmineEndDateTxtBx};
 	@FXML private CheckBox galantamineStatusTglBtn;
+	private TextField[] galantamineBeginEnd = {galantamineStartDateTxtBx, galantamineEndDateTxtBx};
 	@FXML private CheckBox nammzaricStatusTglBtn;
+	private TextField[] nammzaricBeginEnd = {nammzaricStartDateTxtBx, nammzaricEndDateTxtBx};
 
 
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
@@ -180,7 +193,7 @@ public class FXMLDocumentController implements Initializable {
 		{
 			
 			//writer.writeRecord(partic);
-			if (writer.writeRecord(partic))
+			if (writer.writeRecord(partic, filePath))
 			{
 				Alert successWrite = new Alert(AlertType.INFORMATION, "Information successfully submitted to the Excel Spreadsheet.");
 				successWrite.showAndWait();

@@ -40,6 +40,7 @@ import javafx.scene.control.ComboBox;
 
 public class FXMLDocumentController implements Initializable {
 
+	private String filePath = "";
 
 
 	@FXML
@@ -57,15 +58,41 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField subjectCellTxtBx;
 	@FXML private TextField subjectPcpTxtBx;
 	@FXML private TextField subjectSpecialistTxtBx;
+	@FXML private TextField hpoaFirstNameTxtBx;
+	@FXML private TextField hpoaLastNameTxtBx;
+	@FXML private TextField hpoaPhoneTxtBx;
+	@FXML private TextField hpoaSpouseFirstNameTxtBx;
+	@FXML private TextField hpoaSpouseLastNameTxtBx;
+	@FXML private TextField hpoaSpousePhoneTxtBx;
+	@FXML private TextField hpoaChildFirstNameTxtBx;
+	@FXML private TextField hpoaChildLastNameTxtBx;
+	@FXML private TextField hpoaChildPhoneTxtBx;
+	@FXML private TextField alzMemDiagnosisTxtBx;
+	@FXML private TextField alzMemDiagnosisClinicianTxtBx;
+	@FXML private TextField alzMemDiagnosisDateTxtBx;
+	@FXML private TextField 
+	@FXML private TextField 
+	
 
 	@FXML private ComboBox<String> subjectReferralDrpDn;
 
-	@FXML private CheckBox hpoaStatusCkBxY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx
-	@FXML private CheckBox hpoaMarriedStatusCkBxY;  //hpoaSpouseFirstNameTxtBx
-	@FXML private CheckBox hpoaChildStatusCkBxY;  //
-	@FXML private CheckBox hpoaChildStatusCkBxY;  //
-	@FXML private CheckBox hpoaChildStatusCkBxY;  //
-	@FXML private CheckBox hpoaChildStatusCkBxY;  //
+	@FXML private CheckBox hpoaStatusCkBxY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
+	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
+	@FXML private CheckBox hpoaMarriedStatusCkBxY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
+	private TextField[] hpoaMarriedStatArray = {hpoaSpouseFirstNameTxtBx,  hpoaSpouseLastNameTxtBx, hpoaSpousePhoneTxtBx};
+	@FXML private CheckBox hpoaChildStatusCkBxY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
+	private TextField[] hpoaChildStatArray = {hpoaChildFirstNameTxtBx,  hpoaChildLastNameTxtBx, hpoaChildPhoneTxtBx};
+	@FXML private CheckBox alzMemStatusCkBxY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
+	private TextField[] alzMemStatArray = {alzMemDiagnosisTxtBx,  alzMemDiagnosisClinicianTxtBx, alzMemDiagnosisDateTxtBx};
+	@FXML private CheckBox memLossNotedCkBxY;  //memLossNotedDateTxtBx
+//	private TextField[]
+	@FXML private CheckBox alzFamHistoryStatusCkBxY;  //alzFamHistoryStatusRelationTxtBx
+	@FXML private CheckBox donepezilStatusTglBtn;
+	private TextField[] donepezilBeginEnd = {};
+	@FXML private CheckBox memantineStatusTglBtn;
+	@FXML private CheckBox rivastigmineStatusTglBtn;
+	@FXML private CheckBox galantamineStatusTglBtn;
+	@FXML private CheckBox nammzaricStatusTglBtn;
 
 
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
@@ -73,6 +100,8 @@ public class FXMLDocumentController implements Initializable {
 
 	@FXML
 	private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
+		
+		
 		String subFirstName = "";
 		String subMiddleInit = "";
 		String subLastName = "";
@@ -146,6 +175,7 @@ public class FXMLDocumentController implements Initializable {
 		
 		
 		
+		
 		try 
 		{
 			
@@ -165,13 +195,18 @@ public class FXMLDocumentController implements Initializable {
 		} 
 		catch (FileNotFoundException e) 
 		{
+			//this is the file in use error
+			
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
 			dateError.showAndWait();
 		}
-		catch (IOException hpoaSpouseFirstNameTxtBx e) 
+		catch (IOException e) 
 		{
+			
+			//file not located in correct place error
+			
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
@@ -213,6 +248,16 @@ public class FXMLDocumentController implements Initializable {
 
 	}
 
+	public void setFilePath(String path)
+	{
+		filePath =  path;
+	}
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) 

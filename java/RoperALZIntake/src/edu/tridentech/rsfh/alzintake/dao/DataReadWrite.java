@@ -79,9 +79,18 @@ public class DataReadWrite
 		map.put("Mail", 23);
 		
 		
+			File testFile = new File(file);
+			
+			if(!testFile.exists())
+			{
+				throw new IOException("File not found!");
+			}
+			
 		
-			FileInputStream inputStream = new FileInputStream(new File(file));
+		    FileInputStream inputStream = new FileInputStream(testFile);
 			Workbook workbook = WorkbookFactory.create(inputStream);
+			
+						
 			
 			Sheet sheet = workbook.getSheetAt(0);
 			

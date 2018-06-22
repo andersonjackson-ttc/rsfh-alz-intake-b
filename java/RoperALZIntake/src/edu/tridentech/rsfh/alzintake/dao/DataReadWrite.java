@@ -235,8 +235,72 @@ public class DataReadWrite
 			cell = row.createCell(map1.get("LastName"));
 			cell.setCellValue(rd.getLastName());
 			
+			cell = row.createCell(map1.get("FirstName"));
+			cell.setCellValue(rd.getFirstName());
+			
+			cell = row.createCell(map1.get("PrevDiag"));
+			cell.setCellValue(rd.getDiagnosis());
+			
+			cell = row.createCell(map1.get("MemLoss"));
+			if(rd.getMemoryLoss())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
 			
 			
+			cell = row.createCell(map1.get("DisruptLife"));
+			if(rd.getMemoryDisruption())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("DiffPlan"));
+			if(rd.getProblemSolving())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("DiffTask"));
+			if(rd.getFamiliarTask())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("DiffWords"));
+			if(rd.getProblemsConversations())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("FamilyHist"));
+			if(rd.getFamilyHistory())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
 			
 			inputStream.close();
 			

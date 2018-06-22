@@ -56,6 +56,7 @@ public class DataReadWrite
 	{
 		String file = fileName;
 		
+		//Map for sheet 0
 		HashMap<String, Integer> map = new HashMap<>();
 		
 		map.put("LastName", 1);
@@ -77,6 +78,65 @@ public class DataReadWrite
 		map.put("CurrentStudy", 21);
 		map.put("Referral", 22);
 		map.put("Mail", 23);
+		
+		
+		//Map for sheet 1
+		HashMap<String, Integer> map1 = new HashMap<>();
+		
+		map1.put("LastName", 1);
+		map1.put("FirstName", 2);
+		map1.put("PrevDiag", 3);
+		map1.put("MemLoss", 4);
+		map1.put("DisruptLife", 5);
+		map1.put("DiffPlan", 6);
+		map1.put("DiffTask", 7);
+		map1.put("DiffWords", 8);
+		map1.put("FamilyHist", 9);
+		map1.put("Aricept", 10);
+		map1.put("AriceptStart", 11);
+		map1.put("AriceptStop", 12);
+		map1.put("Namenda", 13);
+		map1.put("NamendaStart", 14);
+		map1.put("NamendaStop", 15);
+		map1.put("Exelon", 16);
+		map1.put("ExelonStart", 17);
+		map1.put("ExelonStop", 18);
+		map1.put("Razadyne", 19);
+		map1.put("RazadyneStart", 20);
+		map1.put("RazadyneStop", 21);
+		map1.put("AriceptNamenda", 22);
+		map1.put("AriNamStart", 23);
+		map1.put("AriNamStop", 24);
+		
+		//Map for sheet 2
+		HashMap<String, Integer> map2 = new HashMap<>();
+		
+		map2.put("FirstName", 1);
+		map2.put("LastName", 2);
+		map2.put("Hpoa", 3);
+		map2.put("PoaName", 4);
+		map2.put("PoaPhone", 5);
+		map2.put("Maried", 6);
+		map2.put("SpouseName", 7);
+		map2.put("SpousePhone", 8);
+		map2.put("Child", 9);
+		map2.put("ChildPhone", 10);
+		
+		
+		//Map for sheet 3
+		HashMap<String, Integer> map3 = new HashMap<>();
+		
+		map3.put("FirstName", 1);
+		map3.put("LastName", 2);
+		map3.put("Mental", 3);
+		map3.put("Sleep", 4);
+		map3.put("Cancer", 5);
+		map3.put("CancerType", 6);
+		map3.put("Pacemaker/mri", 7);
+		map3.put("Drug/Alchol", 8);
+		map3.put("OnGoing", 9);
+		
+		
 		
 		
 			File testFile = new File(file);
@@ -162,6 +222,21 @@ public class DataReadWrite
 			
 			//cell = row.createCell(map.get("Mail"));
 			//cell.setCellValue(rd.getMailing());
+			
+			
+			//Sheet 1
+            sheet = workbook.getSheetAt(1);
+			
+			rowCount = sheet.getLastRowNum();
+			
+			row = sheet.createRow(++rowCount);
+			
+			
+			cell = row.createCell(map1.get("LastName"));
+			cell.setCellValue(rd.getLastName());
+			
+			
+			
 			
 			inputStream.close();
 			

@@ -54,6 +54,15 @@
                </font>
             </Label>
             <Separator layoutX="322.0" layoutY="356.0" prefHeight="20.0" prefWidth="788.0" />
+<<<<<<< HEAD
+=======
+            <CheckBox fx:id="studyPartnerStatusTglBtn" layoutX="55.0" layoutY="401.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="455.0" text="Study partner that has contact 10 or more hours per week and can attend the visit" />
+            <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="56.0" layoutY="460.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
+            <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="216.0" layoutY="460.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
+            <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="426.0" layoutY="460.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
+            <TextField fx:id="studyPartnerEmailTxtBx" layoutX="571.0" layoutY="460.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
+            <TextField fx:id="studyPartnerRelationTxtBx" layoutX="833.0" layoutY="461.0" prefHeight="20.0" prefWidth="265.0" promptText="Relationship" />
+>>>>>>> branch 'sprint-3' of https://github.com/andersonjackson-ttc/rsfh-alz-intake-b.git
             <Label layoutX="20.0" layoutY="516.0" text="Healthcare Power of  Attorney (HPOA)">
                <font>
                   <Font name="Calibri Bold Italic" size="27.0" />
@@ -166,6 +175,7 @@
             <CheckBox fx:id="nammzaricStatusTglBtn" layoutX="53.0" layoutY="1484.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Namzaric (Aricept-Namenda combination)" />
             <TextField fx:id="nammzaricStartDateTxtBx" layoutX="338.0" layoutY="1484.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
             <TextField fx:id="nammzaricEndDateTxtBx" layoutX="488.0" layoutY="1484.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
+<<<<<<< HEAD
             <RadioButton fx:id="schizBiMddStatusRadY" layoutX="351.0" layoutY="1626.0" mnemonicParsing="false" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="schizBiMddStatusTog" />
@@ -233,6 +243,47 @@
                </font>
             </Label>
             <Label layoutX="942.0" layoutY="223.0" text="Include on mailing list?" />
+=======
+            <Label layoutX="52.0" layoutY="1635.0" text="Schizophrenia, Bipolar, or Major Depressive Disorder?" />
+            <CheckBox fx:id="schizBiMddStatusCkBxY" layoutX="350.0" layoutY="1636.0" mnemonicParsing="false" text="Yes" />
+            <CheckBox fx:id="schizBiMddStatusCkBxN" layoutX="397.0" layoutY="1636.0" mnemonicParsing="false" text="No" />
+            <Label layoutX="53.0" layoutY="1671.0" text="Sleep Disorder?" />
+            <CheckBox fx:id="sleepDisorderStatusCkBxY" layoutX="351.0" layoutY="1672.0" mnemonicParsing="false" text="Yes" />
+            <CheckBox fx:id="sleepDisorderStatusCkBxN" layoutX="398.0" layoutY="1672.0" mnemonicParsing="false" text="No" />
+            <Label layoutX="51.0" layoutY="1710.0" text="Active cancer, including skin cancer, within last 5 years?" />
+            <CheckBox fx:id="cancerStatusCkBxY" layoutX="349.0" layoutY="1711.0" mnemonicParsing="false" text="Yes" />
+            <CheckBox fx:id="cancerStatusCkBxN" layoutX="396.0" layoutY="1711.0" mnemonicParsing="false" text="No" />
+            <TextField fx:id="cancerStatusTypeTxtBx" layoutX="447.0" layoutY="1706.0" prefHeight="20.0" prefWidth="127.0" promptText="Type of Cancer" />
+            <Label layoutX="52.0" layoutY="1749.0" text="Pacemaker or other MRI incompatible devices?" />
+            <CheckBox fx:id="deviseMRIConcernCkBxY" layoutX="350.0" layoutY="1750.0" mnemonicParsing="false" text="Yes" />
+            <CheckBox fx:id="deviseMRIConcernCkBxN" layoutX="397.0" layoutY="1750.0" mnemonicParsing="false" text="No" />
+            <Label layoutX="52.0" layoutY="1784.0" text="History of drug or alcohol abuse in last 2 years?" />
+            <CheckBox fx:id="drugAlcoholStatusCkBxY" layoutX="350.0" layoutY="1785.0" mnemonicParsing="false" text="Yes" />
+            <CheckBox fx:id="drugAlcoholStatusCkBxN" layoutX="397.0" layoutY="1785.0" mnemonicParsing="false" text="No" />
+            <TextField fx:id="ongoingHealthConcernsTxtBx" alignment="TOP_LEFT" layoutX="731.0" layoutY="1658.0" prefHeight="166.0" prefWidth="294.0" promptText="Type conditions and concerns here" />
+            <CheckBox fx:id="rsfhIntakeDbStatusTglBtn" layoutX="60.0" layoutY="1887.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Entered into database" />
+            <CheckBox fx:id="rsfhChartStatusTglBtn" layoutX="60.0" layoutY="1919.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Create chart and pass to clinician" />
+            <CheckBox fx:id="rsfhScheduledVisitStatusTglBtn" layoutX="58.0" layoutY="1956.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Visit scheduled" />
+            <CheckBox fx:id="rsfhSentConfirmationStatusTglBtn" layoutX="58.0" layoutY="1988.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Confirmation Sent" />
+            <CheckBox fx:id="rsfhObtainRoiStatusTglBtn" layoutX="58.0" layoutY="2021.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="ROI Obtained" />
+            <CheckBox fx:id="rsfhFaxRoiStatusTglBtn" layoutX="58.0" layoutY="2053.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="ROI faxed" />
+            <CheckBox fx:id="rsfhFileStatusTglBtn" layoutX="57.0" layoutY="2086.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="File in appropriate drawer in record room" />
+            <TextField fx:id="rsfhClinAssessDateTxtBx" layoutX="343.0" layoutY="1917.0" prefHeight="20.0" prefWidth="127.0" promptText="Assessment date" />
+            <TextField fx:id="rsfhClinRecommendsTxtBx" alignment="TOP_LEFT" layoutX="494.0" layoutY="1915.0" prefHeight="166.0" prefWidth="294.0" promptText="Clinician Recommendation" />
+            <Label layoutX="942.0" layoutY="223.0" text="Include on mailing list?" />
+            <Separator layoutX="47.0" layoutY="1773.0" prefHeight="5.0" prefWidth="529.0" />
+            <Separator layoutX="47.0" layoutY="1738.0" prefHeight="5.0" prefWidth="529.0" />
+            <Separator layoutX="49.0" layoutY="1699.0" prefHeight="5.0" prefWidth="529.0" />
+            <Separator layoutX="48.0" layoutY="1660.0" prefHeight="5.0" prefWidth="529.0" />
+            <Label layoutX="39.0" layoutY="1585.0" text="Are any of the following conditions applicable?" />
+            <Label layoutX="729.0" layoutY="1636.0" text="Ongoing health problems or conditions?" />
+            <Separator layoutX="314.0" layoutY="1845.0" prefHeight="20.0" prefWidth="806.0" />
+            <Label layoutX="24.0" layoutY="1839.0" text="CBRI staff documentation">
+               <font>
+                  <Font name="Calibri Bold Italic" size="27.0" />
+               </font>
+            </Label>
+>>>>>>> branch 'sprint-3' of https://github.com/andersonjackson-ttc/rsfh-alz-intake-b.git
             <ImageView fitHeight="26.0" fitWidth="30.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Pictures/snips/rsfhLogo.JPG" />

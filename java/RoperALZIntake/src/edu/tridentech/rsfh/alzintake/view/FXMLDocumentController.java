@@ -89,43 +89,50 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField ongoingHealthConcernsTxtBx;
 	@FXML private TextField cancerStatusTypeTxtBx;
 	@FXML private TextField rsfhClinRecommendsTxtBx;
-
+	@FXML private TextField memLossNotedDateTxtBx;
+//	@FXML private TextField cancerStatusTypeTxtBx;
+	
+	
+	@FXML private CheckBox alzMemAgitationRadY;
+	@FXML private CheckBox alzMemApathyRadY;
+	@FXML private CheckBox alzMemSleepIssueRadY;
+	@FXML private CheckBox planSolveStatusRadY;
+	@FXML private CheckBox memLossDisruptRadY;
+	@FXML private CheckBox tasksStatusRadY;
+	@FXML private CheckBox conversationStatusRadY;
+	@FXML private CheckBox schizBiMddStatusRadY;
+	@FXML private CheckBox sleepDisorderStatusRadY;
+	@FXML private CheckBox deviseMRIConcernRadY;
+	@FXML private CheckBox drugAlcoholStatusRadY;
 	
 
-	@FXML private CheckBox alzMemAgitationCkBxY;
-	@FXML private CheckBox alzMemApathyCkBxY;
-	@FXML private CheckBox alzMemSleepIssueCkBxY;
-	@FXML private CheckBox planSolveStatusCkBxY;
-	@FXML private CheckBox tasksStatusCkBxY;
-	@FXML private CheckBox conversationStatusCkBxY;
-	@FXML private CheckBox schizBiMddStatusCkBxY;
-	@FXML private CheckBox sleepDisorderStatusCkBxY;
-	@FXML private CheckBox deviseMRIConcernCkBxY;
-	@FXML private CheckBox drugAlcoholStatusCkBxY;
-//	@FXML private CheckBox planSolveStatusCkBxY;
+	
+	
 	
 	
 	@FXML private ComboBox<String> subjectReferralDrpDn;
 	
+
+	
 	@FXML private CheckBox studyPartnerStatusTglBtn;
 	private TextField[] partnerArray = {studyPartnerFirstNameTxtBx, studyPartnerLastNameTxtBx, studyPartnerPhoneTxtBx, studyPartnerEmailTxtBx, studyPartnerRelationTxtBx};
 
-	@FXML private CheckBox hpoaStatusCkBxY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
+	@FXML private CheckBox hpoaStatusRadY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
 	
-	@FXML private CheckBox hpoaMarriedStatusCkBxY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
+	@FXML private CheckBox hpoaMarriedStatusRadY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
 	private TextField[] hpoaMarriedStatArray = {hpoaSpouseFirstNameTxtBx,  hpoaSpouseLastNameTxtBx, hpoaSpousePhoneTxtBx};
 	
-	@FXML private CheckBox hpoaChildStatusCkBxY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
+	@FXML private CheckBox hpoaChildStatusRadY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
 	private TextField[] hpoaChildStatArray = {hpoaChildFirstNameTxtBx,  hpoaChildLastNameTxtBx, hpoaChildPhoneTxtBx};
 	
-	@FXML private CheckBox alzMemStatusCkBxY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
+	@FXML private CheckBox alzMemStatusRadY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
 	private TextField[] alzMemStatArray = {alzMemDiagnosisTxtBx,  alzMemDiagnosisClinicianTxtBx, alzMemDiagnosisDateTxtBx};
 	
-	@FXML private CheckBox memLossNotedCkBxY;  //memLossNotedDateTxtBx
-//	private TextField[]
+	@FXML private CheckBox memLossNotedRadY;  //memLossNotedDateTxtBx
+	private TextField[] alzMemArray = {memLossNotedDateTxtBx};
 	
-	@FXML private CheckBox alzFamHistoryStatusCkBxY;  //alzFamHistoryStatusRelationTxtBx
+	@FXML private CheckBox alzFamHistoryStatusRadY;  //alzFamHistoryStatusRelationTxtBx
 	private TextField[] alzFamHistArray = {alzFamHistoryStatusRelationTxtBx};
 	
 	@FXML private CheckBox donepezilStatusTglBtn;
@@ -143,7 +150,7 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox nammzaricStatusTglBtn;
 	private TextField[] nammzaricBeginEnd = {nammzaricStartDateTxtBx, nammzaricEndDateTxtBx};
 
-	@FXML private CheckBox cancerStatusCkBxY;
+	@FXML private CheckBox cancerStatusRadY;
 	private TextField[] cancerStatusArray = {cancerStatusTypeTxtBx};
 
 
@@ -190,12 +197,26 @@ public class FXMLDocumentController implements Initializable {
 		String hpoaChildFirst = "";
 		String hpoaChildLast = "";
 		String hpoaChilePhone = "";
+		boolean hpoaStat = false;
+		boolean hpoaMarriedStat = false;
+		boolean hpoaChildStat = false;
+		
 		
 		//Symptoms
 		String familyHistoryRelationship = "";
 		String memDiagnosis = "";
 		String memClinician = "";
-		String ongoingConcerns = "";
+		
+		boolean alzDiagnose = false;
+		boolean agitation = false;
+		boolean apathy = false;
+		boolean sleepProblems = false;
+		boolean memLoss = false;
+		boolean memLossDisrupt = false;
+		boolean difficultPlanning = false;
+		boolean familiarTasks = false;
+		boolean conversation = false;
+		boolean famHistAlz = false;
 		
 		
 		String symptDODStr = "";
@@ -222,6 +243,21 @@ public class FXMLDocumentController implements Initializable {
 		Date NamzaricStart = new Date();
 		String NamzaricEndStr = "";
 		Date NamzaricEnd = new Date();
+		boolean donepezil = false;
+		boolean memantine = false;
+		boolean rivastigmine = false;
+		boolean galantamine = false;
+		boolean namzaric = false;
+		
+		//Medical history
+		String ongoingConcerns = "";
+		String cancerType = "";
+		boolean mentalDisorder = false;
+		boolean sleepDisorder = false;
+		boolean activeCancer = false;
+		boolean pacemakerMRI = false;
+		boolean drugAbuse = false;
+		
 		
 		
 
@@ -248,6 +284,7 @@ public class FXMLDocumentController implements Initializable {
 			return;
 		}
 
+//		subject info
 		subFirstName = subjectFirstNameTxtBx.getText();
 		subMiddleInit = subjectMITxtBx.getText();
 		subLastName = subjectLastNameTxtBx.getText();
@@ -262,6 +299,7 @@ public class FXMLDocumentController implements Initializable {
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
 		
+//		partner info
 		partnerFirstName = studyPartnerFirstNameTxtBx.getText();
 		partnerLastName = studyPartnerLastNameTxtBx.getText();
 		partnerHomePhone = studyPartnerPhoneTxtBx.getText();
@@ -269,21 +307,56 @@ public class FXMLDocumentController implements Initializable {
 		partnerRelation = studyPartnerRelationTxtBx.getText();
 		partnerStatus = studyPartnerStatusTglBtn.isSelected();
 		
+		//hpoa
 		hpoaFirstName = hpoaFirstNameTxtBx.getText();
 		hpoaLastName = hpoaLastNameTxtBx.getText();
 		hpoaHomePhone = hpoaPhoneTxtBx.getText();
+		hpoaStat = hpoaStatusRadY.isSelected();
 		hpoaSpouseFirst = hpoaSpouseFirstNameTxtBx.getText();
 		hpoaSpouseLast = hpoaSpouseLastNameTxtBx.getText();
 		hpoaSpousePhone = hpoaSpousePhoneTxtBx.getText();
+		hpoaMarriedStat = hpoaMarriedStatusRadY.isSelected();
 		hpoaChildFirst = hpoaChildFirstNameTxtBx.getText();
 		hpoaChildLast = hpoaChildLastNameTxtBx.getText();
 		hpoaChilePhone = hpoaChildPhoneTxtBx.getText();
+		hpoaChildStat = hpoaChildStatusRadY.isSelected();
 		
+//		symptoms
 		familyHistoryRelationship = alzFamHistoryStatusRelationTxtBx.getText();
 		memDiagnosis = alzMemDiagnosisTxtBx.getText();
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
-		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
+		alzDiagnose = alzMemStatusRadY.isSelected();
+		agitation = alzMemAgitationRadY.isSelected();
+		apathy = alzMemApathyRadY.isSelected();
+		sleepProblems = alzMemSleepIssueRadY.isSelected();
+		memLoss = memLossNotedRadY.isSelected();
+		memLossDisrupt = memLossDisruptRadY.isSelected();
+		difficultPlanning = planSolveStatusRadY.isSelected();
+		familiarTasks = tasksStatusRadY.isSelected();
+		conversation = conversationStatusRadY.isSelected();
+		famHistAlz = alzFamHistoryStatusRadY.isSelected();
+		donepezil = donepezilStatusTglBtn.isSelected();
+		memantine = memantineStatusTglBtn.isSelected();
+		rivastigmine = rivastigmineStatusTglBtn.isSelected();
+		galantamine = galantamineStatusTglBtn.isSelected();
+		namzaric = nammzaricStatusTglBtn.isSelected();
 		
+		
+		/*
+		Need date verifications for drugs
+		
+		*/
+		
+		
+		
+//		medical history
+		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
+		cancerType = cancerStatusTypeTxtBx.getText();
+		mentalDisorder = schizBiMddStatusRadY.isSelected();
+		sleepDisorder = sleepDisorderStatusRadY.isSelected();
+		activeCancer = cancerStatusRadY.isSelected();
+		pacemakerMRI = deviseMRIConcernRadY.isSelected();
+		drugAbuse = drugAlcoholStatusRadY.isSelected();
 		
 		
 		

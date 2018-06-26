@@ -56,6 +56,7 @@ public class DataReadWrite
 	{
 		String file = fileName;
 		
+		//Map for sheet 0
 		HashMap<String, Integer> map = new HashMap<>();
 		
 		map.put("LastName", 1);
@@ -77,6 +78,66 @@ public class DataReadWrite
 		map.put("CurrentStudy", 21);
 		map.put("Referral", 22);
 		map.put("Mail", 23);
+		
+		
+		//Map for sheet 1
+		HashMap<String, Integer> map1 = new HashMap<>();
+		
+		map1.put("LastName", 1);
+		map1.put("FirstName", 2);
+		map1.put("PrevDiag", 3);
+		map1.put("MemLoss", 4);
+		map1.put("DisruptLife", 5);
+		map1.put("DiffPlan", 6);
+		map1.put("DiffTask", 7);
+		map1.put("DiffWords", 8);
+		map1.put("FamilyHist", 9);
+		map1.put("Aricept", 10);
+		map1.put("AriceptStart", 11);
+		map1.put("AriceptStop", 12);
+		map1.put("Namenda", 13);
+		map1.put("NamendaStart", 14);
+		map1.put("NamendaStop", 15);
+		map1.put("Exelon", 16);
+		map1.put("ExelonStart", 17);
+		map1.put("ExelonStop", 18);
+		map1.put("Razadyne", 19);
+		map1.put("RazadyneStart", 20);
+		map1.put("RazadyneStop", 21);
+		map1.put("AriceptNamenda", 22);
+		map1.put("AriNamStart", 23);
+		map1.put("AriNamStop", 24);
+		
+		//Map for sheet 2
+		HashMap<String, Integer> map2 = new HashMap<>();
+		
+		map2.put("FirstName", 1);
+		map2.put("LastName", 2);
+		map2.put("Hpoa", 3);
+		map2.put("PoaName", 4);
+		map2.put("PoaPhone", 5);
+		map2.put("Maried", 6);
+		map2.put("SpouseName", 7);
+		map2.put("SpousePhone", 8);
+		map2.put("Child", 9);
+		map2.put("ChildName", 10);
+		map2.put("ChildPhone", 11);
+		
+		
+		//Map for sheet 3
+		HashMap<String, Integer> map3 = new HashMap<>();
+		
+		map3.put("FirstName", 1);
+		map3.put("LastName", 2);
+		map3.put("Mental", 3);
+		map3.put("Sleep", 4);
+		map3.put("Cancer", 5);
+		map3.put("CancerType", 6);
+		map3.put("Pacemaker/mri", 7);
+		map3.put("Drug/Alchol", 8);
+		map3.put("OnGoing", 9);
+		
+		
 		
 		
 			File testFile = new File(file);
@@ -162,6 +223,309 @@ public class DataReadWrite
 			
 			//cell = row.createCell(map.get("Mail"));
 			//cell.setCellValue(rd.getMailing());
+			
+			
+			//Sheet 1
+            sheet = workbook.getSheetAt(1);
+			
+			rowCount = sheet.getLastRowNum();
+			
+			row = sheet.createRow(++rowCount);
+			
+			
+			cell = row.createCell(map1.get("LastName"));
+			cell.setCellValue(rd.getLastName());
+			
+			cell = row.createCell(map1.get("FirstName"));
+			cell.setCellValue(rd.getFirstName());
+			
+			cell = row.createCell(map1.get("PrevDiag"));
+			cell.setCellValue(rd.getDiagnosis());
+			
+			cell = row.createCell(map1.get("MemLoss"));
+			if(rd.getMemoryLoss())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			
+			cell = row.createCell(map1.get("DisruptLife"));
+			if(rd.getMemoryDisruption())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("DiffPlan"));
+			if(rd.getProblemSolving())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("DiffTask"));
+			if(rd.getFamiliarTask())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("DiffWords"));
+			if(rd.getProblemsConversations())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("FamilyHist"));
+			if(rd.getFamilyHistory())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("Aricept"));
+			if(rd.getAricept())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("AriceptStart"));
+			cell.setCellValue(rd.getAriceptStartDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("AriceptStop"));
+			cell.setCellValue(rd.getAriceptStopDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("Namenda"));
+			if(rd.getNamenda())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("NamendaStart"));
+			cell.setCellValue(rd.getNamendaStartDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("NamendaStop"));
+			cell.setCellValue(rd.getNamendaStopDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("Exelon"));
+			if(rd.getExelon())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("ExelonStart"));
+			cell.setCellValue(rd.getExelonStartDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("ExelonStop"));
+			cell.setCellValue(rd.getExelonStopDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("Razadyne"));
+			if(rd.getRazadyne())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("RazadyneStart"));
+			cell.setCellValue(rd.getRazadyneStartDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("RazadyneStop"));
+			cell.setCellValue(rd.getRazadyneStopDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("AriceptNamenda"));
+			if(rd.getAriceptNamenda())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map1.get("AriNamStart"));
+			cell.setCellValue(rd.getAriceptNamendaStartDate());
+			cell.setCellStyle(cellStyle);
+			
+			cell = row.createCell(map1.get("AriNamStop"));
+			cell.setCellValue(rd.getAriceptNamendaStopDate());
+			cell.setCellStyle(cellStyle);
+			
+			
+			//sheet 2
+            sheet = workbook.getSheetAt(2);
+			
+			rowCount = sheet.getLastRowNum();
+			
+			row = sheet.createRow(++rowCount);
+			
+			cell = row.createCell(map2.get("FirstName"));
+			cell.setCellValue(rd.getFirstName());
+			
+			cell = row.createCell(map2.get("LastName"));
+			cell.setCellValue(rd.getLastName());
+			
+			cell = row.createCell(map2.get("Hpoa"));
+			if(rd.getPoa())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map2.get("PoaName"));
+			cell.setCellValue(rd.getPoaFirstName() + " " + rd.getPoaLastName());
+			
+			cell = row.createCell(map2.get("PoaPhone"));
+			cell.setCellValue(rd.getPoaPhone());
+			
+			cell = row.createCell(map2.get("Maried"));
+			if(rd.getSpouse())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map2.get("SpouseName"));
+			cell.setCellValue(rd.getSpouseFistName() + " " + rd.getSpouseLastName());
+			
+			cell = row.createCell(map2.get("SpousePhone"));
+			cell.setCellValue(rd.getSpousePhone());
+			
+			cell = row.createCell(map2.get("Child"));
+			if(rd.getChild())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map2.get("ChildName"));
+			cell.setCellValue(rd.getChildFirstName() + " " + rd.getChildLastName());
+			
+			cell = row.createCell(map2.get("ChildPhone"));
+			cell.setCellValue(rd.getChildPhone());
+			
+			
+			//sheet 3
+            sheet = workbook.getSheetAt(3);
+			
+			rowCount = sheet.getLastRowNum();
+			
+			row = sheet.createRow(++rowCount);
+			
+			cell = row.createCell(map3.get("FirstName"));
+			cell.setCellValue(rd.getFirstName());
+			
+			cell = row.createCell(map3.get("LastName"));
+			cell.setCellValue(rd.getLastName());
+			
+			cell = row.createCell(map3.get("Mental"));
+			if(rd.getMentalIllness())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map3.get("Sleep"));
+			if(rd.getSleedDisorder())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map3.get("Cancer"));
+			if(rd.getCancerHistory())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map3.get("CancerType"));
+			cell.setCellValue(rd.getCancerType());
+			
+			cell = row.createCell(map3.get("Pacemaker/mri"));
+			if(rd.getPacemakerMRI())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map3.get("Drug/Alchol"));
+			if(rd.getSubstanceAbuse())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
+			
+			cell = row.createCell(map3.get("OnGoing"));
+			cell.setCellValue(rd.getOngoingIssues());
+			
+			
 			
 			inputStream.close();
 			

@@ -76,6 +76,10 @@ public class Participant implements PartRecord {
 	private boolean pacemakerMRI;
 	private boolean substanceAbuse;
 	private String ongoingIssues;
+	private boolean Hpoa;
+	private String poaFirstName;
+	private String poaLastName;
+	private String poaPhone;
 
 
 	String screener;
@@ -845,6 +849,48 @@ public class Participant implements PartRecord {
 	public void setOngoingIssues(String ongoingIssues) {
 		this.ongoingIssues = ongoingIssues;
 		
+	}
+
+	@Override
+	public boolean getPoa() {
+		return Hpoa;
+	}
+
+	@Override
+	public void setPoa(boolean poa) {
+		this.Hpoa = poa;
+		
+	}
+
+	@Override
+	public String getPoaFirstName() {
+		return poaFirstName;
+	}
+
+	@Override
+	public void setPoaFirstName(String poaFirstName) {
+		this.poaFirstName = poaFirstName;
+		
+	}
+
+	@Override
+	public String getPoaLastName() {
+		return poaLastName;
+	}
+
+	@Override
+	public void setPoaLastName(String poaLastName) {
+		this.poaLastName = poaLastName;
+	}
+
+	@Override
+	public String getPoaPhone() {
+		return poaPhone;
+	}
+
+	@Override
+	public void setPoaPhone(String poaPhone) {
+		this.poaPhone = poaPhone;
 	}
 	
 

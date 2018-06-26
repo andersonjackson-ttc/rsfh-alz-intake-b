@@ -68,6 +68,14 @@ public interface PartRecord
 	void setPartRel(String relation);
 	
 	//POA fields
+	boolean getPoa();
+	void setPoa(boolean poa);
+	String getPoaFirstName();
+	void setPoaFirstName(String poaFirstName);
+	String getPoaLastName();
+	void setPoaLastName(String poaLastName);
+	String getPoaPhone();
+	void setPoaPhone(String poaPhone);
 	boolean getSpouse();
 	void setSpouse(boolean spo);
 	String getSpouseFistName();

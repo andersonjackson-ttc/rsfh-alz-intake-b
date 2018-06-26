@@ -80,9 +80,24 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField galantamineEndDateTxtBx;
 	@FXML private TextField nammzaricStartDateTxtBx;
 	@FXML private TextField nammzaricEndDateTxtBx;
+	@FXML private TextField studyPartnerFirstNameTxtBx;
+	@FXML private TextField studyPartnerLastNameTxtBx;
+	@FXML private TextField studyPartnerPhoneTxtBx;
+	@FXML private TextField studyPartnerEmailTxtBx;
+	@FXML private TextField studyPartnerRelationTxtBx;
+	@FXML private TextField alzFamHistoryStatusRelationTxtBx;
+	@FXML private TextField ongoingHealthConcernsTxtBx;
+	@FXML private TextField cancerStatusTypeTxtBx;
+	@FXML private TextField rsfhClinRecommendsTxtBx;
+//	@FXML private TextField hpoaChildFirstNameTxtBx;
+//	@FXML private TextField hpoaChildLastNameTxtBx;
 	
 
+	
 	@FXML private ComboBox<String> subjectReferralDrpDn;
+	
+	@FXML private CheckBox studyPartnerStatusTglBtn;
+	private TextField[] partnerArray = {studyPartnerFirstNameTxtBx, studyPartnerLastNameTxtBx, studyPartnerPhoneTxtBx, studyPartnerEmailTxtBx, studyPartnerRelationTxtBx};
 
 	@FXML private CheckBox hpoaStatusCkBxY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
@@ -130,6 +145,58 @@ public class FXMLDocumentController implements Initializable {
 		String subPCP = "";
 		String subSpecialist = "";
 		String subjectReferral = "";
+		
+		//partner
+		String partnerFirstName = "";
+		String partnerLastName = "";
+		String partnerHomePhone = "";
+		String partnerEmail = "";
+		String partnerRelation = "";
+//		boolean partnerStatus = false;
+		
+		//hopa
+		String hpoaFirstName = "";
+		String hpoaLastName = "";
+		String hpoaHomePhone = "";
+		String hpoaSpouseFirst = "";
+		String hpoaSpouseLast = "";
+		String hpoaSpousePhone = "";
+		String hpoaChildFirst = "";
+		String hpoaChildLast = "";
+		String hpoaChilePhone = "";
+		
+		//Symptoms
+		String familyHistoryRelationship = "";
+		String memDiagnosis = "";
+		String memClinician = "";
+		String ongoingConcerns = "";
+		String Recommendatinos = "";
+		
+		String symptDODStr = "";
+		Date symptDOD = new Date();
+		String symptDOOStr = "";
+		Date symptDOO = new Date();
+		String DonepezilStartStr = "";
+		Date DonepezilStart = new Date();
+		String donepezilEndStr = "";
+		Date donepezilEnd = new Date();
+		String memantineStartStr = "";
+		Date memantineStart = new Date();
+		String memantineEndStr = "";
+		Date memantineEnd = new Date();
+		String RivantigmineStartStr = "";
+		Date RivantigmineStart = new Date();
+		String RivantigmineEndStr = "";
+		Date RivantigmineEnd = new Date();
+		String GalantamineStartStr = "";
+		Date GalantamineStart = new Date();
+		String GalantamineEndStr = "";
+		Date GalantamineEnd = new Date();
+		String NamzaricStartStr = "";
+		Date NamzaricStart = new Date();
+		String NamzaricEndStr = "";
+		Date NamzaricEnd = new Date();
+		
 
 
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
@@ -167,8 +234,34 @@ public class FXMLDocumentController implements Initializable {
 		subPCP = subjectPcpTxtBx.getText();
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
-
-
+		
+		partnerFirstName = studyPartnerFirstNameTxtBx.getText();
+		partnerLastName = studyPartnerLastNameTxtBx.getText();
+		partnerHomePhone = studyPartnerPhoneTxtBx.getText();
+		partnerEmail = studyPartnerEmailTxtBx.getText();
+		partnerRelation = studyPartnerRelationTxtBx.getText();
+//		partnerStatus = studyPartnerStatusTglBtn.
+		
+		hpoaFirstName = hpoaFirstNameTxtBx.getText();
+		hpoaLastName = hpoaLastNameTxtBx.getText();
+		hpoaHomePhone = hpoaPhoneTxtBx.getText();
+		hpoaSpouseFirst = hpoaSpouseFirstNameTxtBx.getText();
+		hpoaSpouseLast = hpoaSpouseLastNameTxtBx.getText();
+		hpoaSpousePhone = hpoaSpousePhoneTxtBx.getText();
+		hpoaChildFirst = hpoaChildFirstNameTxtBx.getText();
+		hpoaChildLast = hpoaChildLastNameTxtBx.getText();
+		hpoaChilePhone = hpoaChildPhoneTxtBx.getText();
+		
+		familyHistoryRelationship = alzFamHistoryStatusRelationTxtBx.getText();
+		memDiagnosis = alzMemDiagnosisTxtBx.getText();
+		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
+		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
+		Recommendatinos = rsfhClinRecommendsTxtBx.getText();
+		
+		
+		
+		
+		
 		
 		partic.setFirstName(subFirstName);
 		partic.setMiddleI(subMiddleInit);
@@ -184,7 +277,16 @@ public class FXMLDocumentController implements Initializable {
 		partic.setPcp(subPCP);
 		partic.setSpec(subSpecialist);
 		partic.setReferral(subjectReferral);
-
+		
+		partic.setPartFirstname(partnerFirstName);
+		partic.setPartLastName(partnerLastName);
+		partic.setPartEmail(partnerEmail);
+		partic.setPartPhone(partnerHomePhone);
+		partic.setPartRel(partnerRelation);
+		
+//		partic.set
+		
+		
 		
 		
 		

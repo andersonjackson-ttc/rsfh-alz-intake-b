@@ -89,10 +89,21 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField ongoingHealthConcernsTxtBx;
 	@FXML private TextField cancerStatusTypeTxtBx;
 	@FXML private TextField rsfhClinRecommendsTxtBx;
-//	@FXML private TextField hpoaChildFirstNameTxtBx;
-//	@FXML private TextField hpoaChildLastNameTxtBx;
+
 	
 
+	@FXML private CheckBox alzMemAgitationCkBxY;
+	@FXML private CheckBox alzMemApathyCkBxY;
+	@FXML private CheckBox alzMemSleepIssueCkBxY;
+	@FXML private CheckBox planSolveStatusCkBxY;
+	@FXML private CheckBox tasksStatusCkBxY;
+	@FXML private CheckBox conversationStatusCkBxY;
+	@FXML private CheckBox schizBiMddStatusCkBxY;
+	@FXML private CheckBox sleepDisorderStatusCkBxY;
+	@FXML private CheckBox deviseMRIConcernCkBxY;
+	@FXML private CheckBox drugAlcoholStatusCkBxY;
+//	@FXML private CheckBox planSolveStatusCkBxY;
+	
 	
 	@FXML private ComboBox<String> subjectReferralDrpDn;
 	
@@ -101,27 +112,42 @@ public class FXMLDocumentController implements Initializable {
 
 	@FXML private CheckBox hpoaStatusCkBxY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
+	
 	@FXML private CheckBox hpoaMarriedStatusCkBxY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
 	private TextField[] hpoaMarriedStatArray = {hpoaSpouseFirstNameTxtBx,  hpoaSpouseLastNameTxtBx, hpoaSpousePhoneTxtBx};
+	
 	@FXML private CheckBox hpoaChildStatusCkBxY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
 	private TextField[] hpoaChildStatArray = {hpoaChildFirstNameTxtBx,  hpoaChildLastNameTxtBx, hpoaChildPhoneTxtBx};
+	
 	@FXML private CheckBox alzMemStatusCkBxY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
 	private TextField[] alzMemStatArray = {alzMemDiagnosisTxtBx,  alzMemDiagnosisClinicianTxtBx, alzMemDiagnosisDateTxtBx};
+	
 	@FXML private CheckBox memLossNotedCkBxY;  //memLossNotedDateTxtBx
 //	private TextField[]
+	
 	@FXML private CheckBox alzFamHistoryStatusCkBxY;  //alzFamHistoryStatusRelationTxtBx
+	private TextField[] alzFamHistArray = {alzFamHistoryStatusRelationTxtBx};
 	
 	@FXML private CheckBox donepezilStatusTglBtn;
 	private TextField[] donepezilBeginEnd = {donepezilStartDateTxtBx, donepezilEndDateTxtBx};
+	
 	@FXML private CheckBox memantineStatusTglBtn;
 	private TextField[] memantineBeginEnd = {memantineStartDateTxtBx, memantineEndDateTxtBx};
+	
 	@FXML private CheckBox rivastigmineStatusTglBtn;
 	private TextField[] rivastigmineBeginEnd = {rivastigmineStartDateTxtBx, rivastigmineEndDateTxtBx};
+	
 	@FXML private CheckBox galantamineStatusTglBtn;
 	private TextField[] galantamineBeginEnd = {galantamineStartDateTxtBx, galantamineEndDateTxtBx};
+	
 	@FXML private CheckBox nammzaricStatusTglBtn;
 	private TextField[] nammzaricBeginEnd = {nammzaricStartDateTxtBx, nammzaricEndDateTxtBx};
 
+	@FXML private CheckBox cancerStatusCkBxY;
+	private TextField[] cancerStatusArray = {cancerStatusTypeTxtBx};
+
+
+	
 
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
 
@@ -152,7 +178,7 @@ public class FXMLDocumentController implements Initializable {
 		String partnerHomePhone = "";
 		String partnerEmail = "";
 		String partnerRelation = "";
-//		boolean partnerStatus = false;
+		boolean partnerStatus = false;
 		
 		//hopa
 		String hpoaFirstName = "";
@@ -170,7 +196,7 @@ public class FXMLDocumentController implements Initializable {
 		String memDiagnosis = "";
 		String memClinician = "";
 		String ongoingConcerns = "";
-		String Recommendatinos = "";
+		
 		
 		String symptDODStr = "";
 		Date symptDOD = new Date();
@@ -197,6 +223,7 @@ public class FXMLDocumentController implements Initializable {
 		String NamzaricEndStr = "";
 		Date NamzaricEnd = new Date();
 		
+		
 
 
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
@@ -215,7 +242,7 @@ public class FXMLDocumentController implements Initializable {
 		}
 		catch (ParseException e)
 		{
-			//	    		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
+//   		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
 			Alert dateError = new Alert(AlertType.ERROR, "Date is not Valid. \nPlease enter date as MM/DD/YYYY");
 			dateError.showAndWait();
 			return;
@@ -240,7 +267,7 @@ public class FXMLDocumentController implements Initializable {
 		partnerHomePhone = studyPartnerPhoneTxtBx.getText();
 		partnerEmail = studyPartnerEmailTxtBx.getText();
 		partnerRelation = studyPartnerRelationTxtBx.getText();
-//		partnerStatus = studyPartnerStatusTglBtn.
+		partnerStatus = studyPartnerStatusTglBtn.isSelected();
 		
 		hpoaFirstName = hpoaFirstNameTxtBx.getText();
 		hpoaLastName = hpoaLastNameTxtBx.getText();
@@ -256,13 +283,16 @@ public class FXMLDocumentController implements Initializable {
 		memDiagnosis = alzMemDiagnosisTxtBx.getText();
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
 		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
-		Recommendatinos = rsfhClinRecommendsTxtBx.getText();
 		
 		
 		
 		
 		
 		
+		
+		
+		
+		//patient info
 		partic.setFirstName(subFirstName);
 		partic.setMiddleI(subMiddleInit);
 		partic.setLastName(subLastName);
@@ -278,13 +308,29 @@ public class FXMLDocumentController implements Initializable {
 		partic.setSpec(subSpecialist);
 		partic.setReferral(subjectReferral);
 		
+		//partner info
 		partic.setPartFirstname(partnerFirstName);
 		partic.setPartLastName(partnerLastName);
 		partic.setPartEmail(partnerEmail);
 		partic.setPartPhone(partnerHomePhone);
 		partic.setPartRel(partnerRelation);
 		
-//		partic.set
+		//HPOA
+		partic.setPoaFirstName(hpoaFirstName);
+		partic.setPoaLastName(hpoaLastName);
+		partic.setPoaPhone(hpoaHomePhone);
+		
+		//symptoms
+		partic.setFamilyRelation(familyHistoryRelationship);
+		partic.setDiagnosis(memDiagnosis);
+		partic.setClinician(memClinician);
+//		partic.setC
+		
+//		Medical History
+		
+		
+		
+//		staff Documentation
 		
 		
 		

@@ -254,9 +254,14 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("MemoryDate"));
-			cell.setCellValue(rd.getMemoryLossDate());
-			cell.setCellStyle(cellStyle);
+			
+			if(rd.getMemoryLoss())
+			{
+				cell = row.createCell(map1.get("MemoryDate"));
+				cell.setCellValue(rd.getMemoryLossDate());
+				cell.setCellStyle(cellStyle);
+			}
+			
 			
 			
 			cell = row.createCell(map1.get("DisruptLife"));
@@ -322,13 +327,17 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("AriceptStart"));
-			cell.setCellValue(rd.getAriceptStartDate());
-			cell.setCellStyle(cellStyle);
+			if(rd.getAricept())
+			{
+				cell = row.createCell(map1.get("AriceptStart"));
+				cell.setCellValue(rd.getAriceptStartDate());
+				cell.setCellStyle(cellStyle);
+				
+				cell = row.createCell(map1.get("AriceptStop"));
+				cell.setCellValue(rd.getAriceptStopDate());
+				cell.setCellStyle(cellStyle);
+			}
 			
-			cell = row.createCell(map1.get("AriceptStop"));
-			cell.setCellValue(rd.getAriceptStopDate());
-			cell.setCellStyle(cellStyle);
 			
 			cell = row.createCell(map1.get("Namenda"));
 			if(rd.getNamenda())
@@ -340,13 +349,16 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("NamendaStart"));
-			cell.setCellValue(rd.getNamendaStartDate());
-			cell.setCellStyle(cellStyle);
-			
-			cell = row.createCell(map1.get("NamendaStop"));
-			cell.setCellValue(rd.getNamendaStopDate());
-			cell.setCellStyle(cellStyle);
+			if(rd.getNamenda())
+			{
+				cell = row.createCell(map1.get("NamendaStart"));
+				cell.setCellValue(rd.getNamendaStartDate());
+				cell.setCellStyle(cellStyle);
+				
+				cell = row.createCell(map1.get("NamendaStop"));
+				cell.setCellValue(rd.getNamendaStopDate());
+				cell.setCellStyle(cellStyle);
+			}
 			
 			cell = row.createCell(map1.get("Exelon"));
 			if(rd.getExelon())
@@ -358,13 +370,17 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("ExelonStart"));
-			cell.setCellValue(rd.getExelonStartDate());
-			cell.setCellStyle(cellStyle);
+			if(rd.getExelon())
+			{
+				cell = row.createCell(map1.get("ExelonStart"));
+				cell.setCellValue(rd.getExelonStartDate());
+				cell.setCellStyle(cellStyle);
+				
+				cell = row.createCell(map1.get("ExelonStop"));
+				cell.setCellValue(rd.getExelonStopDate());
+				cell.setCellStyle(cellStyle);
+			}
 			
-			cell = row.createCell(map1.get("ExelonStop"));
-			cell.setCellValue(rd.getExelonStopDate());
-			cell.setCellStyle(cellStyle);
 			
 			cell = row.createCell(map1.get("Razadyne"));
 			if(rd.getRazadyne())
@@ -376,13 +392,17 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("RazadyneStart"));
-			cell.setCellValue(rd.getRazadyneStartDate());
-			cell.setCellStyle(cellStyle);
+			if(rd.getRazadyne())
+			{
+				cell = row.createCell(map1.get("RazadyneStart"));
+				cell.setCellValue(rd.getRazadyneStartDate());
+				cell.setCellStyle(cellStyle);
+				
+				cell = row.createCell(map1.get("RazadyneStop"));
+				cell.setCellValue(rd.getRazadyneStopDate());
+				cell.setCellStyle(cellStyle);
+			}
 			
-			cell = row.createCell(map1.get("RazadyneStop"));
-			cell.setCellValue(rd.getRazadyneStopDate());
-			cell.setCellStyle(cellStyle);
 			
 			cell = row.createCell(map1.get("AriceptNamenda"));
 			if(rd.getAriceptNamenda())
@@ -394,13 +414,17 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("AriNamStart"));
-			cell.setCellValue(rd.getAriceptNamendaStartDate());
-			cell.setCellStyle(cellStyle);
+			if(rd.getAriceptNamenda())
+			{
+				cell = row.createCell(map1.get("AriNamStart"));
+				cell.setCellValue(rd.getAriceptNamendaStartDate());
+				cell.setCellStyle(cellStyle);
+				
+				cell = row.createCell(map1.get("AriNamStop"));
+				cell.setCellValue(rd.getAriceptNamendaStopDate());
+				cell.setCellStyle(cellStyle);
+			}
 			
-			cell = row.createCell(map1.get("AriNamStop"));
-			cell.setCellValue(rd.getAriceptNamendaStopDate());
-			cell.setCellStyle(cellStyle);
 			
 			
 			//sheet 2

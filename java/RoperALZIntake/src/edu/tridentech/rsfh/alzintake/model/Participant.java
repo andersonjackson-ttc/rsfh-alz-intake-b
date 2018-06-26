@@ -81,7 +81,6 @@ public class Participant implements PartRecord {
 	private String poaLastName;
 	private String poaPhone;
 
-
 	String screener;
 	
 	@Override
@@ -94,6 +93,8 @@ public class Participant implements PartRecord {
 		screener = screen;
 	}
 
+//Subject Information
+	
 	@Override
 	public String getMiddleI() {
 		return middleI;
@@ -270,6 +271,8 @@ public class Participant implements PartRecord {
 		
 	}
 	
+//Study Partner Information
+	
 	@Override
 	public boolean getPartner() {
 		return partner;
@@ -334,6 +337,50 @@ public class Participant implements PartRecord {
 	public void setPartRel(String relation) {
 		this.partRel = relation;
 		
+	}
+	
+//HPOA Information
+	
+	@Override
+	public boolean getPoa() {
+		return Hpoa;
+	}
+
+	@Override
+	public void setPoa(boolean poa) {
+		this.Hpoa = poa;
+		
+	}
+
+	@Override
+	public String getPoaFirstName() {
+		return poaFirstName;
+	}
+
+	@Override
+	public void setPoaFirstName(String poaFirstName) {
+		this.poaFirstName = poaFirstName;
+		
+	}
+
+	@Override
+	public String getPoaLastName() {
+		return poaLastName;
+	}
+
+	@Override
+	public void setPoaLastName(String poaLastName) {
+		this.poaLastName = poaLastName;
+	}
+
+	@Override
+	public String getPoaPhone() {
+		return poaPhone;
+	}
+
+	@Override
+	public void setPoaPhone(String poaPhone) {
+		this.poaPhone = poaPhone;
 	}
 	
 	@Override
@@ -434,6 +481,8 @@ public class Participant implements PartRecord {
 		this.address2 = address;
 		
 	}
+	
+//Symptoms
 
 	@Override
 	public Date getIntakeDate() {
@@ -772,6 +821,8 @@ public class Participant implements PartRecord {
 		this.ariceptNamendaStopDate = ariceptNamendaStop;
 		
 	}
+	
+//Medical History
 
 	@Override
 	public boolean getMentalIllness() {
@@ -849,48 +900,6 @@ public class Participant implements PartRecord {
 	public void setOngoingIssues(String ongoingIssues) {
 		this.ongoingIssues = ongoingIssues;
 		
-	}
-
-	@Override
-	public boolean getPoa() {
-		return Hpoa;
-	}
-
-	@Override
-	public void setPoa(boolean poa) {
-		this.Hpoa = poa;
-		
-	}
-
-	@Override
-	public String getPoaFirstName() {
-		return poaFirstName;
-	}
-
-	@Override
-	public void setPoaFirstName(String poaFirstName) {
-		this.poaFirstName = poaFirstName;
-		
-	}
-
-	@Override
-	public String getPoaLastName() {
-		return poaLastName;
-	}
-
-	@Override
-	public void setPoaLastName(String poaLastName) {
-		this.poaLastName = poaLastName;
-	}
-
-	@Override
-	public String getPoaPhone() {
-		return poaPhone;
-	}
-
-	@Override
-	public void setPoaPhone(String poaPhone) {
-		this.poaPhone = poaPhone;
 	}
 	
 

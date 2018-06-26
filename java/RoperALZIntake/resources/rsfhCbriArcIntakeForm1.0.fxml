@@ -4,9 +4,11 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -52,54 +54,97 @@
                   <Font name="Calibri Bold Italic" size="27.0" />
                </font>
             </Label>
-            <CheckBox fx:id="hpoaStatusCkBxY" layoutX="70.0" layoutY="604.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="hpoaStatusCkBxN" layoutX="129.0" layoutY="604.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="hpoaRadY" layoutX="66.0" layoutY="604.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="hpoaRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="hpoasRadN" layoutX="110.0" layoutY="604.0" mnemonicParsing="false" text="No" toggleGroup="$hpoaRadTog" />
             <TextField fx:id="hpoaFirstNameTxtBx" layoutX="192.0" layoutY="600.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA First Name" />
             <TextField fx:id="hpoaLastNameTxtBx" layoutX="447.0" layoutY="600.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA Last Name" />
             <TextField fx:id="hpoaPhoneTxtBx" layoutX="707.0" layoutY="600.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA Home Phone" />
-            <CheckBox fx:id="hpoaMarriedStatusCkBxY" layoutX="71.0" layoutY="679.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="hpoaMarriedStatusCkBxN" layoutX="130.0" layoutY="679.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="hpoaMarriedStatusRadY" layoutX="67.0" layoutY="679.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="hpoaMarriedStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="hpoaMarriedStatusRadN" layoutX="111.0" layoutY="679.0" mnemonicParsing="false" text="No" toggleGroup="$hpoaMarriedStatusRadTog" />
             <TextField fx:id="hpoaSpouseFirstNameTxtBx" layoutX="193.0" layoutY="675.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse First Name" />
             <TextField fx:id="hpoaSpouseLastNameTxtBx" layoutX="448.0" layoutY="675.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse Last Name" />
             <TextField fx:id="hpoaSpousePhoneTxtBx" layoutX="708.0" layoutY="675.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse Phone" />
-            <CheckBox fx:id="hpoaChildStatusCkBxY" layoutX="71.0" layoutY="756.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="hpoaChildStatusCkBxN" layoutX="130.0" layoutY="756.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="hpoaChildStatusRadY" layoutX="68.0" layoutY="756.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="hpoaChildStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="hpoaChildStatusRadN" layoutX="112.0" layoutY="756.0" mnemonicParsing="false" text="No" toggleGroup="$hpoaChildStatusRadTog" />
             <TextField fx:id="hpoaChildFirstNameTxtBx" layoutX="193.0" layoutY="752.0" prefHeight="20.0" prefWidth="229.0" promptText="Child First Name" />
             <TextField fx:id="hpoaChildLastNameTxtBx" layoutX="448.0" layoutY="752.0" prefHeight="20.0" prefWidth="229.0" promptText="Child  Last Name" />
             <TextField fx:id="hpoaChildPhoneTxtBx" layoutX="708.0" layoutY="752.0" prefHeight="20.0" prefWidth="229.0" promptText="Child Phone" />
-            <CheckBox fx:id="alzMemStatusCkBxY" layoutX="72.0" layoutY="891.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="alzMemStatusCkBxN" layoutX="131.0" layoutY="891.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="alzMemStatusRadY" layoutX="73.0" layoutY="891.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="alzMemStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="alzMemStatusRadN" layoutX="117.0" layoutY="891.0" mnemonicParsing="false" text="No" toggleGroup="$alzMemStatusRadTog" />
             <TextField fx:id="alzMemDiagnosisTxtBx" layoutX="194.0" layoutY="887.0" prefHeight="20.0" prefWidth="229.0" promptText="Diagnosis" />
             <TextField fx:id="alzMemDiagnosisClinicianTxtBx" layoutX="449.0" layoutY="887.0" prefHeight="20.0" prefWidth="229.0" promptText="Clinician" />
             <TextField fx:id="alzMemDiagnosisDateTxtBx" layoutX="709.0" layoutY="887.0" prefHeight="25.0" prefWidth="127.0" promptText="Diagnosis Date" />
-            <Label layoutX="72.0" layoutY="969.0" text="Agitation" />
-            <CheckBox fx:id="alzMemAgitationCkBxY" layoutX="131.0" layoutY="978.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="alzMemAgitationCkBxN" layoutX="175.0" layoutY="978.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="251.0" layoutY="969.0" text="Apathy" />
-            <CheckBox fx:id="alzMemApathyCkBxY" layoutX="295.0" layoutY="978.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="alzMemApathyCkBxN" layoutX="343.0" layoutY="978.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="409.0" layoutY="969.0" text="Sleep Problems" />
-            <CheckBox fx:id="alzMemSleepIssueCkBxY" layoutX="500.0" layoutY="978.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="alzMemSleepIssueCkBxN" layoutX="552.0" layoutY="978.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="54.0" layoutY="1056.0" text="Has subject noticed memory loss?" />
-            <CheckBox fx:id="memLossNotedCkBxY" layoutX="341.0" layoutY="1058.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="memLossNotedCkBxN" layoutX="388.0" layoutY="1058.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="alzMemAgitationRadY" layoutX="128.0" layoutY="969.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="alzMemAgitationRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="alzMemAgitationRadN" layoutX="172.0" layoutY="969.0" mnemonicParsing="false" text="No" toggleGroup="$alzMemAgitationRadTog" />
+            <RadioButton fx:id="alzMemApathyRadY" layoutX="293.0" layoutY="969.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="alzMemApathyRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="alzMemApathyRadN" layoutX="337.0" layoutY="969.0" mnemonicParsing="false" text="No" toggleGroup="$alzMemApathyRadTog" />
+            <RadioButton fx:id="alzMemSleepIssueRadY" layoutX="504.0" layoutY="969.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="alzMemSleepIssueRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="alzMemSleepIssueRadN" layoutX="548.0" layoutY="969.0" mnemonicParsing="false" text="No" toggleGroup="$alzMemSleepIssueRadTog" />
+            <RadioButton fx:id="memLossNotedRadY" layoutX="339.0" layoutY="1056.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="memLossNotedRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="memLossNotedRadN" layoutX="383.0" layoutY="1056.0" mnemonicParsing="false" text="No" toggleGroup="$memLossNotedRadTog" />
             <TextField fx:id="memLossNotedDateTxtBx" layoutX="582.0" layoutY="1054.0" prefHeight="20.0" prefWidth="127.0" promptText="Date of occurrence" />
-            <CheckBox fx:id="memLossDisruptCkBxY" layoutX="341.0" layoutY="1094.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="memLossDisruptCkBxY" layoutX="388.0" layoutY="1093.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="55.0" layoutY="1092.0" text="Does memory loss disrupt daily life?" />
-            <Label layoutX="54.0" layoutY="1130.0" text="Having more difficulty planning or solving problems?" />
-            <CheckBox fx:id="planSolveStatusCkBxY" layoutX="342.0" layoutY="1130.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="planSolveStatusCkBxN" layoutX="389.0" layoutY="1130.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="55.0" layoutY="1169.0" text="Change in ability to complete familiar tasks?" />
-            <CheckBox fx:id="tasksStatusCkBxY" layoutX="343.0" layoutY="1169.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="tasksStatusCkBxN" layoutX="390.0" layoutY="1169.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="55.0" layoutY="1204.0" text="Problems with words of coversations?" />
-            <CheckBox fx:id="conversationStatusCkBxY" layoutX="343.0" layoutY="1204.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="conversationStatusCkBxN" layoutX="390.0" layoutY="1204.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="57.0" layoutY="1241.0" text="Family history of Alzheimer's" />
-            <CheckBox fx:id="alzFamHistoryStatusCkBxY" layoutX="345.0" layoutY="1241.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="alzFamHistoryStatusCkBxN" layoutX="392.0" layoutY="1241.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="memLossDisruptRadY" layoutX="339.0" layoutY="1092.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="memLossDisruptRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="memLossDisruptRadN" layoutX="383.0" layoutY="1092.0" mnemonicParsing="false" text="No" toggleGroup="$memLossDisruptRadTog" />
+            <RadioButton fx:id="planSolveStatusRadY" layoutX="339.0" layoutY="1130.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="planSolveStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="planSolveStatusRadN" layoutX="383.0" layoutY="1130.0" mnemonicParsing="false" text="No" toggleGroup="$planSolveStatusRadTog" />
+            <RadioButton fx:id="tasksStatusRadY" layoutX="339.0" layoutY="1169.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tasksStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="tasksStatusRadN" layoutX="383.0" layoutY="1169.0" mnemonicParsing="false" text="No" toggleGroup="$tasksStatusRadTog" />
+            <RadioButton fx:id="conversationStatusRadY" layoutX="340.0" layoutY="1204.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="conversationStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="conversationStatusRadN" layoutX="384.0" layoutY="1204.0" mnemonicParsing="false" text="No" toggleGroup="$conversationStatusRadTog" />
+            <RadioButton fx:id="alzFamHistoryStatusRadY" layoutX="340.0" layoutY="1241.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="alzFamHistoryStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="alzFamHistoryStatusRadN" layoutX="384.0" layoutY="1241.0" mnemonicParsing="false" text="No" toggleGroup="$alzFamHistoryStatusRadTog" />
             <TextField fx:id="alzFamHistoryStatusRelationTxtBx" layoutX="594.0" layoutY="1237.0" prefHeight="25.0" prefWidth="126.0" promptText="Relationship" />
             <CheckBox fx:id="donepezilStatusTglBtn" layoutX="55.0" layoutY="1330.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Donepezil (Aricept)" />
             <TextField fx:id="donepezilStartDateTxtBx" layoutX="340.0" layoutY="1332.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
@@ -116,23 +161,52 @@
             <CheckBox fx:id="nammzaricStatusTglBtn" layoutX="53.0" layoutY="1484.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Namzaric (Aricept-Namenda combination)" />
             <TextField fx:id="nammzaricStartDateTxtBx" layoutX="338.0" layoutY="1484.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
             <TextField fx:id="nammzaricEndDateTxtBx" layoutX="488.0" layoutY="1484.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
-            <Label layoutX="52.0" layoutY="1635.0" text="Schizophrenia, Bipolar, or Major Depressive Disorder?" />
-            <CheckBox fx:id="schizBiMddStatusCkBxY" layoutX="350.0" layoutY="1636.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="schizBiMddStatusCkBxN" layoutX="397.0" layoutY="1636.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="53.0" layoutY="1671.0" text="Sleep Disorder?" />
-            <CheckBox fx:id="sleepDisorderStatusCkBxY" layoutX="351.0" layoutY="1672.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="sleepDisorderStatusCkBxN" layoutX="398.0" layoutY="1672.0" mnemonicParsing="false" text="No" />
-            <Label layoutX="51.0" layoutY="1710.0" text="Active cancer, including skin cancer, within last 5 years?" />
-            <CheckBox fx:id="cancerStatusCkBxY" layoutX="349.0" layoutY="1711.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="cancerStatusCkBxN" layoutX="396.0" layoutY="1711.0" mnemonicParsing="false" text="No" />
+            <RadioButton fx:id="schizBiMddStatusRadY" layoutX="347.0" layoutY="1635.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="schizBiMddStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="schizBiMddStatusRadN" layoutX="391.0" layoutY="1635.0" mnemonicParsing="false" text="No" toggleGroup="$schizBiMddStatusRadTog" />
+            <RadioButton fx:id="sleepDisorderStatusRadY" layoutX="348.0" layoutY="1671.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="sleepDisorderStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="sleepDisorderStatusRadN" layoutX="392.0" layoutY="1671.0" mnemonicParsing="false" text="No" toggleGroup="$sleepDisorderStatusRadTog" />
+            <RadioButton fx:id="cancerStatusRadY" layoutX="348.0" layoutY="1710.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="cancerStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="cancerStatusRadN" layoutX="392.0" layoutY="1710.0" mnemonicParsing="false" text="No" toggleGroup="$cancerStatusRadTog" />
             <TextField fx:id="cancerStatusTypeTxtBx" layoutX="552.0" layoutY="1706.0" prefHeight="20.0" prefWidth="127.0" promptText="Type of Cancer" />
+            <RadioButton fx:id="deviseMRIConcernRadY" layoutX="348.0" layoutY="1749.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="deviseMRIConcernRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="deviseMRIConcernRadN" layoutX="392.0" layoutY="1749.0" mnemonicParsing="false" text="No" toggleGroup="$deviseMRIConcernRadTog" />
+            <RadioButton fx:id="drugAlcoholStatusRadY" layoutX="349.0" layoutY="1784.0" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="drugAlcoholStatusRadTog" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="drugAlcoholStatusRadN" layoutX="393.0" layoutY="1784.0" mnemonicParsing="false" text="No" toggleGroup="$drugAlcoholStatusRadTog" />
+            <TextField fx:id="ongoingHealthConcernsTxtBx" alignment="TOP_LEFT" layoutX="731.0" layoutY="1644.0" prefHeight="166.0" prefWidth="294.0" promptText="Type conditions and concerns here" />
+            <Label layoutX="72.0" layoutY="969.0" text="Agitation" />
+            <Label layoutX="251.0" layoutY="969.0" text="Apathy" />
+            <Label layoutX="409.0" layoutY="969.0" text="Sleep Problems" />
+            <Label layoutX="54.0" layoutY="1056.0" text="Has subject noticed memory loss?" />
+            <Label layoutX="55.0" layoutY="1092.0" text="Does memory loss disrupt daily life?" />
+            <Label layoutX="54.0" layoutY="1130.0" text="Having more difficulty planning or solving problems?" />
+            <Label layoutX="55.0" layoutY="1169.0" text="Change in ability to complete familiar tasks?" />
+            <Label layoutX="55.0" layoutY="1204.0" text="Problems with words of coversations?" />
+            <Label layoutX="57.0" layoutY="1241.0" text="Family history of Alzheimer's" />
+            <Label layoutX="52.0" layoutY="1635.0" text="Schizophrenia, Bipolar, or Major Depressive Disorder?" />
+            <Label layoutX="53.0" layoutY="1671.0" text="Sleep Disorder?" />
+            <Label layoutX="51.0" layoutY="1710.0" text="Active cancer, including skin cancer, within last 5 years?" />
             <Label layoutX="52.0" layoutY="1749.0" text="Pacemaker or other MRI incompatible devices?" />
-            <CheckBox fx:id="deviseMRIConcernCkBxY" layoutX="350.0" layoutY="1750.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="deviseMRIConcernCkBxN" layoutX="397.0" layoutY="1750.0" mnemonicParsing="false" text="No" />
             <Label layoutX="52.0" layoutY="1784.0" text="History of drug or alcohol abuse in last 2 years?" />
-            <CheckBox fx:id="drugAlcoholStatusCkBxY" layoutX="350.0" layoutY="1785.0" mnemonicParsing="false" text="Yes" />
-            <CheckBox fx:id="drugAlcoholStatusCkBxN" layoutX="397.0" layoutY="1785.0" mnemonicParsing="false" text="No" />
-            <TextField fx:id="ongoingHealthConcernsTxtBx" alignment="TOP_LEFT" layoutX="731.0" layoutY="1658.0" prefHeight="166.0" prefWidth="294.0" promptText="Type conditions and concerns here" />
             <CheckBox fx:id="rsfhIntakeDbStatusTglBtn" layoutX="60.0" layoutY="1887.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Entered into database" />
             <CheckBox fx:id="rsfhChartStatusTglBtn" layoutX="60.0" layoutY="1919.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Create chart and pass to clinician" />
             <CheckBox fx:id="rsfhScheduledVisitStatusTglBtn" layoutX="58.0" layoutY="1956.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Visit scheduled" />
@@ -148,7 +222,7 @@
             <Separator layoutX="49.0" layoutY="1699.0" prefHeight="5.0" prefWidth="529.0" />
             <Separator layoutX="48.0" layoutY="1660.0" prefHeight="5.0" prefWidth="529.0" />
             <Label layoutX="39.0" layoutY="1585.0" text="Are any of the following conditions applicable?" />
-            <Label layoutX="729.0" layoutY="1636.0" text="Ongoing health problems or conditions?" />
+            <Label layoutX="728.0" layoutY="1626.0" text="Ongoing health problems or conditions?" />
             <Separator layoutX="314.0" layoutY="1845.0" prefHeight="20.0" prefWidth="806.0" />
             <Label layoutX="24.0" layoutY="1839.0" text="CBRI staff documentation">
                <font>

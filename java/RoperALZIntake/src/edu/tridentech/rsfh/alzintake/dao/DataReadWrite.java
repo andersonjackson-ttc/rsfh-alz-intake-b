@@ -87,26 +87,28 @@ public class DataReadWrite
 		map1.put("FirstName", 2);
 		map1.put("PrevDiag", 3);
 		map1.put("MemLoss", 4);
-		map1.put("DisruptLife", 5);
-		map1.put("DiffPlan", 6);
-		map1.put("DiffTask", 7);
-		map1.put("DiffWords", 8);
-		map1.put("FamilyHist", 9);
-		map1.put("Aricept", 10);
-		map1.put("AriceptStart", 11);
-		map1.put("AriceptStop", 12);
-		map1.put("Namenda", 13);
-		map1.put("NamendaStart", 14);
-		map1.put("NamendaStop", 15);
-		map1.put("Exelon", 16);
-		map1.put("ExelonStart", 17);
-		map1.put("ExelonStop", 18);
-		map1.put("Razadyne", 19);
-		map1.put("RazadyneStart", 20);
-		map1.put("RazadyneStop", 21);
-		map1.put("AriceptNamenda", 22);
-		map1.put("AriNamStart", 23);
-		map1.put("AriNamStop", 24);
+		map1.put("MemoryDate", 5);
+		map1.put("DisruptLife", 6);
+		map1.put("DiffPlan", 7);
+		map1.put("DiffTask", 8);
+		map1.put("DiffWords", 9);
+		map1.put("FamilyHist", 10);
+		map1.put("FamilyRelation", 11);
+		map1.put("Aricept", 12);
+		map1.put("AriceptStart", 13);
+		map1.put("AriceptStop", 14);
+		map1.put("Namenda", 15);
+		map1.put("NamendaStart", 16);
+		map1.put("NamendaStop", 17);
+		map1.put("Exelon", 18);
+		map1.put("ExelonStart", 19);
+		map1.put("ExelonStop", 20);
+		map1.put("Razadyne", 21);
+		map1.put("RazadyneStart", 22);
+		map1.put("RazadyneStop", 23);
+		map1.put("AriceptNamenda", 24);
+		map1.put("AriNamStart", 25);
+		map1.put("AriNamStop", 26);
 		
 		//Map for sheet 2
 		HashMap<String, Integer> map2 = new HashMap<>();
@@ -252,6 +254,10 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
+			cell = row.createCell(map1.get("MemoryDate"));
+			cell.setCellValue(rd.getMemoryLossDate());
+			cell.setCellStyle(cellStyle);
+			
 			
 			cell = row.createCell(map1.get("DisruptLife"));
 			if(rd.getMemoryDisruption())
@@ -302,6 +308,9 @@ public class DataReadWrite
 			{
 				cell.setCellValue("No");
 			}
+			
+			cell = row.createCell(map1.get("FamilyRelation"));
+			cell.setCellValue(rd.getFamilyRelation());
 			
 			cell = row.createCell(map1.get("Aricept"));
 			if(rd.getAricept())

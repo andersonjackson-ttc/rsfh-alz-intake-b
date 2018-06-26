@@ -262,14 +262,14 @@ public class FXMLDocumentController implements Initializable {
 		
 
 
-		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
+		
 		DataReadWrite writer = DataReadWrite.getInstance();
 		Participant partic = new Participant();
 
 		subDOBStr = subjectDOBTxtBx.getText();
 
 
-		try 
+		/*try 
 		{
 //			Calendar calendar = Calendar.getInstance();
 			dateParser.setLenient(false);
@@ -282,7 +282,9 @@ public class FXMLDocumentController implements Initializable {
 			Alert dateError = new Alert(AlertType.ERROR, "Date is not Valid. \nPlease enter date as MM/DD/YYYY");
 			dateError.showAndWait();
 			return;
-		}
+		}*/
+		
+		subDOB = VerifyDate(subDOBStr);
 
 //		subject info
 		subFirstName = subjectFirstNameTxtBx.getText();
@@ -462,6 +464,8 @@ public class FXMLDocumentController implements Initializable {
 
 
 	}
+	
+	
 
 	private void clearForm() {
 		subjectFirstNameTxtBx.setText("");
@@ -488,7 +492,26 @@ public class FXMLDocumentController implements Initializable {
 	}
 	
 	
-	
+	private Date VerifyDate(String tempDateStr)
+	{
+		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
+		Date tempDate;
+		try 
+		{
+			dateParser.setLenient(false);
+			tempDate = dateParser.parse(tempDateStr);
+
+			
+			return tempDate;
+		}
+		catch (ParseException e)
+		{
+//   		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
+			Alert dateError = new Alert(AlertType.ERROR, "Date is not Valid. \nPlease enter date as MM/DD/YYYY");
+			dateError.showAndWait();
+			return null;
+		}
+	}
 	
 	
 	

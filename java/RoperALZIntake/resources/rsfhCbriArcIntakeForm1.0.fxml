@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tridentech.rsfh.alzintake.view.FXMLDocumentController">
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2184.0" prefWidth="1134.0">
          <children>
@@ -193,6 +194,8 @@
             </RadioButton>
             <RadioButton fx:id="drugAlcoholStatusRadN" layoutX="393.0" layoutY="1784.0" mnemonicParsing="false" text="No" toggleGroup="$drugAlcoholStatusRadTog" />
             <TextField fx:id="ongoingHealthConcernsTxtBx" alignment="TOP_LEFT" layoutX="731.0" layoutY="1644.0" prefHeight="166.0" prefWidth="294.0" promptText="Type conditions and concerns here" />
+            <Button fx:id="submitIntakeBtn" layoutX="496.0" layoutY="2106.0" mnemonicParsing="false" onAction="#handleSubmitButtonAction" prefHeight="43.0" prefWidth="116.0" style="-fx-background-color: black;" text="SUBMIT" textFill="WHITE" />
+            <Button fx:id="submitClearBtn" layoutX="670.0" layoutY="2106.0" mnemonicParsing="false" onAction="#handleClearButtonAction" prefHeight="43.0" prefWidth="116.0" style="-fx-background-color: black;" text="CLEAR" textFill="WHITE" />
             <Label layoutX="72.0" layoutY="969.0" text="Agitation" />
             <Label layoutX="251.0" layoutY="969.0" text="Apathy" />
             <Label layoutX="409.0" layoutY="969.0" text="Sleep Problems" />

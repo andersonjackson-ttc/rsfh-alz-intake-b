@@ -125,7 +125,7 @@
             <Label layoutX="51.0" layoutY="1710.0" text="Active cancer, including skin cancer, within last 5 years?" />
             <CheckBox fx:id="cancerStatusCkBxY" layoutX="349.0" layoutY="1711.0" mnemonicParsing="false" text="Yes" />
             <CheckBox fx:id="cancerStatusCkBxN" layoutX="396.0" layoutY="1711.0" mnemonicParsing="false" text="No" />
-            <TextField fx:id="cancerStatusTypeTxtBx" layoutX="447.0" layoutY="1706.0" prefHeight="20.0" prefWidth="127.0" promptText="Type of Cancer" />
+            <TextField fx:id="cancerStatusTypeTxtBx" layoutX="552.0" layoutY="1706.0" prefHeight="20.0" prefWidth="127.0" promptText="Type of Cancer" />
             <Label layoutX="52.0" layoutY="1749.0" text="Pacemaker or other MRI incompatible devices?" />
             <CheckBox fx:id="deviseMRIConcernCkBxY" layoutX="350.0" layoutY="1750.0" mnemonicParsing="false" text="Yes" />
             <CheckBox fx:id="deviseMRIConcernCkBxN" layoutX="397.0" layoutY="1750.0" mnemonicParsing="false" text="No" />
@@ -231,7 +231,7 @@
             <Label layoutX="710.0" layoutY="870.0" text="Date of Diagnosis" />
             <Label layoutX="340.0" layoutY="1313.0" text="Medication Start Date" />
             <Label layoutX="490.0" layoutY="1313.0" text="Medication Stop Date" />
-            <Label layoutX="582.0" layoutY="1710.0" text="Type of Cancer" />
+            <Label layoutX="460.0" layoutY="1710.0" text="Type of Cancer" />
             <Label layoutX="342.0" layoutY="1899.0" text="Subject Assessment Date" />
             <Label layoutX="494.0" layoutY="1899.0" text="Clinician Recommendations" />
          </children>

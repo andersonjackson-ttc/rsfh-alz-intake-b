@@ -16,7 +16,7 @@ public class Main extends Application {
 
 	public void start(Stage stage) throws Exception {
 	    FXMLDocumentController controller;
-	    FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLDocument.fxml"));
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource("rsfhCbriArcIntakeForm1.0.fxml"));
 	    Parent root = loader.load();
 
 	    List<String> args = this.getParameters().getRaw();

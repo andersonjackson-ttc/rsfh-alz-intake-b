@@ -100,30 +100,31 @@ public class DataReadWrite
 		
 		map1.put(Fields.LAST_NAME, 1);
 		map1.put(Fields.FIRST_NAME, 2);
-		map1.put(Fields.PREVIOUS_DIAG, 3);
-		map1.put(Fields.MEMORY_LOSS, 4);
-		map1.put(Fields.MEMORY_DATE, 5);
-		map1.put(Fields.DISRUPTS_LIFE, 6);
-		map1.put(Fields.DIFFICULTY_PLANNING, 7);
-		map1.put(Fields.DIFFICULTY_TASKS, 8);
-		map1.put(Fields.DIFFICULTY_WORDS, 9);
-		map1.put(Fields.FAMILY_HISTORY, 10);
-		map1.put(Fields.FAMILY_RELATION, 11);
-		map1.put(Fields.ARICEPT, 12);
-		map1.put(Fields.ARICEPT_START, 13);
-		map1.put(Fields.ARICEPT_STOP, 14);
-		map1.put(Fields.NAMENDA, 15);
-		map1.put(Fields.NAMENDA_START, 16);
-		map1.put(Fields.NAMENDA_STOP, 17);
-		map1.put(Fields.EXELON, 18);
-		map1.put(Fields.EXELON_START, 19);
-		map1.put(Fields.EXELON_STOP, 20);
-		map1.put(Fields.RAZADYNE, 21);
-		map1.put(Fields.RAZADYNE_START, 22);
-		map1.put(Fields.RAZADYNE_STOP, 23);
-		map1.put(Fields.ARICEPT_NAMENDA, 24);
-		map1.put(Fields.ARINAM_START, 25);
-		map1.put(Fields.ARINAM_STOP, 26);
+		map1.put(Fields.DOB, 3);
+		map1.put(Fields.PREVIOUS_DIAG, 4);
+		map1.put(Fields.MEMORY_LOSS, 5);
+		map1.put(Fields.MEMORY_DATE, 6);
+		map1.put(Fields.DISRUPTS_LIFE, 7);
+		map1.put(Fields.DIFFICULTY_PLANNING, 8);
+		map1.put(Fields.DIFFICULTY_TASKS, 9);
+		map1.put(Fields.DIFFICULTY_WORDS, 10);
+		map1.put(Fields.FAMILY_HISTORY, 11);
+		map1.put(Fields.FAMILY_RELATION, 12);
+		map1.put(Fields.ARICEPT, 13);
+		map1.put(Fields.ARICEPT_START, 14);
+		map1.put(Fields.ARICEPT_STOP, 15);
+		map1.put(Fields.NAMENDA, 16);
+		map1.put(Fields.NAMENDA_START, 17);
+		map1.put(Fields.NAMENDA_STOP, 18);
+		map1.put(Fields.EXELON, 19);
+		map1.put(Fields.EXELON_START, 20);
+		map1.put(Fields.EXELON_STOP, 21);
+		map1.put(Fields.RAZADYNE, 22);
+		map1.put(Fields.RAZADYNE_START, 23);
+		map1.put(Fields.RAZADYNE_STOP, 24);
+		map1.put(Fields.ARICEPT_NAMENDA, 25);
+		map1.put(Fields.ARINAM_START, 26);
+		map1.put(Fields.ARINAM_STOP, 27);
 		
 		//Map for sheet 2
 		HashMap<Fields, Integer> map2 = new HashMap<>();
@@ -238,8 +239,8 @@ public class DataReadWrite
 			cell = row.createCell(map.get(Fields.REFERRAL));
 			cell.setCellValue(rd.getReferral());
 			
-			//cell = row.createCell(map.get(Fields.MAIL));
-			//cell.setCellValue(rd.getMailing());
+			//cell = row.createCell(map.get(Fields.MAIL_LIST));
+			//cell.setCellValue(rd.getMailList);
 			
 			
 			//Sheet 1
@@ -255,6 +256,10 @@ public class DataReadWrite
 			
 			cell = row.createCell(map1.get(Fields.FIRST_NAME));
 			cell.setCellValue(rd.getFirstName());
+			
+			cell = row.createCell(map1.get(Fields.DOB));
+			cell.setCellValue(rd.getDOB());
+			cell.setCellStyle(cellStyle);
 			
 			cell = row.createCell(map1.get(Fields.PREVIOUS_DIAG));
 			cell.setCellValue(rd.getDiagnosis());

@@ -24,6 +24,7 @@ public class Participant implements PartRecord {
 	private String cellNum;
 	private String PCP;
 	private String specialist;
+	private boolean mailList;
 	private boolean partner;
 	private String partFirstname;
 	private String partLastName;
@@ -270,6 +271,17 @@ public class Participant implements PartRecord {
 		this.specialist = spec;
 		
 	}
+	
+//	@Override
+//	public boolean getMailList() {
+//		return mailList;
+//	}
+//
+//	@Override
+//	public void setMailList(String tempMailList) {
+//		this.mailList = tempMailList;
+//		
+//	}
 	
 //Study Partner Information
 	

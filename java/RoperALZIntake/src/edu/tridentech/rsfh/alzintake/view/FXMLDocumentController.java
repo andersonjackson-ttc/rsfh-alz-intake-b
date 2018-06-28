@@ -118,7 +118,7 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox studyPartnerStatusTglBtn;
 	private TextField[] partnerArray = {studyPartnerFirstNameTxtBx, studyPartnerLastNameTxtBx, studyPartnerPhoneTxtBx, studyPartnerEmailTxtBx, studyPartnerRelationTxtBx};
 
-	@FXML private RadioButton hpoaStatusRadY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
+	@FXML private RadioButton hpoaRadY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
 	
 	@FXML private RadioButton hpoaMarriedStatusRadY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 

@@ -1,5 +1,6 @@
 package edu.tridentech.rsfh.alzintake;
 
+import java.io.File;
 import java.util.List;
 
 import edu.tridentech.rsfh.alzintake.view.FXMLDocumentController;
@@ -9,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -27,9 +27,16 @@ public class Main extends Application {
 		if (args.size() > 0) {
 			filePath = args.get(0);
 		}
+		
+		File file = new File(filePath);
+		if (!file.exists()) {
+			String msg = String.format("Spreadsheet not found at %s", filePath);
+			new Alert(AlertType.ERROR, msg).showAndWait();
+			return;
+		}
 
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(Main.class.getClassLoader().getResource("RoperIntake.css").toExternalForm());
+		// scene.getStylesheets().add(Main.class.getClassLoader().getResource("RoperIntake.css").toExternalForm());
 		controller = (FXMLDocumentController)loader.getController();
 		if (controller == null) {
 			new Alert(AlertType.ERROR, "FXML file not found").showAndWait();

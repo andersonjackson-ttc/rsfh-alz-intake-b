@@ -170,6 +170,7 @@ public class FXMLDocumentController implements Initializable {
 		String subDOBStr = "";
 		Date subDOB = new Date();
 		String subAddress = "";
+		String subAddress2 = "";
 		String subCity = "";
 		String subState = "";
 		String subZip = "";
@@ -409,6 +410,7 @@ public class FXMLDocumentController implements Initializable {
 		partic.setLastName(subLastName);
 		partic.setDOB(subDOB);
 		partic.setAddress(subAddress);
+//		partic.setAddress2(address2);
 		partic.setCity(subCity);
 		partic.setState(subState);
 		partic.setZip(subZip);
@@ -430,6 +432,12 @@ public class FXMLDocumentController implements Initializable {
 		partic.setPoaFirstName(hpoaFirstName);
 		partic.setPoaLastName(hpoaLastName);
 		partic.setPoaPhone(hpoaHomePhone);
+		partic.setSpouseFirstName(partnerFirstName);
+		partic.setSpouseLastName(partnerLastName);
+		partic.setSpousePhone(hpoaSpousePhone);
+		partic.setChildFirstName(hpoaChildFirst);
+		partic.setChildLastName(hpoaChildLast);
+		partic.setChildPhone(hpoaChilePhone);
 		
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
@@ -437,7 +445,14 @@ public class FXMLDocumentController implements Initializable {
 		partic.setClinician(memClinician);
 //		partic.setC
 		
+		
+		
+		
+		
 //		Medical History
+		
+		
+		
 		
 		
 		
@@ -532,21 +547,26 @@ public class FXMLDocumentController implements Initializable {
 	{
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 		Date tempDate;
-		try 
+		
+		if (!tempDateStr.equals(""))
 		{
-			dateParser.setLenient(false);
-			tempDate = dateParser.parse(tempDateStr);
+			try 
+			{
+				dateParser.setLenient(false);
+				tempDate = dateParser.parse(tempDateStr);
 
-			
-			return tempDate;
+
+				return tempDate;
+			}
+			catch (ParseException e)
+			{
+				String msg = String.format("Date is not Valid: %s. \nPlease enter date as MM/DD/YYYY", tempDateStr);
+				Alert dateError = new Alert(AlertType.ERROR, msg);
+				dateError.showAndWait();
+				return null;
+			}
 		}
-		catch (ParseException e)
-		{
-//   		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
-			Alert dateError = new Alert(AlertType.ERROR, "Date is not Valid. \nPlease enter date as MM/DD/YYYY");
-			dateError.showAndWait();
-			return null;
-		}
+		return null;
 	}
 	
 	

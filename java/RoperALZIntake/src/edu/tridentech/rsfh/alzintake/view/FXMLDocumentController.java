@@ -91,7 +91,9 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField cancerStatusTypeTxtBx;
 	@FXML private TextField rsfhClinRecommendsTxtBx;
 	@FXML private TextField memLossNotedDateTxtBx;
-//	@FXML private TextField cancerStatusTypeTxtBx;
+	@FXML private TextField race;
+	@FXML private TextField gender;
+
 	
 	
 	@FXML private RadioButton alzMemAgitationRadY;
@@ -112,6 +114,7 @@ public class FXMLDocumentController implements Initializable {
 	
 	
 	@FXML private ComboBox<String> subjectReferralDrpDn;
+//	@FXML private ComboBox<String> gender;
 	
 
 	
@@ -153,6 +156,8 @@ public class FXMLDocumentController implements Initializable {
 
 	@FXML private RadioButton cancerStatusRadY;
 	private TextField[] cancerStatusArray = {cancerStatusTypeTxtBx};
+	
+	@FXML private CheckBox subjectMailListStatusCkBxY;
 
 
 	
@@ -168,6 +173,8 @@ public class FXMLDocumentController implements Initializable {
 		String subMiddleInit = "";
 		String subLastName = "";
 		String subDOBStr = "";
+		String subGender = "";
+		String subRace = "";
 		Date subDOB = new Date();
 		String subAddress = "";
 		String subAddress2 = "";
@@ -180,6 +187,7 @@ public class FXMLDocumentController implements Initializable {
 		String subPCP = "";
 		String subSpecialist = "";
 		String subjectReferral = "";
+		boolean mailList = false;
 		
 		//partner
 		String partnerFirstName = "";
@@ -293,6 +301,8 @@ public class FXMLDocumentController implements Initializable {
 		subMiddleInit = subjectMITxtBx.getText();
 		subLastName = subjectLastNameTxtBx.getText();
 		subAddress = subjectAddressTxtBx.getText();
+		subRace = race.getText();
+		subGender = gender.getText();
 		subCity = subjectCityTxtBx.getText();
 		subState = subjectStateTxtBx.getText();
 		subZip = subjectZipTxtBx.getText();
@@ -302,6 +312,7 @@ public class FXMLDocumentController implements Initializable {
 		subPCP = subjectPcpTxtBx.getText();
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
+		mailList = subjectMailListStatusCkBxY.isSelected();
 		
 //		partner info
 		partnerFirstName = studyPartnerFirstNameTxtBx.getText();
@@ -416,6 +427,9 @@ public class FXMLDocumentController implements Initializable {
 		partic.setPcp(subPCP);
 		partic.setSpec(subSpecialist);
 		partic.setReferral(subjectReferral);
+		partic.setRace(subRace);
+		partic.setGender(subGender);
+//		partic.setMailList(mailList);
 		
 		//partner info
 		partic.setPartFirstname(partnerFirstName);

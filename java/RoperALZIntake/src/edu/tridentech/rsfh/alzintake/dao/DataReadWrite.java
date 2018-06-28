@@ -21,8 +21,22 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class DataReadWrite 
 {
 	private static DataReadWrite dwr = null;
-	
-	
+	protected enum Fields
+	{
+		LAST_NAME, FIRST_NAME, DOB, RACE, GENDER,
+		ADDRESS, ADDRESS2, CITY, STATE, ZIP, EMAIL,
+		PHONE, STATUS, DECEASED, PRIMARY_CARE, SPECIALIST,
+		CURRENT_STUDY, REFERRAL, MAIL_LIST, PREVIOUS_DIAG,
+		MEMORY_LOSS, MEMORY_DATE, DISRUPTS_LIFE, DIFFICULTY_PLANNING,
+		DIFFICULTY_TASKS, DIFFICULTY_WORDS, FAMILY_HISTORY,
+		FAMILY_RELATION, ARICEPT, ARICEPT_START, ARICEPT_STOP,
+		NAMENDA, NAMENDA_START, NAMENDA_STOP, EXELON, EXELON_START,
+		EXELON_STOP, RAZADYNE, RAZADYNE_START, RAZADYNE_STOP,
+		ARICEPT_NAMENDA, ARINAM_START, ARINAM_STOP, HPOA,
+		POA_NAME, POA_PHONE, MARRIED, SPOUSE_NAME, SPOUSE_PHONE,
+		CHILD, CHILD_NAME, CHILD_PHONE, MENTAL_ILLNESS, SLEEP_DISORDER,
+		CANCER, CANCER_TYPE, PACEMAKER_MRI, DRUG_ALCHOHOL, ONGOING_ISSUES
+	}
 	
 	
 	protected DataReadWrite()
@@ -56,88 +70,89 @@ public class DataReadWrite
 	{
 		String file = fileName;
 		
-		//Map for sheet 0
-		HashMap<String, Integer> map = new HashMap<>();
 		
-		map.put("LastName", 1);
-		map.put("FirstName", 2);
-		map.put("DOB", 3);
-		map.put("Race", 5);
-		map.put("Gender", 6);
-		map.put("Address", 7);
-		map.put("Address2", 8);
-		map.put("City", 9);
-		map.put("State", 10);
-		map.put("Zip", 11);
-		map.put("Email", 12);
-		map.put("Phone", 13);
-		map.put("Status", 17);
-		map.put("Deceased", 18);
-		map.put("PCP", 19);
-		map.put("Spec", 20);
-		map.put("CurrentStudy", 21);
-		map.put("Referral", 22);
-		map.put("Mail", 23);
+		//Map for sheet 0
+		HashMap<Fields, Integer> map = new HashMap<>();
+		
+		map.put(Fields.LAST_NAME, 1);
+		map.put(Fields.FIRST_NAME, 2);
+		map.put(Fields.DOB, 3);
+		map.put(Fields.RACE, 5);
+		map.put(Fields.GENDER, 6);
+		map.put(Fields.ADDRESS, 7);
+		map.put(Fields.ADDRESS2, 8);
+		map.put(Fields.CITY, 9);
+		map.put(Fields.STATE, 10);
+		map.put(Fields.ZIP, 11);
+		map.put(Fields.EMAIL, 12);
+		map.put(Fields.PHONE, 13);
+		map.put(Fields.STATUS, 17);
+		map.put(Fields.DECEASED, 18);
+		map.put(Fields.PRIMARY_CARE, 19);
+		map.put(Fields.SPECIALIST, 20);
+		map.put(Fields.CURRENT_STUDY, 21);
+		map.put(Fields.REFERRAL, 22);
+		map.put(Fields.MAIL_LIST, 23);
 		
 		
 		//Map for sheet 1
-		HashMap<String, Integer> map1 = new HashMap<>();
+		HashMap<Fields, Integer> map1 = new HashMap<>();
 		
-		map1.put("LastName", 1);
-		map1.put("FirstName", 2);
-		map1.put("PrevDiag", 3);
-		map1.put("MemLoss", 4);
-		map1.put("MemoryDate", 5);
-		map1.put("DisruptLife", 6);
-		map1.put("DiffPlan", 7);
-		map1.put("DiffTask", 8);
-		map1.put("DiffWords", 9);
-		map1.put("FamilyHist", 10);
-		map1.put("FamilyRelation", 11);
-		map1.put("Aricept", 12);
-		map1.put("AriceptStart", 13);
-		map1.put("AriceptStop", 14);
-		map1.put("Namenda", 15);
-		map1.put("NamendaStart", 16);
-		map1.put("NamendaStop", 17);
-		map1.put("Exelon", 18);
-		map1.put("ExelonStart", 19);
-		map1.put("ExelonStop", 20);
-		map1.put("Razadyne", 21);
-		map1.put("RazadyneStart", 22);
-		map1.put("RazadyneStop", 23);
-		map1.put("AriceptNamenda", 24);
-		map1.put("AriNamStart", 25);
-		map1.put("AriNamStop", 26);
+		map1.put(Fields.LAST_NAME, 1);
+		map1.put(Fields.FIRST_NAME, 2);
+		map1.put(Fields.PREVIOUS_DIAG, 3);
+		map1.put(Fields.MEMORY_LOSS, 4);
+		map1.put(Fields.MEMORY_DATE, 5);
+		map1.put(Fields.DISRUPTS_LIFE, 6);
+		map1.put(Fields.DIFFICULTY_PLANNING, 7);
+		map1.put(Fields.DIFFICULTY_TASKS, 8);
+		map1.put(Fields.DIFFICULTY_WORDS, 9);
+		map1.put(Fields.FAMILY_HISTORY, 10);
+		map1.put(Fields.FAMILY_RELATION, 11);
+		map1.put(Fields.ARICEPT, 12);
+		map1.put(Fields.ARICEPT_START, 13);
+		map1.put(Fields.ARICEPT_STOP, 14);
+		map1.put(Fields.NAMENDA, 15);
+		map1.put(Fields.NAMENDA_START, 16);
+		map1.put(Fields.NAMENDA_STOP, 17);
+		map1.put(Fields.EXELON, 18);
+		map1.put(Fields.EXELON_START, 19);
+		map1.put(Fields.EXELON_STOP, 20);
+		map1.put(Fields.RAZADYNE, 21);
+		map1.put(Fields.RAZADYNE_START, 22);
+		map1.put(Fields.RAZADYNE_STOP, 23);
+		map1.put(Fields.ARICEPT_NAMENDA, 24);
+		map1.put(Fields.ARINAM_START, 25);
+		map1.put(Fields.ARINAM_STOP, 26);
 		
 		//Map for sheet 2
-		HashMap<String, Integer> map2 = new HashMap<>();
+		HashMap<Fields, Integer> map2 = new HashMap<>();
 		
-		map2.put("FirstName", 1);
-		map2.put("LastName", 2);
-		map2.put("Hpoa", 3);
-		map2.put("PoaName", 4);
-		map2.put("PoaPhone", 5);
-		map2.put("Maried", 6);
-		map2.put("SpouseName", 7);
-		map2.put("SpousePhone", 8);
-		map2.put("Child", 9);
-		map2.put("ChildName", 10);
-		map2.put("ChildPhone", 11);
+		map2.put(Fields.FIRST_NAME, 1);
+		map2.put(Fields.LAST_NAME, 2);
+		map2.put(Fields.HPOA, 3);
+		map2.put(Fields.POA_NAME, 4);
+		map2.put(Fields.POA_PHONE, 5);
+		map2.put(Fields.MARRIED, 6);
+		map2.put(Fields.SPOUSE_NAME, 7);
+		map2.put(Fields.SPOUSE_PHONE, 8);
+		map2.put(Fields.CHILD, 9);
+		map2.put(Fields.CHILD_NAME, 10);
+		map2.put(Fields.CHILD_PHONE, 11);
 		
 		
 		//Map for sheet 3
-		HashMap<String, Integer> map3 = new HashMap<>();
+		HashMap<Fields, Integer> map3 = new HashMap<>();
 		
-		map3.put("FirstName", 1);
-		map3.put("LastName", 2);
-		map3.put("Mental", 3);
-		map3.put("Sleep", 4);
-		map3.put("Cancer", 5);
-		map3.put("CancerType", 6);
-		map3.put("Pacemaker/mri", 7);
-		map3.put("Drug/Alchol", 8);
-		map3.put("OnGoing", 9);
+		map3.put(Fields.FIRST_NAME, 1);
+		map3.put(Fields.LAST_NAME, 2);
+		map3.put(Fields.MENTAL_ILLNESS, 3);
+		map3.put(Fields.SLEEP_DISORDER, 4);
+		map3.put(Fields.CANCER, 5);
+		map3.put(Fields.CANCER_TYPE, 6);
+		map3.put(Fields.PACEMAKER_MRI, 7);
+		map3.put(Fields.DRUG_ALCHOHOL, 8);
+		map3.put(Fields.ONGOING_ISSUES, 9);
 		
 		
 		
@@ -163,10 +178,10 @@ public class DataReadWrite
 			
 			String formula = String.format("IF(ISBLANK(D%d), \"\", (DATEDIF(D%d, NOW(), \"Y\")))", ++rowCount,rowCount);
 			
-			Cell cell = row.createCell(map.get("LastName"));
+			Cell cell = row.createCell(map.get(Fields.LAST_NAME));
 			cell.setCellValue(rd.getLastName());
 			
-			cell = row.createCell(map.get("FirstName"));
+			cell = row.createCell(map.get(Fields.FIRST_NAME));
 			cell.setCellValue(rd.getFirstName());
 			
 			CellStyle cellStyle = workbook.createCellStyle();
@@ -174,56 +189,56 @@ public class DataReadWrite
 			cellStyle.setDataFormat(createHelper.createDataFormat().getFormat("MM/dd/yyyy"));
 			
 			
-			cell = row.createCell(map.get("DOB"));
+			cell = row.createCell(map.get(Fields.DOB));
 			cell.setCellValue(rd.getDOB());
 			cell.setCellStyle(cellStyle);
 			
 			cell = row.createCell(4);
 			cell.setCellFormula(formula);
 			
-			cell = row.createCell(map.get("Race"));
+			cell = row.createCell(map.get(Fields.RACE));
 			cell.setCellValue(rd.getRace());
 			
-			cell = row.createCell(map.get("Gender"));
+			cell = row.createCell(map.get(Fields.GENDER));
 			cell.setCellValue(rd.getGender());
 			
-			cell = row.createCell(map.get("Address"));
+			cell = row.createCell(map.get(Fields.ADDRESS));
 			cell.setCellValue(rd.getAddress());
 			
-			cell = row.createCell(map.get("Address2"));
+			cell = row.createCell(map.get(Fields.ADDRESS2));
 			cell.setCellValue(rd.getAddress2());
 			
-			cell = row.createCell(map.get("City"));
+			cell = row.createCell(map.get(Fields.CITY));
 			cell.setCellValue(rd.getCity());
 			
-			cell = row.createCell(map.get("State"));
+			cell = row.createCell(map.get(Fields.STATE));
 			cell.setCellValue(rd.getState());
 			
-			cell = row.createCell(map.get("Zip"));
+			cell = row.createCell(map.get(Fields.ZIP));
 			cell.setCellValue(rd.getZip());
 			
-			cell = row.createCell(map.get("Email"));
+			cell = row.createCell(map.get(Fields.EMAIL));
 			cell.setCellValue(rd.getEmail());
 			
-			cell = row.createCell(map.get("Phone"));
+			cell = row.createCell(map.get(Fields.PHONE));
 			cell.setCellValue(rd.getPhone());
 			
-			cell = row.createCell(map.get("Status"));
+			cell = row.createCell(map.get(Fields.STATUS));
 			cell.setCellValue(" ");
 			
-			cell = row.createCell(map.get("PCP"));
+			cell = row.createCell(map.get(Fields.PRIMARY_CARE));
 			cell.setCellValue(rd.getPcp());
 			
-			cell = row.createCell(map.get("Deceased"));
+			cell = row.createCell(map.get(Fields.DECEASED));
 			cell.setCellValue(" ");
 			
-			cell = row.createCell(map.get("Spec"));
+			cell = row.createCell(map.get(Fields.SPECIALIST));
 			cell.setCellValue(rd.getSpec());
 			
-			cell = row.createCell(map.get("Referral"));
+			cell = row.createCell(map.get(Fields.REFERRAL));
 			cell.setCellValue(rd.getReferral());
 			
-			//cell = row.createCell(map.get("Mail"));
+			//cell = row.createCell(map.get(Fields.MAIL));
 			//cell.setCellValue(rd.getMailing());
 			
 			
@@ -235,16 +250,16 @@ public class DataReadWrite
 			row = sheet.createRow(++rowCount);
 			
 			
-			cell = row.createCell(map1.get("LastName"));
+			cell = row.createCell(map1.get(Fields.LAST_NAME));
 			cell.setCellValue(rd.getLastName());
 			
-			cell = row.createCell(map1.get("FirstName"));
+			cell = row.createCell(map1.get(Fields.FIRST_NAME));
 			cell.setCellValue(rd.getFirstName());
 			
-			cell = row.createCell(map1.get("PrevDiag"));
+			cell = row.createCell(map1.get(Fields.PREVIOUS_DIAG));
 			cell.setCellValue(rd.getDiagnosis());
 			
-			cell = row.createCell(map1.get("MemLoss"));
+			cell = row.createCell(map1.get(Fields.MEMORY_LOSS));
 			if(rd.getMemoryLoss())
 			{
 				cell.setCellValue("Yes");
@@ -257,14 +272,14 @@ public class DataReadWrite
 			
 			if(rd.getMemoryLoss())
 			{
-				cell = row.createCell(map1.get("MemoryDate"));
+				cell = row.createCell(map1.get(Fields.MEMORY_DATE));
 				cell.setCellValue(rd.getMemoryLossDate());
 				cell.setCellStyle(cellStyle);
 			}
 			
 			
 			
-			cell = row.createCell(map1.get("DisruptLife"));
+			cell = row.createCell(map1.get(Fields.DISRUPTS_LIFE));
 			if(rd.getMemoryDisruption())
 			{
 				cell.setCellValue("Yes");
@@ -274,7 +289,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("DiffPlan"));
+			cell = row.createCell(map1.get(Fields.DIFFICULTY_PLANNING));
 			if(rd.getProblemSolving())
 			{
 				cell.setCellValue("Yes");
@@ -284,7 +299,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("DiffTask"));
+			cell = row.createCell(map1.get(Fields.DIFFICULTY_TASKS));
 			if(rd.getFamiliarTask())
 			{
 				cell.setCellValue("Yes");
@@ -294,7 +309,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("DiffWords"));
+			cell = row.createCell(map1.get(Fields.DIFFICULTY_WORDS));
 			if(rd.getProblemsConversations())
 			{
 				cell.setCellValue("Yes");
@@ -304,7 +319,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("FamilyHist"));
+			cell = row.createCell(map1.get(Fields.FAMILY_HISTORY));
 			if(rd.getFamilyHistory())
 			{
 				cell.setCellValue("Yes");
@@ -314,10 +329,10 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map1.get("FamilyRelation"));
+			cell = row.createCell(map1.get(Fields.FAMILY_RELATION));
 			cell.setCellValue(rd.getFamilyRelation());
 			
-			cell = row.createCell(map1.get("Aricept"));
+			cell = row.createCell(map1.get(Fields.ARICEPT));
 			if(rd.getAricept())
 			{
 				cell.setCellValue("Yes");
@@ -329,17 +344,17 @@ public class DataReadWrite
 			
 			if(rd.getAricept())
 			{
-				cell = row.createCell(map1.get("AriceptStart"));
+				cell = row.createCell(map1.get(Fields.ARICEPT_START));
 				cell.setCellValue(rd.getAriceptStartDate());
 				cell.setCellStyle(cellStyle);
 				
-				cell = row.createCell(map1.get("AriceptStop"));
+				cell = row.createCell(map1.get(Fields.ARICEPT_STOP));
 				cell.setCellValue(rd.getAriceptStopDate());
 				cell.setCellStyle(cellStyle);
 			}
 			
 			
-			cell = row.createCell(map1.get("Namenda"));
+			cell = row.createCell(map1.get(Fields.NAMENDA));
 			if(rd.getNamenda())
 			{
 				cell.setCellValue("Yes");
@@ -351,16 +366,16 @@ public class DataReadWrite
 			
 			if(rd.getNamenda())
 			{
-				cell = row.createCell(map1.get("NamendaStart"));
+				cell = row.createCell(map1.get(Fields.NAMENDA_START));
 				cell.setCellValue(rd.getNamendaStartDate());
 				cell.setCellStyle(cellStyle);
 				
-				cell = row.createCell(map1.get("NamendaStop"));
+				cell = row.createCell(map1.get(Fields.NAMENDA_STOP));
 				cell.setCellValue(rd.getNamendaStopDate());
 				cell.setCellStyle(cellStyle);
 			}
 			
-			cell = row.createCell(map1.get("Exelon"));
+			cell = row.createCell(map1.get(Fields.EXELON));
 			if(rd.getExelon())
 			{
 				cell.setCellValue("Yes");
@@ -372,17 +387,17 @@ public class DataReadWrite
 			
 			if(rd.getExelon())
 			{
-				cell = row.createCell(map1.get("ExelonStart"));
+				cell = row.createCell(map1.get(Fields.EXELON_START));
 				cell.setCellValue(rd.getExelonStartDate());
 				cell.setCellStyle(cellStyle);
 				
-				cell = row.createCell(map1.get("ExelonStop"));
+				cell = row.createCell(map1.get(Fields.EXELON_STOP));
 				cell.setCellValue(rd.getExelonStopDate());
 				cell.setCellStyle(cellStyle);
 			}
 			
 			
-			cell = row.createCell(map1.get("Razadyne"));
+			cell = row.createCell(map1.get(Fields.RAZADYNE));
 			if(rd.getRazadyne())
 			{
 				cell.setCellValue("Yes");
@@ -394,17 +409,17 @@ public class DataReadWrite
 			
 			if(rd.getRazadyne())
 			{
-				cell = row.createCell(map1.get("RazadyneStart"));
+				cell = row.createCell(map1.get(Fields.RAZADYNE_START));
 				cell.setCellValue(rd.getRazadyneStartDate());
 				cell.setCellStyle(cellStyle);
 				
-				cell = row.createCell(map1.get("RazadyneStop"));
+				cell = row.createCell(map1.get(Fields.RAZADYNE_STOP));
 				cell.setCellValue(rd.getRazadyneStopDate());
 				cell.setCellStyle(cellStyle);
 			}
 			
 			
-			cell = row.createCell(map1.get("AriceptNamenda"));
+			cell = row.createCell(map1.get(Fields.ARICEPT_NAMENDA));
 			if(rd.getAriceptNamenda())
 			{
 				cell.setCellValue("Yes");
@@ -416,11 +431,11 @@ public class DataReadWrite
 			
 			if(rd.getAriceptNamenda())
 			{
-				cell = row.createCell(map1.get("AriNamStart"));
+				cell = row.createCell(map1.get(Fields.ARINAM_START));
 				cell.setCellValue(rd.getAriceptNamendaStartDate());
 				cell.setCellStyle(cellStyle);
 				
-				cell = row.createCell(map1.get("AriNamStop"));
+				cell = row.createCell(map1.get(Fields.ARINAM_STOP));
 				cell.setCellValue(rd.getAriceptNamendaStopDate());
 				cell.setCellStyle(cellStyle);
 			}
@@ -434,13 +449,13 @@ public class DataReadWrite
 			
 			row = sheet.createRow(++rowCount);
 			
-			cell = row.createCell(map2.get("FirstName"));
+			cell = row.createCell(map2.get(Fields.FIRST_NAME));
 			cell.setCellValue(rd.getFirstName());
 			
-			cell = row.createCell(map2.get("LastName"));
+			cell = row.createCell(map2.get(Fields.LAST_NAME));
 			cell.setCellValue(rd.getLastName());
 			
-			cell = row.createCell(map2.get("Hpoa"));
+			cell = row.createCell(map2.get(Fields.HPOA));
 			if(rd.getPoa())
 			{
 				cell.setCellValue("Yes");
@@ -450,13 +465,13 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map2.get("PoaName"));
+			cell = row.createCell(map2.get(Fields.POA_NAME));
 			cell.setCellValue(rd.getPoaFirstName() + " " + rd.getPoaLastName());
 			
-			cell = row.createCell(map2.get("PoaPhone"));
+			cell = row.createCell(map2.get(Fields.POA_PHONE));
 			cell.setCellValue(rd.getPoaPhone());
 			
-			cell = row.createCell(map2.get("Maried"));
+			cell = row.createCell(map2.get(Fields.MARRIED));
 			if(rd.getSpouse())
 			{
 				cell.setCellValue("Yes");
@@ -466,13 +481,13 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map2.get("SpouseName"));
+			cell = row.createCell(map2.get(Fields.SPOUSE_NAME));
 			cell.setCellValue(rd.getSpouseFistName() + " " + rd.getSpouseLastName());
 			
-			cell = row.createCell(map2.get("SpousePhone"));
+			cell = row.createCell(map2.get(Fields.SPOUSE_PHONE));
 			cell.setCellValue(rd.getSpousePhone());
 			
-			cell = row.createCell(map2.get("Child"));
+			cell = row.createCell(map2.get(Fields.CHILD));
 			if(rd.getChild())
 			{
 				cell.setCellValue("Yes");
@@ -482,10 +497,10 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map2.get("ChildName"));
+			cell = row.createCell(map2.get(Fields.CHILD_NAME));
 			cell.setCellValue(rd.getChildFirstName() + " " + rd.getChildLastName());
 			
-			cell = row.createCell(map2.get("ChildPhone"));
+			cell = row.createCell(map2.get(Fields.CHILD_PHONE));
 			cell.setCellValue(rd.getChildPhone());
 			
 			
@@ -496,13 +511,13 @@ public class DataReadWrite
 			
 			row = sheet.createRow(++rowCount);
 			
-			cell = row.createCell(map3.get("FirstName"));
+			cell = row.createCell(map3.get(Fields.FIRST_NAME));
 			cell.setCellValue(rd.getFirstName());
 			
-			cell = row.createCell(map3.get("LastName"));
+			cell = row.createCell(map3.get(Fields.LAST_NAME));
 			cell.setCellValue(rd.getLastName());
 			
-			cell = row.createCell(map3.get("Mental"));
+			cell = row.createCell(map3.get(Fields.MENTAL_ILLNESS));
 			if(rd.getMentalIllness())
 			{
 				cell.setCellValue("Yes");
@@ -512,7 +527,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map3.get("Sleep"));
+			cell = row.createCell(map3.get(Fields.SLEEP_DISORDER));
 			if(rd.getSleedDisorder())
 			{
 				cell.setCellValue("Yes");
@@ -522,7 +537,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map3.get("Cancer"));
+			cell = row.createCell(map3.get(Fields.CANCER));
 			if(rd.getCancerHistory())
 			{
 				cell.setCellValue("Yes");
@@ -532,10 +547,10 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map3.get("CancerType"));
+			cell = row.createCell(map3.get(Fields.CANCER_TYPE));
 			cell.setCellValue(rd.getCancerType());
 			
-			cell = row.createCell(map3.get("Pacemaker/mri"));
+			cell = row.createCell(map3.get(Fields.PACEMAKER_MRI));
 			if(rd.getPacemakerMRI())
 			{
 				cell.setCellValue("Yes");
@@ -545,7 +560,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map3.get("Drug/Alchol"));
+			cell = row.createCell(map3.get(Fields.DRUG_ALCHOHOL));
 			if(rd.getSubstanceAbuse())
 			{
 				cell.setCellValue("Yes");
@@ -555,7 +570,7 @@ public class DataReadWrite
 				cell.setCellValue("No");
 			}
 			
-			cell = row.createCell(map3.get("OnGoing"));
+			cell = row.createCell(map3.get(Fields.ONGOING_ISSUES));
 			cell.setCellValue(rd.getOngoingIssues());
 			
 			

@@ -31,6 +31,10 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(Main.class.getClassLoader().getResource("RoperIntake.css").toExternalForm());
 		controller = (FXMLDocumentController)loader.getController();
+		if (controller == null) {
+			new Alert(AlertType.ERROR, "FXML file not found").showAndWait();
+			return;
+		}
 		controller.setFilePath(filePath);
 
 		stage.setTitle("Patient Intake Pre-Screen Form");

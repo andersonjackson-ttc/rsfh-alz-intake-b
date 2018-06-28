@@ -310,7 +310,7 @@
             <Label layoutX="460.0" layoutY="1710.0" text="Type of Cancer" />
             <Label layoutX="342.0" layoutY="1899.0" text="Subject Assessment Date" />
             <Label layoutX="494.0" layoutY="1899.0" text="Clinician Recommendations" />
-            <TextField fx:id="intakeScreenByDrpDn" layoutX="269.0" layoutY="71.0" prefHeight="25.0" prefWidth="222.0" promptText="Screened By" />
+            <TextField fx:id="intakeScreenByTxtBx" layoutX="269.0" layoutY="71.0" prefHeight="25.0" prefWidth="222.0" promptText="Screened By" />
             <Label layoutX="272.0" layoutY="53.0" prefHeight="18.0" prefWidth="82.0" text="Screened By" />
          </children>
       </AnchorPane>

@@ -30,6 +30,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.RadioButton;
 
 
 
@@ -93,17 +94,17 @@ public class FXMLDocumentController implements Initializable {
 //	@FXML private TextField cancerStatusTypeTxtBx;
 	
 	
-	@FXML private CheckBox alzMemAgitationRadY;
-	@FXML private CheckBox alzMemApathyRadY;
-	@FXML private CheckBox alzMemSleepIssueRadY;
-	@FXML private CheckBox planSolveStatusRadY;
-	@FXML private CheckBox memLossDisruptRadY;
-	@FXML private CheckBox tasksStatusRadY;
-	@FXML private CheckBox conversationStatusRadY;
-	@FXML private CheckBox schizBiMddStatusRadY;
-	@FXML private CheckBox sleepDisorderStatusRadY;
-	@FXML private CheckBox deviseMRIConcernRadY;
-	@FXML private CheckBox drugAlcoholStatusRadY;
+	@FXML private RadioButton alzMemAgitationRadY;
+	@FXML private RadioButton alzMemApathyRadY;
+	@FXML private RadioButton alzMemSleepIssueRadY;
+	@FXML private RadioButton planSolveStatusRadY;
+	@FXML private RadioButton memLossDisruptRadY;
+	@FXML private RadioButton tasksStatusRadY;
+	@FXML private RadioButton conversationStatusRadY;
+	@FXML private RadioButton schizBiMddStatusRadY;
+	@FXML private RadioButton sleepDisorderStatusRadY;
+	@FXML private RadioButton deviseMRIConcernRadY;
+	@FXML private RadioButton drugAlcoholStatusRadY;
 	
 
 	
@@ -117,22 +118,22 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox studyPartnerStatusTglBtn;
 	private TextField[] partnerArray = {studyPartnerFirstNameTxtBx, studyPartnerLastNameTxtBx, studyPartnerPhoneTxtBx, studyPartnerEmailTxtBx, studyPartnerRelationTxtBx};
 
-	@FXML private CheckBox hpoaStatusRadY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
+	@FXML private RadioButton hpoaStatusRadY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
 	
-	@FXML private CheckBox hpoaMarriedStatusRadY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
+	@FXML private RadioButton hpoaMarriedStatusRadY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
 	private TextField[] hpoaMarriedStatArray = {hpoaSpouseFirstNameTxtBx,  hpoaSpouseLastNameTxtBx, hpoaSpousePhoneTxtBx};
 	
-	@FXML private CheckBox hpoaChildStatusRadY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
+	@FXML private RadioButton hpoaChildStatusRadY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
 	private TextField[] hpoaChildStatArray = {hpoaChildFirstNameTxtBx,  hpoaChildLastNameTxtBx, hpoaChildPhoneTxtBx};
 	
-	@FXML private CheckBox alzMemStatusRadY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
+	@FXML private RadioButton alzMemStatusRadY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
 	private TextField[] alzMemStatArray = {alzMemDiagnosisTxtBx,  alzMemDiagnosisClinicianTxtBx, alzMemDiagnosisDateTxtBx};
 	
-	@FXML private CheckBox memLossNotedRadY;  //memLossNotedDateTxtBx
+	@FXML private RadioButton memLossNotedRadY;  //memLossNotedDateTxtBx
 	private TextField[] alzMemArray = {memLossNotedDateTxtBx};
 	
-	@FXML private CheckBox alzFamHistoryStatusRadY;  //alzFamHistoryStatusRelationTxtBx
+	@FXML private RadioButton alzFamHistoryStatusRadY;  //alzFamHistoryStatusRelationTxtBx
 	private TextField[] alzFamHistArray = {alzFamHistoryStatusRelationTxtBx};
 	
 	@FXML private CheckBox donepezilStatusTglBtn;
@@ -150,7 +151,7 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox nammzaricStatusTglBtn;
 	private TextField[] nammzaricBeginEnd = {nammzaricStartDateTxtBx, nammzaricEndDateTxtBx};
 
-	@FXML private CheckBox cancerStatusRadY;
+	@FXML private RadioButton cancerStatusRadY;
 	private TextField[] cancerStatusArray = {cancerStatusTypeTxtBx};
 
 
@@ -268,7 +269,7 @@ public class FXMLDocumentController implements Initializable {
 
 		subDOBStr = subjectDOBTxtBx.getText();
 
-
+		subDOB = VerifyDate(subDOBStr);
 		/*try 
 		{
 //			Calendar calendar = Calendar.getInstance();
@@ -284,7 +285,7 @@ public class FXMLDocumentController implements Initializable {
 			return;
 		}*/
 		
-		subDOB = VerifyDate(subDOBStr);
+		
 
 //		subject info
 		subFirstName = subjectFirstNameTxtBx.getText();
@@ -327,28 +328,63 @@ public class FXMLDocumentController implements Initializable {
 		familyHistoryRelationship = alzFamHistoryStatusRelationTxtBx.getText();
 		memDiagnosis = alzMemDiagnosisTxtBx.getText();
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
+		
+		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
+		symptDOD = VerifyDate(symptDOOStr);
 		alzDiagnose = alzMemStatusRadY.isSelected();
 		agitation = alzMemAgitationRadY.isSelected();
 		apathy = alzMemApathyRadY.isSelected();
 		sleepProblems = alzMemSleepIssueRadY.isSelected();
 		memLoss = memLossNotedRadY.isSelected();
+		
+		symptDOOStr = memLossNotedDateTxtBx.getText();
+		symptDOO = VerifyDate(symptDOOStr);
+		
 		memLossDisrupt = memLossDisruptRadY.isSelected();
 		difficultPlanning = planSolveStatusRadY.isSelected();
 		familiarTasks = tasksStatusRadY.isSelected();
 		conversation = conversationStatusRadY.isSelected();
 		famHistAlz = alzFamHistoryStatusRadY.isSelected();
 		donepezil = donepezilStatusTglBtn.isSelected();
+		
+		DonepezilStartStr = donepezilStartDateTxtBx.getText();
+		DonepezilStart = VerifyDate(DonepezilStartStr);
+		
+		donepezilEndStr = donepezilEndDateTxtBx.getText();
+		donepezilEnd = VerifyDate(donepezilEndStr);
+		
 		memantine = memantineStatusTglBtn.isSelected();
+		
+		memantineStartStr = memantineStartDateTxtBx.getText();
+		memantineStart = VerifyDate(memantineStartStr);
+		
+		memantineEndStr = memantineEndDateTxtBx.getText();
+		memantineEnd = VerifyDate(memantineEndStr);
+		
 		rivastigmine = rivastigmineStatusTglBtn.isSelected();
+		
+		RivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
+		RivantigmineStart = VerifyDate(RivantigmineStartStr);
+		
+		RivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
+		RivantigmineEnd = VerifyDate(RivantigmineEndStr);
+		
 		galantamine = galantamineStatusTglBtn.isSelected();
+		
+		GalantamineStartStr = galantamineStartDateTxtBx.getText();
+		GalantamineStart = VerifyDate(GalantamineStartStr);
+		
+		GalantamineEndStr = galantamineEndDateTxtBx.getText();
+		GalantamineEnd = VerifyDate(GalantamineEndStr);
+		
 		namzaric = nammzaricStatusTglBtn.isSelected();
 		
+		NamzaricStartStr = nammzaricStartDateTxtBx.getText();
+		NamzaricStart = VerifyDate(NamzaricStartStr);
 		
-		/*
-		Need date verifications for drugs
-		
-		*/
-		
+		NamzaricEndStr = nammzaricEndDateTxtBx.getText();
+		NamzaricEnd = VerifyDate(NamzaricEndStr);
+				
 		
 		
 //		medical history

@@ -21,7 +21,6 @@
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2184.0" prefWidth="1134.0">
          <children>
             <DatePicker fx:id="intakeScreenDateTxtBx" layoutX="55.0" layoutY="70.0" promptText="Intake date" />
-            <ComboBox fx:id="intakeScreenByDrpDn" layoutX="256.0" layoutY="70.0" prefHeight="25.0" prefWidth="291.0" promptText="Screened by" />
             <Separator layoutX="251.0" layoutY="122.0" prefHeight="20.0" prefWidth="858.0" />
             <TextField fx:id="subjectFirstNameTxtBx" layoutX="55.0" layoutY="180.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
             <TextField fx:id="subjectMITxtBx" layoutX="214.0" layoutY="180.0" prefHeight="20.0" prefWidth="30.0" promptText="MI" />
@@ -44,7 +43,7 @@
                </font>
             </Label>
             <Separator layoutX="322.0" layoutY="356.0" prefHeight="20.0" prefWidth="788.0" />
-            <CheckBox fx:id="studyPartnerStatusTglBtn" layoutX="55.0" layoutY="401.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="455.0" text="Study partner that has contact 10 or more hours per week and can attend the visit" />
+            <CheckBox fx:id="studyPartnerStatusTglBtn" layoutX="55.0" layoutY="401.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="481.0" text="Study partner that has contact 10 or more hours per week and can attend the visit" />
             <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="56.0" layoutY="460.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
             <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="216.0" layoutY="460.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
             <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="426.0" layoutY="460.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
@@ -311,6 +310,8 @@
             <Label layoutX="460.0" layoutY="1710.0" text="Type of Cancer" />
             <Label layoutX="342.0" layoutY="1899.0" text="Subject Assessment Date" />
             <Label layoutX="494.0" layoutY="1899.0" text="Clinician Recommendations" />
+            <TextField fx:id="intakeScreenByTxtBx" layoutX="269.0" layoutY="71.0" prefHeight="25.0" prefWidth="222.0" promptText="Screened By" />
+            <Label layoutX="272.0" layoutY="53.0" prefHeight="18.0" prefWidth="82.0" text="Screened By" />
          </children>
       </AnchorPane>
    </content>

@@ -314,7 +314,7 @@ public class FXMLDocumentController implements Initializable {
 		hpoaFirstName = hpoaFirstNameTxtBx.getText();
 		hpoaLastName = hpoaLastNameTxtBx.getText();
 		hpoaHomePhone = hpoaPhoneTxtBx.getText();
-		hpoaStat = hpoaStatusRadY.isSelected();
+		hpoaStat = hpoaRadY.isSelected();
 		hpoaSpouseFirst = hpoaSpouseFirstNameTxtBx.getText();
 		hpoaSpouseLast = hpoaSpouseLastNameTxtBx.getText();
 		hpoaSpousePhone = hpoaSpousePhoneTxtBx.getText();

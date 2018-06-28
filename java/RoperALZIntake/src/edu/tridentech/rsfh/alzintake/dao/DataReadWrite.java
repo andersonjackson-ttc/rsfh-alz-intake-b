@@ -35,7 +35,8 @@ public class DataReadWrite
 		ARICEPT_NAMENDA, ARINAM_START, ARINAM_STOP, HPOA,
 		POA_NAME, POA_PHONE, MARRIED, SPOUSE_NAME, SPOUSE_PHONE,
 		CHILD, CHILD_NAME, CHILD_PHONE, MENTAL_ILLNESS, SLEEP_DISORDER,
-		CANCER, CANCER_TYPE, PACEMAKER_MRI, DRUG_ALCHOHOL, ONGOING_ISSUES
+		CANCER, CANCER_TYPE, PACEMAKER_MRI, DRUG_ALCHOHOL, ONGOING_ISSUES,
+		CLINICAN, DATE_DIAGNOSIS
 	}
 	
 	
@@ -102,29 +103,31 @@ public class DataReadWrite
 		map1.put(Fields.FIRST_NAME, 2);
 		map1.put(Fields.DOB, 3);
 		map1.put(Fields.PREVIOUS_DIAG, 4);
-		map1.put(Fields.MEMORY_LOSS, 5);
-		map1.put(Fields.MEMORY_DATE, 6);
-		map1.put(Fields.DISRUPTS_LIFE, 7);
-		map1.put(Fields.DIFFICULTY_PLANNING, 8);
-		map1.put(Fields.DIFFICULTY_TASKS, 9);
-		map1.put(Fields.DIFFICULTY_WORDS, 10);
-		map1.put(Fields.FAMILY_HISTORY, 11);
-		map1.put(Fields.FAMILY_RELATION, 12);
-		map1.put(Fields.ARICEPT, 13);
-		map1.put(Fields.ARICEPT_START, 14);
-		map1.put(Fields.ARICEPT_STOP, 15);
-		map1.put(Fields.NAMENDA, 16);
-		map1.put(Fields.NAMENDA_START, 17);
-		map1.put(Fields.NAMENDA_STOP, 18);
-		map1.put(Fields.EXELON, 19);
-		map1.put(Fields.EXELON_START, 20);
-		map1.put(Fields.EXELON_STOP, 21);
-		map1.put(Fields.RAZADYNE, 22);
-		map1.put(Fields.RAZADYNE_START, 23);
-		map1.put(Fields.RAZADYNE_STOP, 24);
-		map1.put(Fields.ARICEPT_NAMENDA, 25);
-		map1.put(Fields.ARINAM_START, 26);
-		map1.put(Fields.ARINAM_STOP, 27);
+		map1.put(Fields.CLINICAN, 5);
+		map1.put(Fields.DATE_DIAGNOSIS, 6);
+		map1.put(Fields.MEMORY_LOSS, 7);
+		map1.put(Fields.MEMORY_DATE, 8);
+		map1.put(Fields.DISRUPTS_LIFE, 9);
+		map1.put(Fields.DIFFICULTY_PLANNING, 10);
+		map1.put(Fields.DIFFICULTY_TASKS, 11);
+		map1.put(Fields.DIFFICULTY_WORDS, 12);
+		map1.put(Fields.FAMILY_HISTORY, 13);
+		map1.put(Fields.FAMILY_RELATION, 14);
+		map1.put(Fields.ARICEPT, 15);
+		map1.put(Fields.ARICEPT_START, 16);
+		map1.put(Fields.ARICEPT_STOP, 17);
+		map1.put(Fields.NAMENDA, 18);
+		map1.put(Fields.NAMENDA_START, 19);
+		map1.put(Fields.NAMENDA_STOP, 20);
+		map1.put(Fields.EXELON, 21);
+		map1.put(Fields.EXELON_START, 22);
+		map1.put(Fields.EXELON_STOP, 23);
+		map1.put(Fields.RAZADYNE, 24);
+		map1.put(Fields.RAZADYNE_START, 25);
+		map1.put(Fields.RAZADYNE_STOP, 26);
+		map1.put(Fields.ARICEPT_NAMENDA, 27);
+		map1.put(Fields.ARINAM_START, 28);
+		map1.put(Fields.ARINAM_STOP, 29);
 		
 		//Map for sheet 2
 		HashMap<Fields, Integer> map2 = new HashMap<>();
@@ -263,6 +266,13 @@ public class DataReadWrite
 			
 			cell = row.createCell(map1.get(Fields.PREVIOUS_DIAG));
 			cell.setCellValue(rd.getDiagnosis());
+			
+			cell = row.createCell(map1.get(Fields.CLINICAN));
+			cell.setCellValue(rd.getClinician());
+			
+			cell = row.createCell(map1.get(Fields.DATE_DIAGNOSIS));
+			cell.setCellValue(rd.getDiagnosisDate());
+			cell.setCellStyle(cellStyle);
 			
 			cell = row.createCell(map1.get(Fields.MEMORY_LOSS));
 			if(rd.getMemoryLoss())

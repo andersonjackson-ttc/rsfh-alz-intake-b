@@ -312,10 +312,10 @@
             <Label layoutX="494.0" layoutY="1899.0" text="Clinician Recommendations" />
             <TextField fx:id="intakeScreenByTxtBx" layoutX="269.0" layoutY="71.0" prefHeight="25.0" prefWidth="222.0" promptText="Screened By" />
             <Label layoutX="272.0" layoutY="53.0" prefHeight="18.0" prefWidth="82.0" text="Screened By" />
-            <ComboBox fx:id="gender" layoutX="878.0" layoutY="179.0" prefHeight="26.0" prefWidth="94.0" promptText="Gender" />
             <TextField fx:id="race" layoutX="988.0" layoutY="180.0" prefHeight="26.0" prefWidth="121.0" promptText="Race" />
-            <Label layoutX="882.0" layoutY="163.0" text="Gender" />
+            <Label layoutX="862.0" layoutY="163.0" text="Gender" />
             <Label layoutX="997.0" layoutY="163.0" text="Race" />
+            <TextField fx:id="race1" layoutX="860.0" layoutY="180.0" prefHeight="26.0" prefWidth="121.0" promptText="Gender" />
          </children>
       </AnchorPane>
    </content>

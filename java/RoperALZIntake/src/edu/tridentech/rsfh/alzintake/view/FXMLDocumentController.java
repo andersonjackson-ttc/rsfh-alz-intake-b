@@ -225,26 +225,26 @@ public class FXMLDocumentController implements Initializable {
 		Date symptDOD = new Date();
 		String symptDOOStr = "";
 		Date symptDOO = new Date();
-		String DonepezilStartStr = "";
-		Date DonepezilStart = new Date();
+		String donepezilStartStr = "";
+		Date donepezilStart = new Date();
 		String donepezilEndStr = "";
 		Date donepezilEnd = new Date();
 		String memantineStartStr = "";
 		Date memantineStart = new Date();
 		String memantineEndStr = "";
 		Date memantineEnd = new Date();
-		String RivantigmineStartStr = "";
-		Date RivantigmineStart = new Date();
-		String RivantigmineEndStr = "";
-		Date RivantigmineEnd = new Date();
-		String GalantamineStartStr = "";
-		Date GalantamineStart = new Date();
-		String GalantamineEndStr = "";
-		Date GalantamineEnd = new Date();
-		String NamzaricStartStr = "";
-		Date NamzaricStart = new Date();
-		String NamzaricEndStr = "";
-		Date NamzaricEnd = new Date();
+		String rivantigmineStartStr = "";
+		Date rivantigmineStart = new Date();
+		String rivantigmineEndStr = "";
+		Date rivantigmineEnd = new Date();
+		String galantamineStartStr = "";
+		Date galantamineStart = new Date();
+		String galantamineEndStr = "";
+		Date galantamineEnd = new Date();
+		String namzaricStartStr = "";
+		Date namzaricStart = new Date();
+		String namzaricEndStr = "";
+		Date namzaricEnd = new Date();
 		boolean donepezil = false;
 		boolean memantine = false;
 		boolean rivastigmine = false;
@@ -332,6 +332,7 @@ public class FXMLDocumentController implements Initializable {
 		
 		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
 		symptDOD = VerifyDate(symptDOOStr);
+		
 		alzDiagnose = alzMemStatusRadY.isSelected();
 		agitation = alzMemAgitationRadY.isSelected();
 		apathy = alzMemApathyRadY.isSelected();
@@ -348,8 +349,9 @@ public class FXMLDocumentController implements Initializable {
 		famHistAlz = alzFamHistoryStatusRadY.isSelected();
 		donepezil = donepezilStatusTglBtn.isSelected();
 		
-		DonepezilStartStr = donepezilStartDateTxtBx.getText();
-		DonepezilStart = VerifyDate(DonepezilStartStr);
+
+		donepezilStartStr = donepezilStartDateTxtBx.getText();
+		donepezilStart = VerifyDate(donepezilStartStr);
 		
 		donepezilEndStr = donepezilEndDateTxtBx.getText();
 		donepezilEnd = VerifyDate(donepezilEndStr);
@@ -364,27 +366,27 @@ public class FXMLDocumentController implements Initializable {
 		
 		rivastigmine = rivastigmineStatusTglBtn.isSelected();
 		
-		RivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
-		RivantigmineStart = VerifyDate(RivantigmineStartStr);
+		rivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
+		rivantigmineStart = VerifyDate(rivantigmineStartStr);
 		
-		RivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
-		RivantigmineEnd = VerifyDate(RivantigmineEndStr);
+		rivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
+		rivantigmineEnd = VerifyDate(rivantigmineEndStr);
 		
 		galantamine = galantamineStatusTglBtn.isSelected();
 		
-		GalantamineStartStr = galantamineStartDateTxtBx.getText();
-		GalantamineStart = VerifyDate(GalantamineStartStr);
+		galantamineStartStr = galantamineStartDateTxtBx.getText();
+		galantamineStart = VerifyDate(galantamineStartStr);
 		
-		GalantamineEndStr = galantamineEndDateTxtBx.getText();
-		GalantamineEnd = VerifyDate(GalantamineEndStr);
+		galantamineEndStr = galantamineEndDateTxtBx.getText();
+		galantamineEnd = VerifyDate(galantamineEndStr);
 		
 		namzaric = nammzaricStatusTglBtn.isSelected();
 		
-		NamzaricStartStr = nammzaricStartDateTxtBx.getText();
-		NamzaricStart = VerifyDate(NamzaricStartStr);
+		namzaricStartStr = nammzaricStartDateTxtBx.getText();
+		namzaricStart = VerifyDate(namzaricStartStr);
 		
-		NamzaricEndStr = nammzaricEndDateTxtBx.getText();
-		NamzaricEnd = VerifyDate(NamzaricEndStr);
+		namzaricEndStr = nammzaricEndDateTxtBx.getText();
+		namzaricEnd = VerifyDate(namzaricEndStr);
 				
 		
 		
@@ -397,13 +399,7 @@ public class FXMLDocumentController implements Initializable {
 		pacemakerMRI = deviseMRIConcernRadY.isSelected();
 		drugAbuse = drugAlcoholStatusRadY.isSelected();
 		
-		
-		
-		
-		
-		
-		
-		
+		//pass variables
 		//patient info
 		partic.setFirstName(subFirstName);
 		partic.setMiddleI(subMiddleInit);
@@ -443,15 +439,42 @@ public class FXMLDocumentController implements Initializable {
 		partic.setFamilyRelation(familyHistoryRelationship);
 		partic.setDiagnosis(memDiagnosis);
 		partic.setClinician(memClinician);
-//		partic.setC
-		
-		
-		
-		
-		
+		partic.setDiagnosisDate(symptDOD);
+		partic.setAgitation(agitation);
+		partic.setApathy(apathy);
+		partic.setSleepProblem(sleepDisorder);
+		partic.setMemoryLoss(memLoss);
+		partic.setMemoryLossDate(symptDOO);
+		partic.setMemoryDisruption(memLossDisrupt);
+		partic.setProblemSolving(difficultPlanning);
+		partic.setFamiliarTask(familiarTasks);
+		partic.setProblemsConversations(conversation);
+		partic.setFamilyHistory(famHistAlz);
+		partic.setFamilyRelation(familyHistoryRelationship);
+		partic.setAricept(donepezil);
+		partic.setAriceptStartDate(donepezilStart);
+		partic.setAriceptStopDate(donepezilEnd);
+		partic.setNamenda(memantine);
+		partic.setNamendaStartDate(memantineStart);
+		partic.setNamendaStopDate(memantineEnd);
+		partic.setExelon(rivastigmine);
+		partic.setExelonStartDate(rivantigmineStart);
+		partic.setExelonStopDate(rivantigmineEnd);
+		partic.setRazadyne(galantamine);
+		partic.setRazadyneStartDate(galantamineStart);
+		partic.setRazadyneStopDate(galantamineEnd);
+		partic.setAriceptNamenda(namzaric);
+		partic.setAriceptNamendaStartDate(namzaricStart);
+		partic.setAriceptNamendaStopDate(namzaricEnd);
+				
 //		Medical History
-		
-		
+		partic.setMentalIllness(mentalDisorder);
+		partic.setSleepDisorder(sleepDisorder);
+		partic.setCancerHistory(activeCancer);
+		partic.setCancerType(cancerType);
+		partic.setPacemakerMRI(pacemakerMRI);
+		partic.setSubstanceAbuse(drugAbuse);
+		partic.setOngoingIssues(ongoingConcerns);
 		
 		
 		

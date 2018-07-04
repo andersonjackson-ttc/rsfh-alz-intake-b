@@ -312,7 +312,7 @@ public class FXMLDocumentController implements Initializable {
 		subPCP = subjectPcpTxtBx.getText();
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
-//		mailList = subjectMailListStatusCkBxY.isSelected();
+		mailList = subjectMailListStatusCkBxY.isSelected();
 		
 //		partner info
 		partnerFirstName = studyPartnerFirstNameTxtBx.getText();

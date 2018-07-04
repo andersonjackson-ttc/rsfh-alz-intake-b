@@ -913,6 +913,17 @@ public class Participant implements PartRecord {
 		this.ongoingIssues = ongoingIssues;
 		
 	}
+
+	@Override
+	public boolean getMailList() {
+		return mailList;
+	}
+
+	@Override
+	public void setMailList(boolean mailList) {
+		this.mailList = mailList;
+		
+	}
 	
 
 }

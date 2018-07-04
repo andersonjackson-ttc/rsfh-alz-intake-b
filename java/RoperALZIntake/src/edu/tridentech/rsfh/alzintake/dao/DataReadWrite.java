@@ -242,8 +242,15 @@ public class DataReadWrite
 			cell = row.createCell(map.get(Fields.REFERRAL));
 			cell.setCellValue(rd.getReferral());
 			
-			//cell = row.createCell(map.get(Fields.MAIL_LIST));
-			//cell.setCellValue(rd.getMailList);
+			cell = row.createCell(map.get(Fields.MAIL_LIST));
+			if(rd.getMailList())
+			{
+				cell.setCellValue("Yes");
+			}
+			else
+			{
+				cell.setCellValue("No");
+			}
 			
 			
 			//Sheet 1

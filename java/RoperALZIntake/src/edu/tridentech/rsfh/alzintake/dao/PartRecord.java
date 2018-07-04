@@ -52,6 +52,8 @@ public interface PartRecord
 	void setPcp(String pcp);
 	String getSpec();
 	void setSpec(String spec);
+	boolean getMailList();
+	void setMailList(boolean mailList);
 	
 	// Study Partner Fields
 	boolean getPartner();

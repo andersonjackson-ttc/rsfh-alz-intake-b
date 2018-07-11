@@ -7,6 +7,80 @@ import edu.tridentech.rsfh.alzintake.dao.PartRecord;
 //participant record to be passed to dao
 
 public class Participant implements PartRecord {
+	
+	private String middleI;
+	private String firstName;
+	private String lastName;
+	private Date dob;
+	private String race;
+	private String gender;
+	private String Email;
+	private String referral;
+	private String address;
+	private String City;
+	private String st;
+	private String zipCode;
+	private String phoneNum;
+	private String cellNum;
+	private String PCP;
+	private String specialist;
+	private boolean mailList;
+	private boolean partner;
+	private String partFirstname;
+	private String partLastName;
+	private String partPhone;
+	private String partEmail;
+	private String partRel;
+	private boolean spouse;
+	private String spouseFirstName;
+	private String spouseLastName;
+	private String spousePhone;
+	private boolean child;
+	private String childFirstName;
+	private String childLastName;
+	private String childPhone;
+	private String address2;
+	private Date intakeDate;
+	private String diagnosis;
+	private String clinician;
+	private Date diagnosisDate;
+	private boolean agitation;
+	private boolean apathy;
+	private boolean sleepProblem;
+	private boolean memoryLoss;
+	private Date memoryLossDate;
+	private boolean memoryDisruption;
+	private boolean problemSolving;
+	private boolean familiarTask;
+	private boolean problemsConversations;
+	private boolean familyHistory;
+	private String familyRelation;
+	private boolean aricept;
+	private Date ariceptStartDate;
+	private Date ariceptStopDate;
+	private boolean namenda;
+	private Date namendaStartDate;
+	private Date namendaStopDate;
+	private boolean exelon;
+	private Date exelonStartDate;
+	private Date exelonStopDate;
+	private boolean razadyne;
+	private Date razadyneStartDate;
+	private Date razadyneStopDate;
+	private boolean ariceptNamenda;
+	private Date ariceptNamendaStartDate;
+	private Date ariceptNamendaStopDate;
+	private boolean mentalIllness;
+	private boolean sleepDisorder;
+	private boolean cancerHistory;
+	private String cancerType;
+	private boolean pacemakerMRI;
+	private boolean substanceAbuse;
+	private String ongoingIssues;
+	private boolean Hpoa;
+	private String poaFirstName;
+	private String poaLastName;
+	private String poaPhone;
 
 	String screener;
 	
@@ -20,7 +94,7 @@ public class Participant implements PartRecord {
 		screener = screen;
 	}
 
-	String middleI;
+//Subject Information
 	
 	@Override
 	public String getMiddleI() {
@@ -29,12 +103,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setMiddleI(String mi) {
-		middleI = mi;
+		this.middleI = mi;
 		
 	}
 	
-	String firstName;
-
 	@Override
 	public String getFirstName() {
 		return firstName;
@@ -42,12 +114,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setFirstName(String name) {
-		firstName = name;
+		this.firstName = name;
 		
 	}
 	
-	String lastName;
-
 	@Override
 	public String getLastName() {
 		return lastName;
@@ -55,51 +125,43 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setLastName(String name) {
-		lastName = name;
+		this.lastName = name;
 		
 	}
 	
-	Date DOB;
-
 	@Override
 	public Date getDOB() {
-		return DOB;
+		return dob;
 	}
 
 	@Override
 	public void setDOB(Date dob) {
-		DOB = dob;
+		this.dob = dob;
 		
 	}
 	
 
-	String Race;
-	
 	@Override
 	public String getRace() {
-		return Race;
+		return race;
 	}
 
 	@Override
 	public void setRace(String race) {
-		Race = race;
+		this.race = race;
 	}
 
-	String Gender;
-	
 	@Override
 	public String getGender() {
-		return Gender;
+		return gender;
 	}
 
 	@Override
 	public void setGender(String gender) {
-		Gender = gender;
+		this.gender = gender;
 		
 	}
 
-	String Email;
-	
 	@Override
 	public String getEmail() {
 		return Email;
@@ -107,12 +169,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setEmail(String email) {
-		Email = email;
+		this.Email = email;
 		
 	}
 	
-	String referral;
-
 	@Override
 	public String getReferral() {
 		return referral;
@@ -120,25 +180,21 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setReferral(String ref) {
-		referral = ref;
+		this.referral = ref;
 		
 	}
 	
-	String Address;
-	
 	@Override
 	public String getAddress() {
-		return Address;
+		return address;
 	}
 
 	@Override
 	public void setAddress(String address) {
-		Address = address;
+		this.address = address;
 		
 	}
 	
-	String City;
-
 	@Override
 	public String getCity() {
 		return City;
@@ -146,12 +202,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setCity(String city) {
-		City = city;
+		this.City = city;
 		
 	}
 
-	String st;
-	
 	@Override
 	public String getState() {
 		return st;
@@ -159,12 +213,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setState(String state) {
-		st = state;
+		this.st = state;
 		
 	}
 	
-	String zipCode;
-
 	@Override
 	public String getZip() {
 		return zipCode;
@@ -172,12 +224,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setZip(String zip) {
-		zipCode = zip;
+		this.zipCode = zip;
 		
 	}
 
-	String phoneNum;
-	
 	@Override
 	public String getPhone() {
 		return phoneNum;
@@ -185,11 +235,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPhone(String phone) {
-		phoneNum = phone;
+		this.phoneNum = phone;
 		
 	}
-
-	String cellNum;
 	
 	@Override
 	public String getCell() {
@@ -198,11 +246,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setCell(String cell) {
-		cellNum = cell;
+		this.cellNum = cell;
 				
 	}
-
-	String PCP;
 	
 	@Override
 	public String getPcp() {
@@ -211,12 +257,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPcp(String pcp) {
-		PCP = pcp;
+		this.PCP = pcp;
 		
 	}
 
-	String specialist;
-	
 	@Override
 	public String getSpec() {
 		return specialist;
@@ -224,11 +268,22 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setSpec(String spec) {
-		specialist = spec;
+		this.specialist = spec;
 		
 	}
-
-	Boolean partner;
+	
+//	@Override
+//	public boolean getMailList() {
+//		return mailList;
+//	}
+//
+//	@Override
+//	public void setMailList(String tempMailList) {
+//		this.mailList = tempMailList;
+//		
+//	}
+	
+//Study Partner Information
 	
 	@Override
 	public boolean getPartner() {
@@ -237,24 +292,20 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPartner(boolean prt) {
-		partner = prt;
+		this.partner = prt;
 		
 	}
-
-	String partFirstName;
 	
 	@Override
 	public String getPartFirstName() {
-		return partFirstName;
+		return partFirstname;
 	}
 
 	@Override
 	public void setPartFirstname(String name) {
-		partFirstName = name;
+		this.partFirstname = name;
 		
 	}
-
-	String partLastName;
 	
 	@Override
 	public String getPartLastName() {
@@ -263,11 +314,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPartLastName(String name) {
-		partLastName = name;
+		this.partLastName = name;
 		
 	}
-	
-	String partPhone;
 
 	@Override
 	public String getPartPhone() {
@@ -276,11 +325,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPartPhone(String phone) {
-		partPhone = phone;
+		this.partPhone = phone;
 		
 	}
-
-	String partEmail;
 	
 	@Override
 	public String getPartEmail() {
@@ -289,12 +336,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPartEmail(String email) {
-		partEmail = email;
+		this.partEmail = email;
 		
 	}
 	
-	String partRel;
-
 	@Override
 	public String getPartRel() {
 		return partRel;
@@ -302,11 +347,53 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setPartRel(String relation) {
-		partRel = relation;
+		this.partRel = relation;
+		
+	}
+	
+//HPOA Information
+	
+	@Override
+	public boolean getPoa() {
+		return Hpoa;
+	}
+
+	@Override
+	public void setPoa(boolean poa) {
+		this.Hpoa = poa;
 		
 	}
 
-	Boolean spouse;
+	@Override
+	public String getPoaFirstName() {
+		return poaFirstName;
+	}
+
+	@Override
+	public void setPoaFirstName(String poaFirstName) {
+		this.poaFirstName = poaFirstName;
+		
+	}
+
+	@Override
+	public String getPoaLastName() {
+		return poaLastName;
+	}
+
+	@Override
+	public void setPoaLastName(String poaLastName) {
+		this.poaLastName = poaLastName;
+	}
+
+	@Override
+	public String getPoaPhone() {
+		return poaPhone;
+	}
+
+	@Override
+	public void setPoaPhone(String poaPhone) {
+		this.poaPhone = poaPhone;
+	}
 	
 	@Override
 	public boolean getSpouse() {
@@ -315,12 +402,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setSpouse(boolean spo) {
-		spouse = spo;
+		this.spouse = spo;
 		
 	}
 	
-	String spouseFirstName;
-
 	@Override
 	public String getSpouseFistName() {
 		return spouseFirstName;
@@ -328,11 +413,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setSpouseFirstName(String name) {
-		spouseFirstName = name;
+		this.spouseFirstName = name;
 		
 	}
-
-	String spouseLastName;
 	
 	@Override
 	public String getSpouseLastName() {
@@ -341,11 +424,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setSpouseLastName(String name) {
-		spouseLastName = name;
+		this.spouseLastName = name;
 		
 	}
-	
-	String spousePhone;
 
 	@Override
 	public String getSpousePhone() {
@@ -354,25 +435,20 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setSpousePhone(String phone) {
-		spousePhone = phone;
+		this.spousePhone = phone;
 		
 	}
-	
-	Boolean haveChild;
 
 	@Override
 	public boolean getChild() {
-		return haveChild;
+		return child;
 	}
 
 	@Override
 	public void setChild(boolean child) {
-		haveChild = child;
+		this.child = child;
 		
 	}
-	
-	String childFirstName;
-
 	@Override
 	public String getChildFirstName() {
 		return childFirstName;
@@ -380,11 +456,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setChildFirstName(String name) {
-		childFirstName = name;
+		this.childFirstName = name;
 		
 	}
 
-	String childLastName;
 	
 	@Override
 	public String getChildLastName() {
@@ -393,12 +468,10 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setChildLastName(String name) {
-		childLastName = name;
+		this.childLastName = name;
 		
 	}
 	
-	String childPhone;
-
 	@Override
 	public String getChildPhone() {
 		return childPhone;
@@ -406,11 +479,9 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setChildPhone(String phone) {
-		childPhone = phone;
+		this.childPhone = phone;
 		
 	}
-	
-	String address2;
 	
 	@Override
 	public String getAddress2() {
@@ -419,7 +490,438 @@ public class Participant implements PartRecord {
 
 	@Override
 	public void setAddress2(String address) {
-		address2 = address;
+		this.address2 = address;
+		
+	}
+	
+//Symptoms
+
+	@Override
+	public Date getIntakeDate() {
+		return intakeDate;
+	}
+
+	@Override
+	public void setIntakeDate(Date intake) {
+		this.intakeDate = intake;
+		
+	}
+	
+	@Override
+	public String getDiagnosis() {
+		return diagnosis;
+	}
+
+	@Override
+	public void setDiagnosis(String diagnosis) {
+		this.diagnosis = diagnosis;
+		
+	}
+		
+	@Override
+	public String getClinician() {
+		return clinician;
+	}
+
+	@Override
+	public void setClinician(String clinician) {
+		this.clinician = clinician;
+		
+	}
+
+	@Override
+	public Date getDiagnosisDate() {
+		return diagnosisDate;
+	}
+
+	@Override
+	public void setDiagnosisDate(Date diagnosisDate) {
+		this.diagnosisDate = diagnosisDate;
+		
+	}
+
+	@Override
+	public boolean getAgitation() {
+		return agitation;
+	}
+
+	@Override
+	public void setAgitation(boolean agitate) {
+		this.agitation = agitate;
+		
+	}
+
+	@Override
+	public boolean getApathy() {
+		return apathy;
+	}
+
+	@Override
+	public void setApathy(boolean apathy) {
+		this.apathy = apathy;
+		
+	}
+	
+	@Override
+	public boolean getSleepProblem() {
+		return sleepProblem;
+	}
+
+	@Override
+	public void setSleepProblem(boolean sleep) {
+		this.sleepProblem = sleep;
+		
+	}
+	
+	@Override
+	public boolean getMemoryLoss() {
+		return memoryLoss;
+	}
+
+	@Override
+	public void setMemoryLoss(boolean memory) {
+		this.memoryLoss = memory;
+		
+	}
+
+	@Override
+	public Date getMemoryLossDate() {
+		return memoryLossDate;
+	}
+
+	@Override
+	public void setMemoryLossDate(Date memoryLoss) {
+		this.memoryLossDate = memoryLoss;
+		
+	}
+
+	@Override
+	public boolean getMemoryDisruption() {
+		return memoryDisruption;
+	}
+
+	@Override
+	public void setMemoryDisruption(boolean memoryDisruption) {
+		this.memoryDisruption = memoryDisruption;
+		
+	}
+	
+	@Override
+	public boolean getProblemSolving() {
+		return problemSolving;
+	}
+
+	@Override
+	public void setProblemSolving(boolean problemSolving) {
+		this.problemSolving = problemSolving;
+		
+	}
+
+
+	@Override
+	public boolean getFamiliarTask() {
+		return familiarTask;
+	}
+
+	@Override
+	public void setFamiliarTask(boolean familiarTask) {
+		this.familiarTask = familiarTask;
+		
+	}
+
+
+	@Override
+	public boolean getProblemsConversations() {
+		return problemsConversations;
+	}
+
+	@Override
+	public void setProblemsConversations(boolean conversation) {
+		this.problemsConversations = conversation;
+		
+	}
+	
+	@Override
+	public boolean getFamilyHistory() {
+		return familyHistory;
+	}
+
+	@Override
+	public void setFamilyHistory(boolean familyHistory) {
+		this.familyHistory = familyHistory;
+		
+	}
+	
+
+	@Override
+	public String getFamilyRelation() {
+		return familyRelation;
+	}
+
+	@Override
+	public void setFamilyRelation(String familyRealtion) {
+		this.familyRelation = familyRealtion;
+		
+	}
+	
+	@Override
+	public boolean getAricept() {
+		return aricept;
+	}
+
+	@Override
+	public void setAricept(boolean aricept) {
+		this.aricept = aricept;
+		
+	}
+
+
+	@Override
+	public Date getAriceptStartDate() {
+		return ariceptStartDate;
+	}
+
+	@Override
+	public void setAriceptStartDate(Date ariceptStart) {
+		this.ariceptStartDate = ariceptStart;
+		
+	}
+	
+
+	@Override
+	public Date getAriceptStopDate() {
+		return ariceptStopDate;
+	}
+
+	@Override
+	public void setAriceptStopDate(Date ariceptStop) {
+		this.ariceptStopDate = ariceptStop;
+		
+	}
+
+	@Override
+	public boolean getNamenda() {
+		return namenda;
+	}
+
+	@Override
+	public void setNamenda(boolean Namenda) {
+		this.namenda = Namenda;
+		
+	}
+	
+	@Override
+	public Date getNamendaStartDate() {
+		return namendaStartDate;
+	}
+
+	@Override
+	public void setNamendaStartDate(Date namendaStart) {
+		this.namendaStartDate = namendaStart;
+		
+	}
+
+	
+	@Override
+	public Date getNamendaStopDate() {
+		return namendaStopDate;
+	}
+
+	@Override
+	public void setNamendaStopDate(Date namendaStop) {
+		this.namendaStopDate = namendaStop;
+		
+	}
+
+	@Override
+	public boolean getExelon() {
+		return exelon;
+	}
+
+	@Override
+	public void setExelon(boolean exelon) {
+		this.exelon = exelon;
+		
+	}
+	
+	@Override
+	public Date getExelonStartDate() {
+		return exelonStartDate;
+	}
+
+	@Override
+	public void setExelonStartDate(Date exelonStart) {
+		this.exelonStartDate = exelonStart;
+		
+	}
+
+	@Override
+	public Date getExelonStopDate() {
+		return exelonStopDate;
+	}
+
+	@Override
+	public void setExelonStopDate(Date exelonStop) {
+		this.exelonStopDate = exelonStop;
+		
+	}
+	
+	@Override
+	public boolean getRazadyne() {
+		return razadyne;
+	}
+
+	@Override
+	public void setRazadyne(boolean razadyne) {
+		this.razadyne = razadyne;
+		
+	}
+
+	
+	@Override
+	public Date getRazadyneStartDate() {
+		return razadyneStartDate;
+	}
+
+	@Override
+	public void setRazadyneStartDate(Date razaydenStart) {
+		this.razadyneStartDate = razaydenStart;
+		 
+	}
+	
+	@Override
+	public Date getRazadyneStopDate() {
+		return razadyneStopDate;
+	}
+
+	@Override
+	public void setRazadyneStopDate(Date razadyneStop) {
+		this.razadyneStopDate = razadyneStop;
+		
+	}
+
+	@Override
+	public boolean getAriceptNamenda() {
+		return ariceptNamenda;
+	}
+
+	@Override
+	public void setAriceptNamenda(boolean ariceptNamenda) {
+		this.ariceptNamenda= ariceptNamenda;
+		
+	}
+	
+	@Override
+	public Date getAriceptNamendaStartDate() {
+		return ariceptNamendaStartDate;
+	}
+
+	@Override
+	public void setAriceptNamendaStartDate(Date ariceptNamendaStart) {
+		this.ariceptNamendaStartDate = ariceptNamendaStart;
+		
+	}
+
+	@Override
+	public Date getAriceptNamendaStopDate() {
+		
+		return ariceptNamendaStopDate;
+	}
+
+	@Override
+	public void setAriceptNamendaStopDate(Date ariceptNamendaStop) {
+		this.ariceptNamendaStopDate = ariceptNamendaStop;
+		
+	}
+	
+//Medical History
+
+	@Override
+	public boolean getMentalIllness() {
+		
+		return mentalIllness;
+	}
+
+	@Override
+	public void setMentalIllness(boolean mentalIllness) {
+		this.mentalIllness = mentalIllness;
+		
+	}
+
+	@Override
+	public boolean getSleedDisorder() {
+		
+		return sleepDisorder;
+	}
+
+	@Override
+	public void setSleepDisorder(boolean sleepDisorder) {
+		this.sleepDisorder = sleepDisorder;
+		
+	}
+
+	@Override
+	public boolean getCancerHistory() {
+		return cancerHistory;
+	}
+
+	@Override
+	public void setCancerHistory(boolean cancerHistory) {
+		this.cancerHistory = cancerHistory;
+		
+	}
+
+	@Override
+	public String getCancerType() {
+		return cancerType;
+	}
+
+	@Override
+	public void setCancerType(String cancerType) {
+		this.cancerType = cancerType;
+		
+	}
+
+	@Override
+	public boolean getPacemakerMRI() {
+		return pacemakerMRI;
+	}
+
+	@Override
+	public void setPacemakerMRI(boolean pacemakerMRI) {
+		this.pacemakerMRI = pacemakerMRI;
+		
+	}
+
+	@Override
+	public boolean getSubstanceAbuse() {
+		return substanceAbuse;
+	}
+
+	@Override
+	public void setSubstanceAbuse(boolean substanceAbuse) {
+		this.substanceAbuse = substanceAbuse;		
+	}
+
+	@Override
+	public String getOngoingIssues() {
+		return ongoingIssues;
+	}
+
+	@Override
+	public void setOngoingIssues(String ongoingIssues) {
+		this.ongoingIssues = ongoingIssues;
+		
+	}
+
+	@Override
+	public boolean getMailList() {
+		return mailList;
+	}
+
+	@Override
+	public void setMailList(boolean mailList) {
+		this.mailList = mailList;
 		
 	}
 	

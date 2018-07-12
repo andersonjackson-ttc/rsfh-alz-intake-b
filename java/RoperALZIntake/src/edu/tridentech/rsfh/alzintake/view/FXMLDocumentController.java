@@ -269,32 +269,12 @@ public class FXMLDocumentController implements Initializable {
 		boolean drugAbuse = false;
 		
 		
-		
-
-
-		
 		DataReadWrite writer = DataReadWrite.getInstance();
 		Participant partic = new Participant();
 
 		subDOBStr = subjectDOBTxtBx.getText();
 
 		subDOB = VerifyDate(subDOBStr);
-		/*try 
-		{
-//			Calendar calendar = Calendar.getInstance();
-			dateParser.setLenient(false);
-			subDOB = dateParser.parse(subDOBStr);
-//			calendar.setTime(subDOB);
-		}
-		catch (ParseException e)
-		{
-//   		JOptionPane.showMessageDialog(null, "Date is not Valid. \nPlease enter date as MM/DD/YYYY", "Error", JOptionPane.ERROR_MESSAGE);
-			Alert dateError = new Alert(AlertType.ERROR, "Date is not Valid. \nPlease enter date as MM/DD/YYYY");
-			dateError.showAndWait();
-			return;
-		}*/
-		
-		
 
 //		subject info
 		subFirstName = subjectFirstNameTxtBx.getText();
@@ -409,6 +389,7 @@ public class FXMLDocumentController implements Initializable {
 		activeCancer = cancerStatusRadY.isSelected();
 		pacemakerMRI = deviseMRIConcernRadY.isSelected();
 		drugAbuse = drugAlcoholStatusRadY.isSelected();
+	
 		
 		//pass variables
 		//patient info
@@ -490,9 +471,6 @@ public class FXMLDocumentController implements Initializable {
 		partic.setSubstanceAbuse(drugAbuse);
 		partic.setOngoingIssues(ongoingConcerns);
 		
-		
-		
-		
 //		staff Documentation
 		
 		
@@ -536,26 +514,20 @@ public class FXMLDocumentController implements Initializable {
 			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
 			dateError.showAndWait();
 		}
-		
-		
-		
-
-
 	}
 
 
 
 	@FXML
-	private void handleClearButtonAction(ActionEvent event) {
-
+	private void handleClearButtonAction(ActionEvent event) 
+	{
 		clearForm();
-
-
 	}
 	
 	
 
-	private void clearForm() {
+	private void clearForm() 
+	{
 		subjectFirstNameTxtBx.setText("");
 		subjectMITxtBx.setText("");
 		subjectLastNameTxtBx.setText("");
@@ -570,8 +542,6 @@ public class FXMLDocumentController implements Initializable {
 		subjectSpecialistTxtBx.setText("");
 		subjectReferralDrpDn.setValue(null);
 		subjectDOBTxtBx.setText("");
-
-
 	}
 
 	public void setFilePath(String path)
@@ -606,7 +576,11 @@ public class FXMLDocumentController implements Initializable {
 		return null;
 	}
 	
-	
+//	@FXML
+//	private void OnClickStudyPartner(ActionEvent event) 
+//	{
+//		studyPartnerFirstNameTxtBx.setVisible(false);
+//	}
 	
 
 	@Override

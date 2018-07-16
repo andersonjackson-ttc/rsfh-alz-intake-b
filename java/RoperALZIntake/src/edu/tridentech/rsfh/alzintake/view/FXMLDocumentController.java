@@ -576,6 +576,8 @@ public class FXMLDocumentController implements Initializable {
 		return null;
 	}
 	
+	
+//	method to grey-out unselected options
 //	@FXML
 //	private void OnClickStudyPartner(ActionEvent event) 
 //	{
@@ -590,6 +592,18 @@ public class FXMLDocumentController implements Initializable {
 		// subjectReferralDrpDn.getSelectionModel().select(0);
 	}    
 
+	
+	
+	
+//	regular expression for email
+//	[a-zA-Z_/-0-9]@[a-zA-Z_/-0-9].[a-zA-Z]   <-- email
+	
+//	
+	
+	
+	
+	
+	
 }
 // @FXML private DatePicker intakeScreenDateTxtBx;
 //   @FXML private ComboBox intakeScreenByDrpDn;

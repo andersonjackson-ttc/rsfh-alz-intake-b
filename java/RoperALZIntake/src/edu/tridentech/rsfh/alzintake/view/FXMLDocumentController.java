@@ -597,11 +597,16 @@ public class FXMLDocumentController implements Initializable {
 	
 //	regular expression for email
 //	[a-zA-Z_/-0-9]@[a-zA-Z_/-0-9].[a-zA-Z]   <-- email
-	
 //	
-	
-	
-	
+//	if(subEmail != [a-zA-Z_0-9/-]@[a-zA-Z_/-0-9].[a-zA-Z])
+//	{
+//		
+//	}
+//	
+//	
+//	
+//	
+//	
 	
 	
 }

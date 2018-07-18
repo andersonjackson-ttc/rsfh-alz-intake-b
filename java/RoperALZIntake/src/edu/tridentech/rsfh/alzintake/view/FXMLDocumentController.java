@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -121,22 +123,22 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private CheckBox studyPartnerStatusTglBtn;
 	private TextField[] partnerArray = {studyPartnerFirstNameTxtBx, studyPartnerLastNameTxtBx, studyPartnerPhoneTxtBx, studyPartnerEmailTxtBx, studyPartnerRelationTxtBx};
 
-	@FXML private RadioButton hpoaRadY;  //hpoaFirstNameTxtBx  hpoaLastNameTxtBx  hpoaPhoneTxtBx 
+	@FXML private RadioButton hpoaRadY;
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
 	
-	@FXML private RadioButton hpoaMarriedStatusRadY;  //hpoaSpouseFirstNameTxtBx  hpoaSpouseLastNameTxtBx hpoaSpousePhoneTxtBx 
+	@FXML private RadioButton hpoaMarriedStatusRadY;
 	private TextField[] hpoaMarriedStatArray = {hpoaSpouseFirstNameTxtBx,  hpoaSpouseLastNameTxtBx, hpoaSpousePhoneTxtBx};
 	
-	@FXML private RadioButton hpoaChildStatusRadY;  //hpoaChildFirstNameTxtBx  hpoaChildLastNameTxtBx  hpoaChildPhoneTxtBx
+	@FXML private RadioButton hpoaChildStatusRadY; 
 	private TextField[] hpoaChildStatArray = {hpoaChildFirstNameTxtBx,  hpoaChildLastNameTxtBx, hpoaChildPhoneTxtBx};
 	
-	@FXML private RadioButton alzMemStatusRadY;  //alzMemDiagnosisTxtBx  alzMemDiagnosisClinicianTxtBx  alzMemDiagnosisDateTxtBx
+	@FXML private RadioButton alzMemStatusRadY;  
 	private TextField[] alzMemStatArray = {alzMemDiagnosisTxtBx,  alzMemDiagnosisClinicianTxtBx, alzMemDiagnosisDateTxtBx};
 	
-	@FXML private RadioButton memLossNotedRadY;  //memLossNotedDateTxtBx
+	@FXML private RadioButton memLossNotedRadY;  
 	private TextField[] alzMemArray = {memLossNotedDateTxtBx};
 	
-	@FXML private RadioButton alzFamHistoryStatusRadY;  //alzFamHistoryStatusRelationTxtBx
+	@FXML private RadioButton alzFamHistoryStatusRadY;
 	private TextField[] alzFamHistArray = {alzFamHistoryStatusRelationTxtBx};
 	
 	@FXML private CheckBox donepezilStatusTglBtn;
@@ -278,8 +280,10 @@ public class FXMLDocumentController implements Initializable {
 
 //		subject info
 		subFirstName = subjectFirstNameTxtBx.getText();
+		VerifyName(subFirstName);
 		subMiddleInit = subjectMITxtBx.getText();
 		subLastName = subjectLastNameTxtBx.getText();
+		VerifyName(subLastName);
 		subAddress = subjectAddressTxtBx.getText();
 		subRace = race.getText();
 		subGender = gender.getText();
@@ -287,8 +291,11 @@ public class FXMLDocumentController implements Initializable {
 		subState = subjectStateTxtBx.getText();
 		subZip = subjectZipTxtBx.getText();
 		subEmail = subjectEmailTxtBx.getText();
+		VerifyEmail(subEmail);
 		subPhone = subjectPhoneTxtBx.getText();
+		VerifyPhone(subPhone);
 		subCell = subjectCellTxtBx.getText();
+		VerifyPhone(subCell);
 		subPCP = subjectPcpTxtBx.getText();
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
@@ -298,7 +305,9 @@ public class FXMLDocumentController implements Initializable {
 		partnerFirstName = studyPartnerFirstNameTxtBx.getText();
 		partnerLastName = studyPartnerLastNameTxtBx.getText();
 		partnerHomePhone = studyPartnerPhoneTxtBx.getText();
+		VerifyPhone(partnerHomePhone);
 		partnerEmail = studyPartnerEmailTxtBx.getText();
+		VerifyEmail(partnerEmail);
 		partnerRelation = studyPartnerRelationTxtBx.getText();
 		partnerStatus = studyPartnerStatusTglBtn.isSelected();
 		
@@ -576,6 +585,59 @@ public class FXMLDocumentController implements Initializable {
 		return null;
 	}
 	
+	private void VerifyEmail(String tempEmail)
+	{
+		boolean verifyFlag= false;
+		
+		verifyFlag = CheckEmail(tempEmail);
+		
+		if (!verifyFlag)
+		{
+			String msg = String.format("Eamil Address -- %s -- is Invalid. \nPlease enter a Valid Email Address", tempEmail);
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+		}
+		
+	}
+	
+	private void VerifyPhone(String tempPhone)
+	{
+		boolean verifyFlag = false;
+		
+		verifyFlag = CheckPhone(tempPhone);
+		
+		if(!verifyFlag)
+		{
+			String msg = String.format("Phone Number -- %s -- is Invalid. \nPlease enter a Valid Phone Number", tempPhone);
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+		}
+	}
+	
+	private void VerifyName(String tempName) 
+	{
+//		boolean verifyFlag = false;
+//		
+//		verifyFlag = CheckPhone(tempName);
+//		
+//		if(!verifyFlag)
+//		{
+//			String msg = String.format("Phone Number -- %s -- is Invalid. \nPlease enter a Valid Phone Number", tempName);
+//			Alert emailError = new Alert(AlertType.ERROR, msg);
+//			emailError.showAndWait();
+//		}
+		
+		if(tempName.equals(""));
+		{
+			String msg = String.format("You must enter a First and Last Name");
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+		}
+	}
+	
+	
+	
+	
 	
 //	method to grey-out unselected options
 //	@FXML
@@ -594,56 +656,21 @@ public class FXMLDocumentController implements Initializable {
 
 	
 	
+	private boolean CheckEmail(String tempEmail)
+	{	
+		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
+	}
+
 	
-//	regular expression for email
-//	[a-zA-Z_/-0-9]@[a-zA-Z_/-0-9].[a-zA-Z]   <-- email
-//	
-//	if(subEmail != [a-zA-Z_0-9/-]@[a-zA-Z_/-0-9].[a-zA-Z])
-//	{
-//		
-//	}
-//	
-//	
-//	
-//	
-//	
+	private boolean CheckPhone(String tempPhone)
+	{
+		return tempPhone.matches("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
+	} 
+	
+	private boolean CheckName(String tempName)
+	{
+		return tempName.matches("^[a-zA-Z_0-9-]$");
+	}
 	
 	
 }
-// @FXML private DatePicker intakeScreenDateTxtBx;
-//   @FXML private ComboBox intakeScreenByDrpDn;
-//   @FXML private TextField subjectFirstNameTxtBx;
-//   @FXML private TextField subjectMITxtBx;
-//   @FXML private TextField subjectLastNameTxtBx;
-//   @FXML private TextField subjectDOBTxtBx;
-//   @FXML private TextField subjectAddressTxtBx;
-//   @FXML private TextField subjectStateTxtBx;
-//   @FXML private TextField subjectZipTxtBx;
-//   @FXML private CheckBox hpoaStatusCkBxY;
-//   @FXML private CheckBox hpoaStatusCkBxN;
-//   @FXML private TextField subjectEmailTxtBx;
-//   @FXML private TextField subjectPhoneTxtBx;
-//   @FXML private TextField subjectCellTxtBx;
-//   @FXML private TextField subjectPcpTxtBx;
-//   @FXML private TextField subjectCityTxtBx;
-//   @FXML private TextField subjectSpecialistTxtBx;
-//   @FXML private TextField hpoaFirstNameTxtBx;
-//   @FXML private TextField hpoaLastNameTxtBx;
-//   @FXML private TextField hpoaPhoneTxtBx;
-//   @FXML private ComboBox subjectReferralDrpDn;
-//   @FXML private CheckBox studyPartnerStatusTglBtn;
-//   @FXML private TextField studyPartnerRelationTxtBx;
-//   @FXML private TextField studyPartnerPhoneTxtBx;
-//   @FXML private TextField studyPartnerEmailTxtBx;
-//   @FXML private TextField studyPartnerLastNameTxtBx;
-//   @FXML private TextField studyPartnerFirstNameTxtBx;
-//   @FXML private TextField hpoaSpousePhoneTxtBx;
-//   @FXML private TextField hpoaSpouseLastNameTxtBx;
-//   @FXML private TextField hpoaSpouseFirstNameTxtBx;
-//   @FXML private CheckBox hpoaMarriedStatusCkBxN;
-//   @FXML private CheckBox hpoaMarriedStatusCkBxY;
-//   @FXML private CheckBox hpoaChildStatusCkBxY;
-//   @FXML private CheckBox hpoaChildStatusCkBxN;
-//   @FXML private TextField hpoaChildFirstNameTxtBx;
-//   @FXML private TextField hpoaChildLastNameTxtBx;
-//   @FXML private TextField hpoaChildPhoneTxtBx;

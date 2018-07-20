@@ -44,6 +44,8 @@ import javafx.scene.control.RadioButton;
 public class FXMLDocumentController implements Initializable {
 
 	private String filePath = "";
+	
+	 private Participant partic = new Participant();
 
 
 	@FXML
@@ -171,6 +173,80 @@ public class FXMLDocumentController implements Initializable {
 	private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		DataReadWrite writer = DataReadWrite.getInstance();
+		
+
+		
+		try
+		{
+			consumePatientInfo();
+			
+			consumePartnerInfo();
+			
+			consumeHPOA();
+			
+			consumeSymptomsInfo();
+		
+			consumeMedicaInfo();		
+		
+		}
+		catch(Exception e)
+		{
+			return;
+		}
+		
+		try 
+		{
+			
+			//writer.writeRecord(partic);
+			if (writer.writeRecord(partic, filePath))
+			{
+				Alert successWrite = new Alert(AlertType.INFORMATION, "Information successfully submitted to the Excel Spreadsheet.");
+				successWrite.showAndWait();
+			}
+		} 
+		catch (InvalidFormatException e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Alert dateError = new Alert(AlertType.ERROR, "Unexpected Error. Contact IT Deptment");
+			dateError.showAndWait();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			//this is the file in use error
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
+			dateError.showAndWait();
+		}
+		catch (IOException e) 
+		{
+			
+			//file not located in correct place error
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
+			dateError.showAndWait();
+		}
+		
+	}
+
+
+	private void consumePatientInfo() throws Exception
+	{
 		String subFirstName = "";
 		String subMiddleInit = "";
 		String subLastName = "";
@@ -191,13 +267,90 @@ public class FXMLDocumentController implements Initializable {
 		String subjectReferral = "";
 		boolean mailList = false;
 		
-		//partner
-		String partnerFirstName = "";
-		String partnerLastName = "";
-		String partnerHomePhone = "";
-		String partnerEmail = "";
-		String partnerRelation = "";
-		boolean partnerStatus = false;
+		
+		
+		subDOBStr = subjectDOBTxtBx.getText();
+
+		subDOB = VerifyReqiuredDate(subDOBStr);
+		subFirstName = subjectFirstNameTxtBx.getText();
+		VerifyRequiredName(subFirstName);
+		subMiddleInit = subjectMITxtBx.getText();
+		subLastName = subjectLastNameTxtBx.getText();
+		VerifyRequiredName(subLastName);
+		subAddress = subjectAddressTxtBx.getText();
+		subRace = race.getText();
+		subGender = gender.getText();
+		subCity = subjectCityTxtBx.getText();
+		subState = subjectStateTxtBx.getText();
+		subZip = subjectZipTxtBx.getText();
+		subEmail = subjectEmailTxtBx.getText();
+		VerifyEmail(subEmail);
+		subPhone = subjectPhoneTxtBx.getText();
+		subCell = subjectCellTxtBx.getText();
+		VerifyParticipantPhone(subCell, subPhone);
+		subPCP = subjectPcpTxtBx.getText();
+		subSpecialist = subjectSpecialistTxtBx.getText();
+		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
+		mailList = subjectMailListStatusCkBxY.isSelected();
+		
+		partic.setFirstName(subFirstName);
+		partic.setMiddleI(subMiddleInit);
+		partic.setLastName(subLastName);
+		partic.setDOB(subDOB);
+		partic.setAddress(subAddress);
+//		partic.setAddress2(address2);
+		partic.setCity(subCity);
+		partic.setState(subState);
+		partic.setZip(subZip);
+		partic.setEmail(subEmail);
+		partic.setPhone(subPhone);
+		partic.setCell(subCell);
+		partic.setPcp(subPCP);
+		partic.setSpec(subSpecialist);
+		partic.setReferral(subjectReferral);
+		partic.setRace(subRace);
+		partic.setGender(subGender);
+		partic.setMailList(mailList);
+	}
+	
+	
+	private void consumePartnerInfo() throws Exception
+	{
+//				partner
+				String partnerFirstName = "";
+				String partnerLastName = "";
+				String partnerHomePhone = "";
+				String partnerEmail = "";
+				String partnerRelation = "";
+				boolean partnerStatus = false;
+				
+//				partner info
+				partnerStatus = studyPartnerStatusTglBtn.isSelected();
+				if(partnerStatus)
+				{
+					partnerFirstName = studyPartnerFirstNameTxtBx.getText();
+					VerifyRequiredName(partnerFirstName);
+					partnerLastName = studyPartnerLastNameTxtBx.getText();
+					VerifyRequiredName(partnerLastName);
+					partnerHomePhone = studyPartnerPhoneTxtBx.getText();
+					VerifyPhone(partnerHomePhone);
+					partnerEmail = studyPartnerEmailTxtBx.getText();
+					VerifyEmail(partnerEmail);
+					partnerRelation = studyPartnerRelationTxtBx.getText();
+				}
+				
+				//partner info
+				partic.setPartFirstname(partnerFirstName);
+				partic.setPartLastName(partnerLastName);
+				partic.setPartEmail(partnerEmail);
+				partic.setPartPhone(partnerHomePhone);
+				partic.setPartRel(partnerRelation);
+	}
+	
+	
+	
+	private void consumeHPOA() throws Exception
+	{
 		
 		//hopa
 		String hpoaFirstName = "";
@@ -212,6 +365,57 @@ public class FXMLDocumentController implements Initializable {
 		boolean hpoaStat = false;
 		boolean hpoaMarriedStat = false;
 		boolean hpoaChildStat = false;
+		
+		//hpoa
+		hpoaStat = hpoaRadY.isSelected();
+		if(hpoaStat)
+		{
+			hpoaFirstName = hpoaFirstNameTxtBx.getText();
+			VerifyRequiredName(hpoaFirstName);
+			hpoaLastName = hpoaLastNameTxtBx.getText();
+			VerifyRequiredName(hpoaLastName);
+			hpoaHomePhone = hpoaPhoneTxtBx.getText();
+			VerifyPhone(hpoaHomePhone);
+		}
+
+		hpoaMarriedStat = hpoaMarriedStatusRadY.isSelected();
+		if(hpoaMarriedStat)
+		{
+			hpoaSpouseFirst = hpoaSpouseFirstNameTxtBx.getText();
+			VerifyRequiredName(hpoaSpouseFirst);
+			hpoaSpouseLast = hpoaSpouseLastNameTxtBx.getText();
+			VerifyRequiredName(hpoaSpouseLast);
+			hpoaSpousePhone = hpoaSpousePhoneTxtBx.getText();
+			VerifyPhone(hpoaSpousePhone);
+		}
+
+		hpoaChildStat = hpoaChildStatusRadY.isSelected();
+		if(hpoaChildStat)
+		{
+			hpoaChildFirst = hpoaChildFirstNameTxtBx.getText();
+			VerifyRequiredName(hpoaChildFirst);
+			hpoaChildLast = hpoaChildLastNameTxtBx.getText();
+			VerifyRequiredName(hpoaChildLast);
+			hpoaChilePhone = hpoaChildPhoneTxtBx.getText();
+			VerifyPhone(hpoaChilePhone);
+		}
+
+
+		//HPOA
+		partic.setPoaFirstName(hpoaFirstName);
+		partic.setPoaLastName(hpoaLastName);
+		partic.setPoaPhone(hpoaHomePhone);
+		partic.setSpouseFirstName(hpoaSpouseFirst);
+		partic.setSpouseLastName(hpoaSpouseLast);
+		partic.setSpousePhone(hpoaSpousePhone);
+		partic.setChildFirstName(hpoaChildFirst);
+		partic.setChildLastName(hpoaChildLast);
+		partic.setChildPhone(hpoaChilePhone);
+	}
+
+	
+	private void consumeSymptomsInfo() throws Exception
+	{
 		
 		
 		//Symptoms
@@ -261,69 +465,6 @@ public class FXMLDocumentController implements Initializable {
 		boolean galantamine = false;
 		boolean namzaric = false;
 		
-		//Medical history
-		String ongoingConcerns = "";
-		String cancerType = "";
-		boolean mentalDisorder = false;
-		boolean sleepDisorder = false;
-		boolean activeCancer = false;
-		boolean pacemakerMRI = false;
-		boolean drugAbuse = false;
-		
-		
-		DataReadWrite writer = DataReadWrite.getInstance();
-		Participant partic = new Participant();
-
-		subDOBStr = subjectDOBTxtBx.getText();
-
-		subDOB = VerifyDate(subDOBStr);
-
-//		subject info
-		subFirstName = subjectFirstNameTxtBx.getText();
-		VerifyName(subFirstName);
-		subMiddleInit = subjectMITxtBx.getText();
-		subLastName = subjectLastNameTxtBx.getText();
-		VerifyName(subLastName);
-		subAddress = subjectAddressTxtBx.getText();
-		subRace = race.getText();
-		subGender = gender.getText();
-		subCity = subjectCityTxtBx.getText();
-		subState = subjectStateTxtBx.getText();
-		subZip = subjectZipTxtBx.getText();
-		subEmail = subjectEmailTxtBx.getText();
-		VerifyEmail(subEmail);
-		subPhone = subjectPhoneTxtBx.getText();
-		VerifyPhone(subPhone);
-		subCell = subjectCellTxtBx.getText();
-		VerifyPhone(subCell);
-		subPCP = subjectPcpTxtBx.getText();
-		subSpecialist = subjectSpecialistTxtBx.getText();
-		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
-		mailList = subjectMailListStatusCkBxY.isSelected();
-		
-//		partner info
-		partnerFirstName = studyPartnerFirstNameTxtBx.getText();
-		partnerLastName = studyPartnerLastNameTxtBx.getText();
-		partnerHomePhone = studyPartnerPhoneTxtBx.getText();
-		VerifyPhone(partnerHomePhone);
-		partnerEmail = studyPartnerEmailTxtBx.getText();
-		VerifyEmail(partnerEmail);
-		partnerRelation = studyPartnerRelationTxtBx.getText();
-		partnerStatus = studyPartnerStatusTglBtn.isSelected();
-		
-		//hpoa
-		hpoaFirstName = hpoaFirstNameTxtBx.getText();
-		hpoaLastName = hpoaLastNameTxtBx.getText();
-		hpoaHomePhone = hpoaPhoneTxtBx.getText();
-		hpoaStat = hpoaRadY.isSelected();
-		hpoaSpouseFirst = hpoaSpouseFirstNameTxtBx.getText();
-		hpoaSpouseLast = hpoaSpouseLastNameTxtBx.getText();
-		hpoaSpousePhone = hpoaSpousePhoneTxtBx.getText();
-		hpoaMarriedStat = hpoaMarriedStatusRadY.isSelected();
-		hpoaChildFirst = hpoaChildFirstNameTxtBx.getText();
-		hpoaChildLast = hpoaChildLastNameTxtBx.getText();
-		hpoaChilePhone = hpoaChildPhoneTxtBx.getText();
-		hpoaChildStat = hpoaChildStatusRadY.isSelected();
 		
 //		symptoms
 		familyHistoryRelationship = alzFamHistoryStatusRelationTxtBx.getText();
@@ -331,7 +472,7 @@ public class FXMLDocumentController implements Initializable {
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
 		
 		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
-		symptDOD = VerifyDate(symptDOOStr);
+		symptDOD = VerifyNonReqiuredDate(symptDOOStr);
 		
 		alzDiagnose = alzMemStatusRadY.isSelected();
 		agitation = alzMemAgitationRadY.isSelected();
@@ -340,7 +481,7 @@ public class FXMLDocumentController implements Initializable {
 		memLoss = memLossNotedRadY.isSelected();
 		
 		symptDOOStr = memLossNotedDateTxtBx.getText();
-		symptDOO = VerifyDate(symptDOOStr);
+		symptDOO = VerifyNonReqiuredDate(symptDOOStr);
 		
 		memLossDisrupt = memLossDisruptRadY.isSelected();
 		difficultPlanning = planSolveStatusRadY.isSelected();
@@ -351,93 +492,43 @@ public class FXMLDocumentController implements Initializable {
 		
 
 		donepezilStartStr = donepezilStartDateTxtBx.getText();
-		donepezilStart = VerifyDate(donepezilStartStr);
+		donepezilStart = VerifyNonReqiuredDate(donepezilStartStr);
 		
 		donepezilEndStr = donepezilEndDateTxtBx.getText();
-		donepezilEnd = VerifyDate(donepezilEndStr);
+		donepezilEnd = VerifyNonReqiuredDate(donepezilEndStr);
 		
 		memantine = memantineStatusTglBtn.isSelected();
 		
 		memantineStartStr = memantineStartDateTxtBx.getText();
-		memantineStart = VerifyDate(memantineStartStr);
+		memantineStart = VerifyNonReqiuredDate(memantineStartStr);
 		
 		memantineEndStr = memantineEndDateTxtBx.getText();
-		memantineEnd = VerifyDate(memantineEndStr);
+		memantineEnd = VerifyNonReqiuredDate(memantineEndStr);
 		
 		rivastigmine = rivastigmineStatusTglBtn.isSelected();
 		
 		rivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
-		rivantigmineStart = VerifyDate(rivantigmineStartStr);
+		rivantigmineStart = VerifyNonReqiuredDate(rivantigmineStartStr);
 		
 		rivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
-		rivantigmineEnd = VerifyDate(rivantigmineEndStr);
+		rivantigmineEnd = VerifyNonReqiuredDate(rivantigmineEndStr);
 		
 		galantamine = galantamineStatusTglBtn.isSelected();
 		
 		galantamineStartStr = galantamineStartDateTxtBx.getText();
-		galantamineStart = VerifyDate(galantamineStartStr);
+		galantamineStart = VerifyNonReqiuredDate(galantamineStartStr);
 		
 		galantamineEndStr = galantamineEndDateTxtBx.getText();
-		galantamineEnd = VerifyDate(galantamineEndStr);
+		galantamineEnd = VerifyNonReqiuredDate(galantamineEndStr);
 		
 		namzaric = nammzaricStatusTglBtn.isSelected();
 		
 		namzaricStartStr = nammzaricStartDateTxtBx.getText();
-		namzaricStart = VerifyDate(namzaricStartStr);
+		namzaricStart = VerifyNonReqiuredDate(namzaricStartStr);
 		
 		namzaricEndStr = nammzaricEndDateTxtBx.getText();
-		namzaricEnd = VerifyDate(namzaricEndStr);
-				
+		namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
 		
-		
-//		medical history
-		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
-		cancerType = cancerStatusTypeTxtBx.getText();
-		mentalDisorder = schizBiMddStatusRadY.isSelected();
-		sleepDisorder = sleepDisorderStatusRadY.isSelected();
-		activeCancer = cancerStatusRadY.isSelected();
-		pacemakerMRI = deviseMRIConcernRadY.isSelected();
-		drugAbuse = drugAlcoholStatusRadY.isSelected();
-	
-		
-		//pass variables
-		//patient info
-		partic.setFirstName(subFirstName);
-		partic.setMiddleI(subMiddleInit);
-		partic.setLastName(subLastName);
-		partic.setDOB(subDOB);
-		partic.setAddress(subAddress);
-//		partic.setAddress2(address2);
-		partic.setCity(subCity);
-		partic.setState(subState);
-		partic.setZip(subZip);
-		partic.setEmail(subEmail);
-		partic.setPhone(subPhone);
-		partic.setCell(subCell);
-		partic.setPcp(subPCP);
-		partic.setSpec(subSpecialist);
-		partic.setReferral(subjectReferral);
-		partic.setRace(subRace);
-		partic.setGender(subGender);
-//		partic.setMailList(mailList);
-		
-		//partner info
-		partic.setPartFirstname(partnerFirstName);
-		partic.setPartLastName(partnerLastName);
-		partic.setPartEmail(partnerEmail);
-		partic.setPartPhone(partnerHomePhone);
-		partic.setPartRel(partnerRelation);
-		
-		//HPOA
-		partic.setPoaFirstName(hpoaFirstName);
-		partic.setPoaLastName(hpoaLastName);
-		partic.setPoaPhone(hpoaHomePhone);
-		partic.setSpouseFirstName(partnerFirstName);
-		partic.setSpouseLastName(partnerLastName);
-		partic.setSpousePhone(hpoaSpousePhone);
-		partic.setChildFirstName(hpoaChildFirst);
-		partic.setChildLastName(hpoaChildLast);
-		partic.setChildPhone(hpoaChilePhone);
 		
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
@@ -446,7 +537,7 @@ public class FXMLDocumentController implements Initializable {
 		partic.setDiagnosisDate(symptDOD);
 		partic.setAgitation(agitation);
 		partic.setApathy(apathy);
-		partic.setSleepProblem(sleepDisorder);
+		partic.setSleepProblem(sleepProblems);
 		partic.setMemoryLoss(memLoss);
 		partic.setMemoryLossDate(symptDOO);
 		partic.setMemoryDisruption(memLossDisrupt);
@@ -470,8 +561,32 @@ public class FXMLDocumentController implements Initializable {
 		partic.setAriceptNamenda(namzaric);
 		partic.setAriceptNamendaStartDate(namzaricStart);
 		partic.setAriceptNamendaStopDate(namzaricEnd);
-				
-//		Medical History
+	}
+	
+	
+	private void consumeMedicaInfo() throws Exception
+	{
+		//Medical history
+		String ongoingConcerns = "";
+		String cancerType = "";
+		boolean mentalDisorder = false;
+		boolean sleepDisorder = false;
+		boolean activeCancer = false;
+		boolean pacemakerMRI = false;
+		boolean drugAbuse = false;
+
+		
+		//	medical history
+		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
+		cancerType = cancerStatusTypeTxtBx.getText();
+		mentalDisorder = schizBiMddStatusRadY.isSelected();
+		sleepDisorder = sleepDisorderStatusRadY.isSelected();
+		activeCancer = cancerStatusRadY.isSelected();
+		pacemakerMRI = deviseMRIConcernRadY.isSelected();
+		drugAbuse = drugAlcoholStatusRadY.isSelected();
+
+		
+		//	Medical History
 		partic.setMentalIllness(mentalDisorder);
 		partic.setSleepDisorder(sleepDisorder);
 		partic.setCancerHistory(activeCancer);
@@ -479,53 +594,9 @@ public class FXMLDocumentController implements Initializable {
 		partic.setPacemakerMRI(pacemakerMRI);
 		partic.setSubstanceAbuse(drugAbuse);
 		partic.setOngoingIssues(ongoingConcerns);
-		
-//		staff Documentation
-		
-		
-		
-		
-		
-		
-		try 
-		{
-			
-			//writer.writeRecord(partic);
-			if (writer.writeRecord(partic, filePath))
-			{
-				Alert successWrite = new Alert(AlertType.INFORMATION, "Information successfully submitted to the Excel Spreadsheet.");
-				successWrite.showAndWait();
-			}
-		} 
-		catch (InvalidFormatException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Alert dateError = new Alert(AlertType.ERROR, "Unexpected Error. Contact IT Deptment");
-			dateError.showAndWait();
-		} 
-		catch (FileNotFoundException e) 
-		{
-			//this is the file in use error
-			
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
-			dateError.showAndWait();
-		}
-		catch (IOException e) 
-		{
-			
-			//file not located in correct place error
-			
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
-			dateError.showAndWait();
-		}
 	}
-
-
+	
+	
 
 	@FXML
 	private void handleClearButtonAction(ActionEvent event) 
@@ -559,7 +630,7 @@ public class FXMLDocumentController implements Initializable {
 	}
 	
 	
-	private Date VerifyDate(String tempDateStr)
+	private Date VerifyReqiuredDate(String tempDateStr) throws Exception
 	{
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 		Date tempDate;
@@ -579,61 +650,165 @@ public class FXMLDocumentController implements Initializable {
 				String msg = String.format("Date is not Valid: %s. \nPlease enter date as MM/DD/YYYY", tempDateStr);
 				Alert dateError = new Alert(AlertType.ERROR, msg);
 				dateError.showAndWait();
-				return null;
+				throw new Exception ("Bad Date");
 			}
 		}
-		return null;
+		
+//		New Stuff
+		else
+		{
+			String msg = String.format("Please enter a Valid Date");
+			Alert dateError = new Alert(AlertType.ERROR, msg);
+			dateError.showAndWait();
+			throw new Exception ("No Date");
+		}
 	}
 	
-	private void VerifyEmail(String tempEmail)
+	private void VerifyEmail(String tempEmail) throws Exception
 	{
 		boolean verifyFlag= false;
 		
-		verifyFlag = CheckEmail(tempEmail);
-		
-		if (!verifyFlag)
+		if(!tempEmail.equals(""))
 		{
-			String msg = String.format("Eamil Address -- %s -- is Invalid. \nPlease enter a Valid Email Address", tempEmail);
-			Alert emailError = new Alert(AlertType.ERROR, msg);
-			emailError.showAndWait();
+			verifyFlag = CheckEmail(tempEmail);
+
+			if (!verifyFlag)
+			{
+				String msg = String.format("Eamil Address -- %s -- is Invalid. \nPlease enter a Valid Email Address", tempEmail);
+				Alert emailError = new Alert(AlertType.ERROR, msg);
+				emailError.showAndWait();
+				throw new Exception ("Bad Email");
+			}
 		}
-		
 	}
+		
 	
-	private void VerifyPhone(String tempPhone)
+		
+	private Date VerifyNonReqiuredDate(String tempDateStr) throws Exception
 	{
-		boolean verifyFlag = false;
+		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
+		Date tempDate;
 		
-		verifyFlag = CheckPhone(tempPhone);
-		
-		if(!verifyFlag)
+		if (!tempDateStr.equals(""))
 		{
-			String msg = String.format("Phone Number -- %s -- is Invalid. \nPlease enter a Valid Phone Number", tempPhone);
+			try 
+			{
+				dateParser.setLenient(false);
+				tempDate = dateParser.parse(tempDateStr);
+
+
+				return tempDate;
+			}
+			catch (ParseException e)
+			{
+				String msg = String.format("Date is not Valid: %s. \nPlease enter date as MM/DD/YYYY", tempDateStr);
+				Alert dateError = new Alert(AlertType.ERROR, msg);
+				dateError.showAndWait();
+				throw new Exception ("Bad Date");
+			}
+		}
+		
+		return null;
+	}
+	
+
+	
+	private void VerifyParticipantPhone(String tempPhone1, String tempPhone2) throws Exception
+	{
+//		boolean verifyFlag = false;
+		
+		
+//		verifyFlag = CheckPhone(tempPhone1);
+//		verify
+		
+		if(!CheckPhone(tempPhone1) && !CheckPhone(tempPhone2))
+		{
+			String msg = String.format("Valid Home Phone or Cell Phone Required.");
 			Alert emailError = new Alert(AlertType.ERROR, msg);
 			emailError.showAndWait();
+			throw new Exception ("Invalid homme or cell phone");
 		}
 	}
 	
-	private void VerifyName(String tempName) 
+	private void VerifyPhone(String tempPhone1) throws Exception
 	{
 //		boolean verifyFlag = false;
 //		
-//		verifyFlag = CheckPhone(tempName);
-//		
-//		if(!verifyFlag)
-//		{
-//			String msg = String.format("Phone Number -- %s -- is Invalid. \nPlease enter a Valid Phone Number", tempName);
-//			Alert emailError = new Alert(AlertType.ERROR, msg);
-//			emailError.showAndWait();
-//		}
+//		verifyFlag = CheckPhone(tempPhone1);
+
+		if(!tempPhone1.equals(""))
+		{
+			if(!CheckPhone(tempPhone1))
+			{
+				String msg = String.format("Phone Number not Valid: %s. \\nPlease enter a valid phone number", tempPhone1);
+				Alert emailError = new Alert(AlertType.ERROR, msg);
+				emailError.showAndWait();
+				throw new Exception ("Invalid homme or cell phone");
+			}
+		}
+	}
+	
+	private void VerifyRequiredFields(String tempFirstName, String tempLastName, String tempDate, String tempPhone1, String tempPhone2) throws Exception
+	{
+		if(tempFirstName.equals(""))
+		{
+			String msg = String.format("You must enter a First Name");
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+			throw new Exception ("Blank First Name");
+			
+		}
 		
-		if(tempName.equals(""));
+		if(tempLastName.equals(""))
+		{
+			String msg = String.format("You must enter a Last Name");
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+			throw new Exception ("Blank Last Name");
+		}
+		
+		if(tempDate.equals(""))
+		{
+			String msg = String.format("You must enter a Date of Birth");
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+			throw new Exception ("No DOB");
+		}
+		
+		if(tempPhone1.equals("") && tempPhone2.equals(""))
+		{
+			String msg = String.format("You must enter either a Home Phone or Cell Phone number");
+			Alert emailError = new Alert(AlertType.ERROR, msg);
+			emailError.showAndWait();
+			throw new Exception ("No Phone Number");
+		}
+	}
+	
+	
+	
+	private void VerifyRequiredName(String tempName) 
+	{	
+		if(tempName.equals(""))
 		{
 			String msg = String.format("You must enter a First and Last Name");
 			Alert emailError = new Alert(AlertType.ERROR, msg);
 			emailError.showAndWait();
+			
 		}
 	}
+	
+//	private void VerifyNonRequiredName(String tempName)
+//	{
+//		
+//		
+//		
+//		if(tempName.equals(""));
+//		{
+//			String msg = String.format("You must enter a First and Last Name");
+//			Alert emailError = new Alert(AlertType.ERROR, msg);
+//			emailError.showAndWait();
+//		}
+//	}
 	
 	
 	

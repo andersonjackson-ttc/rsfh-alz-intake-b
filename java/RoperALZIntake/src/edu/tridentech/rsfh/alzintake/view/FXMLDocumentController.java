@@ -44,8 +44,8 @@ import javafx.scene.control.RadioButton;
 public class FXMLDocumentController implements Initializable {
 
 	private String filePath = "";
-	
-	 private Participant partic = new Participant();
+
+	private Participant partic = new Participant();
 
 
 	@FXML
@@ -98,8 +98,8 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private TextField race;
 	@FXML private TextField gender;
 
-	
-	
+
+
 	@FXML private RadioButton alzMemAgitationRadY;
 	@FXML private RadioButton alzMemApathyRadY;
 	@FXML private RadioButton alzMemSleepIssueRadY;
@@ -111,104 +111,91 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private RadioButton sleepDisorderStatusRadY;
 	@FXML private RadioButton deviseMRIConcernRadY;
 	@FXML private RadioButton drugAlcoholStatusRadY;
-	
 
-	
-	
-	
-	
+
+
+
+
+
 	@FXML private ComboBox<String> subjectReferralDrpDn;
-//	@FXML private ComboBox<String> gender;
-	
+	//	@FXML private ComboBox<String> gender;
 
-	
+
+
 	@FXML private CheckBox studyPartnerStatusTglBtn;
 	private TextField[] partnerArray = {studyPartnerFirstNameTxtBx, studyPartnerLastNameTxtBx, studyPartnerPhoneTxtBx, studyPartnerEmailTxtBx, studyPartnerRelationTxtBx};
 
 	@FXML private RadioButton hpoaRadY;
 	private TextField[] hpoaStatusArray = {hpoaFirstNameTxtBx, hpoaLastNameTxtBx, hpoaPhoneTxtBx};
-	
+
 	@FXML private RadioButton hpoaMarriedStatusRadY;
 	private TextField[] hpoaMarriedStatArray = {hpoaSpouseFirstNameTxtBx,  hpoaSpouseLastNameTxtBx, hpoaSpousePhoneTxtBx};
-	
+
 	@FXML private RadioButton hpoaChildStatusRadY; 
 	private TextField[] hpoaChildStatArray = {hpoaChildFirstNameTxtBx,  hpoaChildLastNameTxtBx, hpoaChildPhoneTxtBx};
-	
+
 	@FXML private RadioButton alzMemStatusRadY;  
 	private TextField[] alzMemStatArray = {alzMemDiagnosisTxtBx,  alzMemDiagnosisClinicianTxtBx, alzMemDiagnosisDateTxtBx};
-	
+
 	@FXML private RadioButton memLossNotedRadY;  
 	private TextField[] alzMemArray = {memLossNotedDateTxtBx};
-	
+
 	@FXML private RadioButton alzFamHistoryStatusRadY;
 	private TextField[] alzFamHistArray = {alzFamHistoryStatusRelationTxtBx};
-	
+
 	@FXML private CheckBox donepezilStatusTglBtn;
 	private TextField[] donepezilBeginEnd = {donepezilStartDateTxtBx, donepezilEndDateTxtBx};
-	
+
 	@FXML private CheckBox memantineStatusTglBtn;
 	private TextField[] memantineBeginEnd = {memantineStartDateTxtBx, memantineEndDateTxtBx};
-	
+
 	@FXML private CheckBox rivastigmineStatusTglBtn;
 	private TextField[] rivastigmineBeginEnd = {rivastigmineStartDateTxtBx, rivastigmineEndDateTxtBx};
-	
+
 	@FXML private CheckBox galantamineStatusTglBtn;
 	private TextField[] galantamineBeginEnd = {galantamineStartDateTxtBx, galantamineEndDateTxtBx};
-	
+
 	@FXML private CheckBox nammzaricStatusTglBtn;
 	private TextField[] nammzaricBeginEnd = {nammzaricStartDateTxtBx, nammzaricEndDateTxtBx};
 
 	@FXML private RadioButton cancerStatusRadY;
 	private TextField[] cancerStatusArray = {cancerStatusTypeTxtBx};
-	
+
 	@FXML private CheckBox subjectMailListStatusCkBxY;
 
 
-	
+
 
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
 
 
 	@FXML
 	private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		DataReadWrite writer = DataReadWrite.getInstance();
-		
 
-		
+
+		DataReadWrite writer = DataReadWrite.getInstance();
+
 		try
 		{
 			consumePatientInfo();
-			
+
 			consumePartnerInfo();
-			
+
 			consumeHPOA();
+
+			consumeSymptomsInfo(); 
 			
-			consumeSymptomsInfo();
-		
 			consumeMedicaInfo();		
-		
+
 		}
 		catch(Exception e)
 		{
 			return;
 		}
-		
+
 		try 
 		{
-			
-			//writer.writeRecord(partic);
+
 			if (writer.writeRecord(partic, filePath))
 			{
 				Alert successWrite = new Alert(AlertType.INFORMATION, "Information successfully submitted to the Excel Spreadsheet.");
@@ -224,8 +211,8 @@ public class FXMLDocumentController implements Initializable {
 		} 
 		catch (FileNotFoundException e) 
 		{
-			//this is the file in use error
-			
+			//file in use error
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Alert dateError = new Alert(AlertType.ERROR, "You have the Spreadsheet open. Please close the spreadsheet.");
@@ -233,15 +220,15 @@ public class FXMLDocumentController implements Initializable {
 		}
 		catch (IOException e) 
 		{
-			
+
 			//file not located in correct place error
-			
+
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Alert dateError = new Alert(AlertType.ERROR, "Could not find spreadsheet.");
 			dateError.showAndWait();
 		}
-		
+
 	}
 
 
@@ -266,9 +253,9 @@ public class FXMLDocumentController implements Initializable {
 		String subSpecialist = "";
 		String subjectReferral = "";
 		boolean mailList = false;
-		
-		
-		
+
+		VerifyRequiredFields(subDOBStr, subFirstName, subLastName, subLastName, subCell);
+
 		subDOBStr = subjectDOBTxtBx.getText();
 
 		subDOB = VerifyReqiuredDate(subDOBStr);
@@ -292,13 +279,13 @@ public class FXMLDocumentController implements Initializable {
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
 		mailList = subjectMailListStatusCkBxY.isSelected();
-		
+
 		partic.setFirstName(subFirstName);
 		partic.setMiddleI(subMiddleInit);
 		partic.setLastName(subLastName);
 		partic.setDOB(subDOB);
 		partic.setAddress(subAddress);
-//		partic.setAddress2(address2);
+		//		partic.setAddress2(address2);
 		partic.setCity(subCity);
 		partic.setState(subState);
 		partic.setZip(subZip);
@@ -312,46 +299,46 @@ public class FXMLDocumentController implements Initializable {
 		partic.setGender(subGender);
 		partic.setMailList(mailList);
 	}
-	
-	
+
+
 	private void consumePartnerInfo() throws Exception
 	{
-//				partner
-				String partnerFirstName = "";
-				String partnerLastName = "";
-				String partnerHomePhone = "";
-				String partnerEmail = "";
-				String partnerRelation = "";
-				boolean partnerStatus = false;
-				
-//				partner info
-				partnerStatus = studyPartnerStatusTglBtn.isSelected();
-				if(partnerStatus)
-				{
-					partnerFirstName = studyPartnerFirstNameTxtBx.getText();
-					VerifyRequiredName(partnerFirstName);
-					partnerLastName = studyPartnerLastNameTxtBx.getText();
-					VerifyRequiredName(partnerLastName);
-					partnerHomePhone = studyPartnerPhoneTxtBx.getText();
-					VerifyPhone(partnerHomePhone);
-					partnerEmail = studyPartnerEmailTxtBx.getText();
-					VerifyEmail(partnerEmail);
-					partnerRelation = studyPartnerRelationTxtBx.getText();
-				}
-				
-				//partner info
-				partic.setPartFirstname(partnerFirstName);
-				partic.setPartLastName(partnerLastName);
-				partic.setPartEmail(partnerEmail);
-				partic.setPartPhone(partnerHomePhone);
-				partic.setPartRel(partnerRelation);
+		//partner
+		String partnerFirstName = "";
+		String partnerLastName = "";
+		String partnerHomePhone = "";
+		String partnerEmail = "";
+		String partnerRelation = "";
+		boolean partnerStatus = false;
+
+		//partner info
+		partnerStatus = studyPartnerStatusTglBtn.isSelected();
+		if(partnerStatus)
+		{
+			partnerFirstName = studyPartnerFirstNameTxtBx.getText();
+			VerifyRequiredName(partnerFirstName);
+			partnerLastName = studyPartnerLastNameTxtBx.getText();
+			VerifyRequiredName(partnerLastName);
+			partnerHomePhone = studyPartnerPhoneTxtBx.getText();
+			VerifyPhone(partnerHomePhone);
+			partnerEmail = studyPartnerEmailTxtBx.getText();
+			VerifyEmail(partnerEmail);
+			partnerRelation = studyPartnerRelationTxtBx.getText();
+		}
+
+		//partner info
+		partic.setPartFirstname(partnerFirstName);
+		partic.setPartLastName(partnerLastName);
+		partic.setPartEmail(partnerEmail);
+		partic.setPartPhone(partnerHomePhone);
+		partic.setPartRel(partnerRelation);
 	}
-	
-	
-	
+
+
+
 	private void consumeHPOA() throws Exception
 	{
-		
+
 		//hopa
 		String hpoaFirstName = "";
 		String hpoaLastName = "";
@@ -365,7 +352,7 @@ public class FXMLDocumentController implements Initializable {
 		boolean hpoaStat = false;
 		boolean hpoaMarriedStat = false;
 		boolean hpoaChildStat = false;
-		
+
 		//hpoa
 		hpoaStat = hpoaRadY.isSelected();
 		if(hpoaStat)
@@ -413,16 +400,16 @@ public class FXMLDocumentController implements Initializable {
 		partic.setChildPhone(hpoaChilePhone);
 	}
 
-	
+
 	private void consumeSymptomsInfo() throws Exception
 	{
-		
-		
+
+
 		//Symptoms
 		String familyHistoryRelationship = "";
 		String memDiagnosis = "";
 		String memClinician = "";
-		
+
 		boolean alzDiagnose = false;
 		boolean agitation = false;
 		boolean apathy = false;
@@ -433,8 +420,8 @@ public class FXMLDocumentController implements Initializable {
 		boolean familiarTasks = false;
 		boolean conversation = false;
 		boolean famHistAlz = false;
-		
-		
+
+
 		String symptDODStr = "";
 		Date symptDOD = new Date();
 		String symptDOOStr = "";
@@ -464,72 +451,72 @@ public class FXMLDocumentController implements Initializable {
 		boolean rivastigmine = false;
 		boolean galantamine = false;
 		boolean namzaric = false;
-		
-		
-//		symptoms
+
+
+		//symptoms
 		familyHistoryRelationship = alzFamHistoryStatusRelationTxtBx.getText();
 		memDiagnosis = alzMemDiagnosisTxtBx.getText();
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
-		
+
 		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
 		symptDOD = VerifyNonReqiuredDate(symptDOOStr);
-		
+
 		alzDiagnose = alzMemStatusRadY.isSelected();
 		agitation = alzMemAgitationRadY.isSelected();
 		apathy = alzMemApathyRadY.isSelected();
 		sleepProblems = alzMemSleepIssueRadY.isSelected();
 		memLoss = memLossNotedRadY.isSelected();
-		
+
 		symptDOOStr = memLossNotedDateTxtBx.getText();
 		symptDOO = VerifyNonReqiuredDate(symptDOOStr);
-		
+
 		memLossDisrupt = memLossDisruptRadY.isSelected();
 		difficultPlanning = planSolveStatusRadY.isSelected();
 		familiarTasks = tasksStatusRadY.isSelected();
 		conversation = conversationStatusRadY.isSelected();
 		famHistAlz = alzFamHistoryStatusRadY.isSelected();
 		donepezil = donepezilStatusTglBtn.isSelected();
-		
+
 
 		donepezilStartStr = donepezilStartDateTxtBx.getText();
 		donepezilStart = VerifyNonReqiuredDate(donepezilStartStr);
-		
+
 		donepezilEndStr = donepezilEndDateTxtBx.getText();
 		donepezilEnd = VerifyNonReqiuredDate(donepezilEndStr);
-		
+
 		memantine = memantineStatusTglBtn.isSelected();
-		
+
 		memantineStartStr = memantineStartDateTxtBx.getText();
 		memantineStart = VerifyNonReqiuredDate(memantineStartStr);
-		
+
 		memantineEndStr = memantineEndDateTxtBx.getText();
 		memantineEnd = VerifyNonReqiuredDate(memantineEndStr);
-		
+
 		rivastigmine = rivastigmineStatusTglBtn.isSelected();
-		
+
 		rivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
 		rivantigmineStart = VerifyNonReqiuredDate(rivantigmineStartStr);
-		
+
 		rivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
 		rivantigmineEnd = VerifyNonReqiuredDate(rivantigmineEndStr);
-		
+
 		galantamine = galantamineStatusTglBtn.isSelected();
-		
+
 		galantamineStartStr = galantamineStartDateTxtBx.getText();
 		galantamineStart = VerifyNonReqiuredDate(galantamineStartStr);
-		
+
 		galantamineEndStr = galantamineEndDateTxtBx.getText();
 		galantamineEnd = VerifyNonReqiuredDate(galantamineEndStr);
-		
+
 		namzaric = nammzaricStatusTglBtn.isSelected();
-		
+
 		namzaricStartStr = nammzaricStartDateTxtBx.getText();
 		namzaricStart = VerifyNonReqiuredDate(namzaricStartStr);
-		
+
 		namzaricEndStr = nammzaricEndDateTxtBx.getText();
 		namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
-		
-		
+
+
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
 		partic.setDiagnosis(memDiagnosis);
@@ -562,8 +549,8 @@ public class FXMLDocumentController implements Initializable {
 		partic.setAriceptNamendaStartDate(namzaricStart);
 		partic.setAriceptNamendaStopDate(namzaricEnd);
 	}
-	
-	
+
+
 	private void consumeMedicaInfo() throws Exception
 	{
 		//Medical history
@@ -575,8 +562,8 @@ public class FXMLDocumentController implements Initializable {
 		boolean pacemakerMRI = false;
 		boolean drugAbuse = false;
 
-		
-		//	medical history
+
+		//medical history
 		ongoingConcerns = ongoingHealthConcernsTxtBx.getText();
 		cancerType = cancerStatusTypeTxtBx.getText();
 		mentalDisorder = schizBiMddStatusRadY.isSelected();
@@ -585,8 +572,8 @@ public class FXMLDocumentController implements Initializable {
 		pacemakerMRI = deviseMRIConcernRadY.isSelected();
 		drugAbuse = drugAlcoholStatusRadY.isSelected();
 
-		
-		//	Medical History
+
+		//Medical History
 		partic.setMentalIllness(mentalDisorder);
 		partic.setSleepDisorder(sleepDisorder);
 		partic.setCancerHistory(activeCancer);
@@ -595,16 +582,16 @@ public class FXMLDocumentController implements Initializable {
 		partic.setSubstanceAbuse(drugAbuse);
 		partic.setOngoingIssues(ongoingConcerns);
 	}
-	
-	
+
+
 
 	@FXML
 	private void handleClearButtonAction(ActionEvent event) 
 	{
 		clearForm();
 	}
-	
-	
+
+
 
 	private void clearForm() 
 	{
@@ -628,13 +615,13 @@ public class FXMLDocumentController implements Initializable {
 	{
 		filePath =  path;
 	}
-	
-	
+
+
 	private Date VerifyReqiuredDate(String tempDateStr) throws Exception
 	{
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 		Date tempDate;
-		
+
 		if (!tempDateStr.equals(""))
 		{
 			try 
@@ -653,8 +640,8 @@ public class FXMLDocumentController implements Initializable {
 				throw new Exception ("Bad Date");
 			}
 		}
-		
-//		New Stuff
+
+		//		New Stuff
 		else
 		{
 			String msg = String.format("Please enter a Valid Date");
@@ -663,11 +650,11 @@ public class FXMLDocumentController implements Initializable {
 			throw new Exception ("No Date");
 		}
 	}
-	
+
 	private void VerifyEmail(String tempEmail) throws Exception
 	{
 		boolean verifyFlag= false;
-		
+
 		if(!tempEmail.equals(""))
 		{
 			verifyFlag = CheckEmail(tempEmail);
@@ -681,14 +668,14 @@ public class FXMLDocumentController implements Initializable {
 			}
 		}
 	}
-		
-	
-		
+
+
+
 	private Date VerifyNonReqiuredDate(String tempDateStr) throws Exception
 	{
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 		Date tempDate;
-		
+
 		if (!tempDateStr.equals(""))
 		{
 			try 
@@ -707,20 +694,20 @@ public class FXMLDocumentController implements Initializable {
 				throw new Exception ("Bad Date");
 			}
 		}
-		
+
 		return null;
 	}
-	
 
-	
+
+
 	private void VerifyParticipantPhone(String tempPhone1, String tempPhone2) throws Exception
 	{
-//		boolean verifyFlag = false;
-		
-		
-//		verifyFlag = CheckPhone(tempPhone1);
-//		verify
-		
+		//		boolean verifyFlag = false;
+
+
+		//		verifyFlag = CheckPhone(tempPhone1);
+		//		verify
+
 		if(!CheckPhone(tempPhone1) && !CheckPhone(tempPhone2))
 		{
 			String msg = String.format("Valid Home Phone or Cell Phone Required.");
@@ -729,12 +716,12 @@ public class FXMLDocumentController implements Initializable {
 			throw new Exception ("Invalid homme or cell phone");
 		}
 	}
-	
+
 	private void VerifyPhone(String tempPhone1) throws Exception
 	{
-//		boolean verifyFlag = false;
-//		
-//		verifyFlag = CheckPhone(tempPhone1);
+		//		boolean verifyFlag = false;
+		//		
+		//		verifyFlag = CheckPhone(tempPhone1);
 
 		if(!tempPhone1.equals(""))
 		{
@@ -747,7 +734,7 @@ public class FXMLDocumentController implements Initializable {
 			}
 		}
 	}
-	
+
 	private void VerifyRequiredFields(String tempFirstName, String tempLastName, String tempDate, String tempPhone1, String tempPhone2) throws Exception
 	{
 		if(tempFirstName.equals(""))
@@ -756,9 +743,9 @@ public class FXMLDocumentController implements Initializable {
 			Alert emailError = new Alert(AlertType.ERROR, msg);
 			emailError.showAndWait();
 			throw new Exception ("Blank First Name");
-			
+
 		}
-		
+
 		if(tempLastName.equals(""))
 		{
 			String msg = String.format("You must enter a Last Name");
@@ -766,7 +753,7 @@ public class FXMLDocumentController implements Initializable {
 			emailError.showAndWait();
 			throw new Exception ("Blank Last Name");
 		}
-		
+
 		if(tempDate.equals(""))
 		{
 			String msg = String.format("You must enter a Date of Birth");
@@ -774,7 +761,7 @@ public class FXMLDocumentController implements Initializable {
 			emailError.showAndWait();
 			throw new Exception ("No DOB");
 		}
-		
+
 		if(tempPhone1.equals("") && tempPhone2.equals(""))
 		{
 			String msg = String.format("You must enter either a Home Phone or Cell Phone number");
@@ -783,9 +770,9 @@ public class FXMLDocumentController implements Initializable {
 			throw new Exception ("No Phone Number");
 		}
 	}
-	
-	
-	
+
+
+
 	private void VerifyRequiredName(String tempName) 
 	{	
 		if(tempName.equals(""))
@@ -793,34 +780,34 @@ public class FXMLDocumentController implements Initializable {
 			String msg = String.format("You must enter a First and Last Name");
 			Alert emailError = new Alert(AlertType.ERROR, msg);
 			emailError.showAndWait();
-			
+
 		}
 	}
-	
-//	private void VerifyNonRequiredName(String tempName)
-//	{
-//		
-//		
-//		
-//		if(tempName.equals(""));
-//		{
-//			String msg = String.format("You must enter a First and Last Name");
-//			Alert emailError = new Alert(AlertType.ERROR, msg);
-//			emailError.showAndWait();
-//		}
-//	}
-	
-	
-	
-	
-	
-//	method to grey-out unselected options
-//	@FXML
-//	private void OnClickStudyPartner(ActionEvent event) 
-//	{
-//		studyPartnerFirstNameTxtBx.setVisible(false);
-//	}
-	
+
+	//	private void VerifyNonRequiredName(String tempName)
+	//	{
+	//		
+	//		
+	//		
+	//		if(tempName.equals(""));
+	//		{
+	//			String msg = String.format("You must enter a First and Last Name");
+	//			Alert emailError = new Alert(AlertType.ERROR, msg);
+	//			emailError.showAndWait();
+	//		}
+	//	}
+
+
+
+
+
+	//	method to grey-out unselected options
+	//	@FXML
+	//	private void OnClickStudyPartner(ActionEvent event) 
+	//	{
+	//		studyPartnerFirstNameTxtBx.setVisible(false);
+	//	}
+
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) 
@@ -829,23 +816,23 @@ public class FXMLDocumentController implements Initializable {
 		// subjectReferralDrpDn.getSelectionModel().select(0);
 	}    
 
-	
-	
+
+
 	private boolean CheckEmail(String tempEmail)
 	{	
 		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
 	}
 
-	
+
 	private boolean CheckPhone(String tempPhone)
 	{
 		return tempPhone.matches("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
 	} 
-	
+
 	private boolean CheckName(String tempName)
 	{
 		return tempName.matches("^[a-zA-Z_0-9-]$");
 	}
-	
-	
+
+
 }

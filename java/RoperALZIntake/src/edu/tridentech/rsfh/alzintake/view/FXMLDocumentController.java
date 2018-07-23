@@ -254,16 +254,25 @@ public class FXMLDocumentController implements Initializable {
 		String subjectReferral = "";
 		boolean mailList = false;
 
-		VerifyRequiredFields(subDOBStr, subFirstName, subLastName, subLastName, subCell);
+		
 
 		subDOBStr = subjectDOBTxtBx.getText();
 
-		subDOB = VerifyReqiuredDate(subDOBStr);
+		
 		subFirstName = subjectFirstNameTxtBx.getText();
-		VerifyRequiredName(subFirstName);
 		subMiddleInit = subjectMITxtBx.getText();
 		subLastName = subjectLastNameTxtBx.getText();
+		subPhone = subjectPhoneTxtBx.getText();
+		subCell = subjectCellTxtBx.getText();	
+		
+		VerifyRequiredFields(subFirstName, subLastName, subDOBStr, subPhone, subCell);
+		
+		subDOB = VerifyReqiuredDate(subDOBStr);
+		VerifyRequiredName(subFirstName);
 		VerifyRequiredName(subLastName);
+		VerifyParticipantPhone(subCell, subPhone);
+		
+		
 		subAddress = subjectAddressTxtBx.getText();
 		subRace = race.getText();
 		subGender = gender.getText();
@@ -272,9 +281,6 @@ public class FXMLDocumentController implements Initializable {
 		subZip = subjectZipTxtBx.getText();
 		subEmail = subjectEmailTxtBx.getText();
 		VerifyEmail(subEmail);
-		subPhone = subjectPhoneTxtBx.getText();
-		subCell = subjectCellTxtBx.getText();
-		VerifyParticipantPhone(subCell, subPhone);
 		subPCP = subjectPcpTxtBx.getText();
 		subSpecialist = subjectSpecialistTxtBx.getText();
 		subjectReferral = subjectReferralDrpDn.getSelectionModel().getSelectedItem();
@@ -475,47 +481,62 @@ public class FXMLDocumentController implements Initializable {
 		familiarTasks = tasksStatusRadY.isSelected();
 		conversation = conversationStatusRadY.isSelected();
 		famHistAlz = alzFamHistoryStatusRadY.isSelected();
+
 		donepezil = donepezilStatusTglBtn.isSelected();
 
+		if(!donepezil)
+		{
+			donepezilStartStr = donepezilStartDateTxtBx.getText();
+			donepezilStart = VerifyNonReqiuredDate(donepezilStartStr);
 
-		donepezilStartStr = donepezilStartDateTxtBx.getText();
-		donepezilStart = VerifyNonReqiuredDate(donepezilStartStr);
+			donepezilEndStr = donepezilEndDateTxtBx.getText();
+			donepezilEnd = VerifyNonReqiuredDate(donepezilEndStr);
+		}
 
-		donepezilEndStr = donepezilEndDateTxtBx.getText();
-		donepezilEnd = VerifyNonReqiuredDate(donepezilEndStr);
+
 
 		memantine = memantineStatusTglBtn.isSelected();
+		if(!memantine)
+		{
+			memantineStartStr = memantineStartDateTxtBx.getText();
+			memantineStart = VerifyNonReqiuredDate(memantineStartStr);
 
-		memantineStartStr = memantineStartDateTxtBx.getText();
-		memantineStart = VerifyNonReqiuredDate(memantineStartStr);
+			memantineEndStr = memantineEndDateTxtBx.getText();
+			memantineEnd = VerifyNonReqiuredDate(memantineEndStr);
+		}
 
-		memantineEndStr = memantineEndDateTxtBx.getText();
-		memantineEnd = VerifyNonReqiuredDate(memantineEndStr);
 
 		rivastigmine = rivastigmineStatusTglBtn.isSelected();
+		if(!rivastigmine)
+		{
+			rivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
+			rivantigmineStart = VerifyNonReqiuredDate(rivantigmineStartStr);
 
-		rivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
-		rivantigmineStart = VerifyNonReqiuredDate(rivantigmineStartStr);
+			rivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
+			rivantigmineEnd = VerifyNonReqiuredDate(rivantigmineEndStr);
+		}
 
-		rivantigmineEndStr = rivastigmineEndDateTxtBx.getText();
-		rivantigmineEnd = VerifyNonReqiuredDate(rivantigmineEndStr);
 
 		galantamine = galantamineStatusTglBtn.isSelected();
+		if(!galantamine)
+		{
+			galantamineStartStr = galantamineStartDateTxtBx.getText();
+			galantamineStart = VerifyNonReqiuredDate(galantamineStartStr);
 
-		galantamineStartStr = galantamineStartDateTxtBx.getText();
-		galantamineStart = VerifyNonReqiuredDate(galantamineStartStr);
+			galantamineEndStr = galantamineEndDateTxtBx.getText();
+			galantamineEnd = VerifyNonReqiuredDate(galantamineEndStr);
+		}
 
-		galantamineEndStr = galantamineEndDateTxtBx.getText();
-		galantamineEnd = VerifyNonReqiuredDate(galantamineEndStr);
 
 		namzaric = nammzaricStatusTglBtn.isSelected();
+		if(!namzaric)
+		{
+			namzaricStartStr = nammzaricStartDateTxtBx.getText();
+			namzaricStart = VerifyNonReqiuredDate(namzaricStartStr);
 
-		namzaricStartStr = nammzaricStartDateTxtBx.getText();
-		namzaricStart = VerifyNonReqiuredDate(namzaricStartStr);
-
-		namzaricEndStr = nammzaricEndDateTxtBx.getText();
-		namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
-
+			namzaricEndStr = nammzaricEndDateTxtBx.getText();
+			namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
+		}
 
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
@@ -719,9 +740,6 @@ public class FXMLDocumentController implements Initializable {
 
 	private void VerifyPhone(String tempPhone1) throws Exception
 	{
-		//		boolean verifyFlag = false;
-		//		
-		//		verifyFlag = CheckPhone(tempPhone1);
 
 		if(!tempPhone1.equals(""))
 		{
@@ -780,33 +798,10 @@ public class FXMLDocumentController implements Initializable {
 			String msg = String.format("You must enter a First and Last Name");
 			Alert emailError = new Alert(AlertType.ERROR, msg);
 			emailError.showAndWait();
-
 		}
 	}
 
-	//	private void VerifyNonRequiredName(String tempName)
-	//	{
-	//		
-	//		
-	//		
-	//		if(tempName.equals(""));
-	//		{
-	//			String msg = String.format("You must enter a First and Last Name");
-	//			Alert emailError = new Alert(AlertType.ERROR, msg);
-	//			emailError.showAndWait();
-	//		}
-	//	}
 
-
-
-
-
-	//	method to grey-out unselected options
-	//	@FXML
-	//	private void OnClickStudyPartner(ActionEvent event) 
-	//	{
-	//		studyPartnerFirstNameTxtBx.setVisible(false);
-	//	}
 
 
 	@Override
@@ -817,10 +812,12 @@ public class FXMLDocumentController implements Initializable {
 	}    
 
 
-
 	private boolean CheckEmail(String tempEmail)
 	{	
-		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
+//		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
+//		return tempEmail.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
+		return tempEmail.matches("^[a-zA-Z_0-9-]*@[a-zA-Z_0-9]*.[a-zA-Z]*$");
+		
 	}
 
 
@@ -829,6 +826,7 @@ public class FXMLDocumentController implements Initializable {
 		return tempPhone.matches("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
 	} 
 
+	
 	private boolean CheckName(String tempName)
 	{
 		return tempName.matches("^[a-zA-Z_0-9-]$");

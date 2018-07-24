@@ -158,6 +158,11 @@ public class DataReadWrite
 		map3.put(Fields.DRUG_ALCHOHOL, 8);
 		map3.put(Fields.ONGOING_ISSUES, 9);
 		
+		//Map for Status Sheep
+		HashMap<Fields, Integer> mapStatus = new HashMap<>();
+		
+		
+		
 		
 		
 		

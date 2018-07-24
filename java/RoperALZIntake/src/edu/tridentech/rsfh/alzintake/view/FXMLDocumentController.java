@@ -632,6 +632,19 @@ public class FXMLDocumentController implements Initializable {
 		subjectDOBTxtBx.setText("");
 	}
 
+	
+	@FXML 
+	private void HandlePrintButton(ActionEvent event)
+	{
+		PrintForm();
+	}
+	
+	private void PrintForm()
+	{
+		
+	}
+	
+	
 	public void setFilePath(String path)
 	{
 		filePath =  path;

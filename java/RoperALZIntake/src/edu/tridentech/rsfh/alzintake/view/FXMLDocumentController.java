@@ -632,6 +632,7 @@ public class FXMLDocumentController implements Initializable {
 		subjectSpecialistTxtBx.setText("");
 		subjectReferralDrpDn.setValue(null);
 		subjectDOBTxtBx.setText("");
+
 	}
 
 	
@@ -824,7 +825,7 @@ public class FXMLDocumentController implements Initializable {
 	{
 		subjectReferralDrpDn.setItems(TYPE);
 		alzMemDiagnosisDrpDn.setItems(DIAGNOSIS);
-		// subjectReferralDrpDn.getSelectionModel().select(0);
+
 	}    
 
 

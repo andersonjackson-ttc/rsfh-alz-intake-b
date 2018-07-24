@@ -643,6 +643,55 @@ public class FXMLDocumentController implements Initializable {
 		subjectSpecialistTxtBx.setText("");
 		subjectReferralDrpDn.setValue(null);
 		subjectDOBTxtBx.setText("");
+		
+		
+//		hpoaFirstNameTxtBx.setText("");
+//		@FXML private TextField hpoaLastNameTxtBx;
+//		@FXML private TextField hpoaPhoneTxtBx;
+//		@FXML private TextField hpoaSpouseFirstNameTxtBx;
+//		@FXML private TextField hpoaSpouseLastNameTxtBx;
+//		@FXML private TextField hpoaSpousePhoneTxtBx;
+//		@FXML private TextField hpoaChildFirstNameTxtBx;
+//		@FXML private TextField hpoaChildLastNameTxtBx;
+//		@FXML private TextField hpoaChildPhoneTxtBx;
+//		@FXML private TextField alzMemDiagnosisTxtBx;
+//		@FXML private TextField alzMemDiagnosisClinicianTxtBx;
+//		@FXML private TextField alzMemDiagnosisDateTxtBx;
+//		@FXML private TextField donepezilStartDateTxtBx;
+//		@FXML private TextField donepezilEndDateTxtBx;	
+//		@FXML private TextField memantineStartDateTxtBx;
+//		@FXML private TextField memantineEndDateTxtBx;
+//		@FXML private TextField rivastigmineStartDateTxtBx;
+//		@FXML private TextField rivastigmineEndDateTxtBx;	
+//		@FXML private TextField galantamineStartDateTxtBx;
+//		@FXML private TextField galantamineEndDateTxtBx;
+//		@FXML private TextField nammzaricStartDateTxtBx;
+//		@FXML private TextField nammzaricEndDateTxtBx;
+//		@FXML private TextField studyPartnerFirstNameTxtBx;
+//		@FXML private TextField studyPartnerLastNameTxtBx;
+//		@FXML private TextField studyPartnerPhoneTxtBx;
+//		@FXML private TextField studyPartnerEmailTxtBx;
+//		@FXML private TextField studyPartnerRelationTxtBx;
+//		@FXML private TextField alzFamHistoryStatusRelationTxtBx;
+//		@FXML private TextField ongoingHealthConcernsTxtBx;
+//		@FXML private TextField cancerStatusTypeTxtBx;
+//		@FXML private TextField rsfhClinRecommendsTxtBx;
+//		@FXML private TextField memLossNotedDateTxtBx;
+//		@FXML private TextField race;
+//		@FXML private TextField gender;
+//		@FXML private RadioButton alzMemAgitationRadY;
+//		@FXML private RadioButton alzMemApathyRadY;
+//		@FXML private RadioButton alzMemSleepIssueRadY;
+//		@FXML private RadioButton planSolveStatusRadY;
+//		@FXML private RadioButton memLossDisruptRadY;
+//		@FXML private RadioButton tasksStatusRadY;
+//		@FXML private RadioButton conversationStatusRadY;
+//		@FXML private RadioButton schizBiMddStatusRadY;
+//		@FXML private RadioButton sleepDisorderStatusRadY;
+//		@FXML private RadioButton deviseMRIConcernRadY;
+//		@FXML private RadioButton drugAlcoholStatusRadY;
+//		@FXML private ComboBox<String> subjectReferralDrpDn;
+//		@FXML private ComboBox<String> alzMemDiagnosisDrpDn;
 
 	}
 

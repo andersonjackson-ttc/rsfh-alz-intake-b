@@ -58,8 +58,8 @@ public class FXMLDocumentController implements Initializable {
 	private Participant partic = new Participant();
 
 
-	@FXML private AnchorPane pageOne;
-	@FXML private AnchorPane pageTwo;
+	@FXML private AnchorPane page1;
+	@FXML private AnchorPane page2;
 	@FXML private Text actiontarget;
 	@FXML private TextField subjectFirstNameTxtBx;
 	@FXML private TextField subjectMITxtBx;
@@ -652,7 +652,7 @@ public class FXMLDocumentController implements Initializable {
 	
 	private void printForm()
     {
-        Node[] pages = {pageOne, pageTwo};
+        Node[] pages = {page1, page2};
 
         PrinterJob job = PrinterJob.createPrinterJob();
         job.showPrintDialog(null);

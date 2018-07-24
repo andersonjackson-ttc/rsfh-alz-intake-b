@@ -25,9 +25,19 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.PageLayout;
+import javafx.print.PageOrientation;
+import javafx.print.Paper;
+import javafx.print.Printer;
+import javafx.print.PrinterJob;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.scene.transform.Scale;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
@@ -48,8 +58,9 @@ public class FXMLDocumentController implements Initializable {
 	private Participant partic = new Participant();
 
 
-	@FXML
-	private Text actiontarget;
+	@FXML private AnchorPane page1;
+	@FXML private AnchorPane page2;
+	@FXML private Text actiontarget;
 	@FXML private TextField subjectFirstNameTxtBx;
 	@FXML private TextField subjectMITxtBx;
 	@FXML private TextField subjectLastNameTxtBx;
@@ -637,15 +648,39 @@ public class FXMLDocumentController implements Initializable {
 
 	
 	@FXML 
-	private void HandlePrintButton(ActionEvent event)
+	private void handlePrintButtonAction(ActionEvent event)
 	{
-		PrintForm();
+		printForm();
 	}
 	
-	private void PrintForm()
-	{
-		
-	}
+	private void printForm()
+    {
+        Node[] pages = {page1, page2};
+
+        PrinterJob job = PrinterJob.createPrinterJob();
+        job.showPrintDialog(null);
+		Printer printer = job.getPrinter();
+		PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
+		for (Node pane : pages) {
+			WritableImage image= pane.snapshot(null, null);
+			ImageView imageNode = new ImageView(image);
+
+			double scaleX = pageLayout.getPrintableWidth();
+			double scaleY = pageLayout.getPrintableHeight();
+			System.out.printf("pageWidth: %.2f, pageHeight: %.2f%n", scaleX, scaleY);
+			scaleX /= imageNode.getBoundsInParent().getWidth();
+			scaleY /= imageNode.getBoundsInParent().getHeight();
+			System.out.printf("Scaling to %.2f%n", Math.min(scaleX, scaleY));
+			Scale scale = new Scale(Math.min(scaleX, scaleY),Math.min(scaleX, scaleY));
+			imageNode.getTransforms().add(scale);
+			System.out.println(job.getJobSettings());
+			if (!job.printPage(imageNode))
+				System.err.println("Printing failed");
+		}
+		job.endJob();
+        // imageNode.getTransforms().remove(scale);
+    }
+
 	
 	
 	public void setFilePath(String path)

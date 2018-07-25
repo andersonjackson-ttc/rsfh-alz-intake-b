@@ -5,14 +5,14 @@
 .text-feild{
 	-fx-font-size: 12px;
 }
-#headerLabel {
-	-fx-font-size: 21px;
+#groupLabel {
+	-fx-font-size: 27px;
 	-fx-font-family: Calibri;
 	-fx-font-style: italic;
 	-fx-font-weight: bold;
 }
-#groupLabel {
-	-fx-font-size: 27px;
+#headerLabel {
+	-fx-font-size: 21px;
 	-fx-font-family: Calibri;
 	-fx-font-style: italic;
 	-fx-font-weight: bold;

@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tridentech.rsfh.alzintake.view.FXMLDocumentController">
+<ScrollPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.tridentech.rsfh.alzintake.view.FXMLDocumentController">
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2184.0" prefWidth="1134.0">
          <children>
@@ -41,7 +41,7 @@
                   <TextField fx:id="subjectPcpTxtBx" layoutX="367.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject PCP" />
                   <TextField fx:id="subjectSpecialistTxtBx" layoutX="651.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject Specialist" />
                   <CheckBox fx:id="subjectMailListStatusCkBxY" layoutX="977.01318359375" layoutY="251.0" mnemonicParsing="false" text="Yes" />
-                  <Label layoutX="0.01318359375" layoutY="297.0" text="Study Partner Information">
+                  <Label fx:id="groupLabel" layoutX="0.01318359375" layoutY="297.0" text="Study Partner Information">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
                      </font>
@@ -52,7 +52,7 @@
                   <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="406.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
                   <TextField fx:id="studyPartnerEmailTxtBx" layoutX="551.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
                   <TextField fx:id="studyPartnerRelationTxtBx" layoutX="813.01318359375" layoutY="408.0" prefHeight="20.0" prefWidth="265.0" promptText="Relationship" />
-                  <Label layoutX="0.01318359375" layoutY="463.0" text="Healthcare Power of  Attorney (HPOA)">
+                  <Label fx:id="groupLabel" layoutX="0.01318359375" layoutY="463.0" text="Healthcare Power of  Attorney (HPOA)">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
                      </font>
@@ -110,7 +110,7 @@
                   <Label layoutX="171.01318359375" layoutY="605.0" text="Spouse First Name" />
                   <Label layoutX="427.01318359375" layoutY="605.0" text="Spouse Last Name" />
                   <Label layoutX="685.01318359375" layoutY="605.0" text="Spouse Home Phone" />
-                  <Label layoutX="0.01318359375" layoutY="63.0" text="Subject Information">
+                  <Label fx:id="groupLabel" layoutX="0.01318359375" layoutY="63.0" text="Subject Information">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
                      </font>
@@ -266,14 +266,14 @@
                   <TextField fx:id="rsfhClinRecommendsTxtBx" alignment="TOP_LEFT" layoutX="475.0" layoutY="1114.0" prefHeight="166.0" prefWidth="294.0" promptText="Clinician Recommendation" />
                   <Label layoutX="20.0" layoutY="784.0" text="Are any of the following conditions applicable?" />
                   <Label layoutX="709.0" layoutY="825.0" text="Ongoing health problems or conditions?" />
-                  <Label layoutX="5.0" layoutY="1038.0" text="CBRI staff documentation">
+                  <Label fx:id="groupLabel" layoutX="5.0" layoutY="1038.0" text="CBRI staff documentation">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
                      </font>
                   </Label>
                   <Label layoutX="436.0" layoutY="257.0" text="Date of Occurrence" />
                   <Label layoutX="440.0" layoutY="440.0" text="Relationship to Subject" />
-                  <Label layoutX="1.0" text="Symptoms">
+                  <Label fx:id="groupLabel" layoutX="1.0" text="Symptoms">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
                      </font>
@@ -282,7 +282,7 @@
                   <Label layoutX="36.0" layoutY="134.0" text="Does the subject have related symptoms?" />
                   <Label layoutX="20.0" layoutY="213.0" text="Answer next if subject has no Alzheimer's or memory disorder diagnosis" />
                   <Label layoutX="20.0" layoutY="494.0" text="Has the patient started of stopped any of these memory medications?" />
-                  <Label layoutY="728.0" text="Medical History">
+                  <Label fx:id="groupLabel" layoutY="728.0" text="Medical History">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
                      </font>
@@ -311,7 +311,7 @@
                </image>
             </ImageView>
             <Region layoutX="-1.0" layoutY="-3.0" prefHeight="43.0" prefWidth="1127.0" style="-fx-background-color: darkgrey;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-            <Label layoutX="192.0" layoutY="6.0" text="Clinical Biotechnology Research Institute Alzheimer's Research Center- Patient Intake Pre-Screen Form">
+            <Label fx:id="headerLabel" layoutX="192.0" layoutY="6.0" text="Clinical Biotechnology Research Institute Alzheimer's Research Center- Patient Intake Pre-Screen Form">
                <font>
                   <Font name="Calibri Bold Italic" size="21.0" />
                </font>

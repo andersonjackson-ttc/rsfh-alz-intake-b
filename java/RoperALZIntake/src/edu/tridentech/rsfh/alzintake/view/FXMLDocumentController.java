@@ -652,7 +652,6 @@ public class FXMLDocumentController implements Initializable {
 		hpoaChildFirstNameTxtBx.setText("");
 		hpoaChildLastNameTxtBx.setText("");
 		hpoaChildPhoneTxtBx.setText("");
-		alzMemDiagnosisTxtBx.setText("");
 		alzMemDiagnosisClinicianTxtBx.setText("");
 		alzMemDiagnosisDateTxtBx.setText("");
 		donepezilStartDateTxtBx.setText("");

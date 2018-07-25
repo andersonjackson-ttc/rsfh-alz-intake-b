@@ -16,7 +16,8 @@ public class Main extends Application {
 
 	public void start(Stage stage) throws Exception {
 	    FXMLDocumentController controller;
-	    FXMLLoader loader = new FXMLLoader(getClass().getResource("rsfhCbriArcIntakeForm1.0.fxml"));
+// 	    FXMLLoader loader = new FXMLLoader(getClass().getResource("rsfhCbriArcIntakeForm1.0.fxml"));
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/src/edu/tridentech/rsfh/alzintake/rsfhCbriArcIntakeForm1.0.fxml"));
 	    Parent root = loader.load();
 
 	    List<String> args = this.getParameters().getRaw();
@@ -38,6 +39,9 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		// scene.getStylesheets().add(Main.class.getClassLoader().getResource("RoperIntake.css").toExternalForm());
 		controller = (FXMLDocumentController)loader.getController();
+		// scene.getStylesheets().add(getClass().getResource("RoperIntake.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/src/edu/tridentech/rsfh/alzintake/RoperIntake.css").toExternalForm());
+
 		if (controller == null) {
 			new Alert(AlertType.ERROR, "FXML file not found").showAndWait();
 			return;

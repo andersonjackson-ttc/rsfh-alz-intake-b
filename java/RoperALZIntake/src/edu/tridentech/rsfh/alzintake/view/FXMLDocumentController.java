@@ -664,18 +664,19 @@ public class FXMLDocumentController implements Initializable {
 
 			double scaleX = pageLayout.getPrintableWidth();
 			double scaleY = pageLayout.getPrintableHeight();
-			System.out.printf("pageWidth: %.2f, pageHeight: %.2f%n", scaleX, scaleY);
 			scaleX /= imageNode.getBoundsInParent().getWidth();
 			scaleY /= imageNode.getBoundsInParent().getHeight();
-			System.out.printf("Scaling to %.2f%n", Math.min(scaleX, scaleY));
-			Scale scale = new Scale(Math.min(scaleX, scaleY),Math.min(scaleX, scaleY));
+			System.out.printf("pageWidth: %.2f, pageHeight: %.2f%n", scaleX, scaleY);
+			double scaleValue = Math.min(scaleX, scaleY);
+			System.out.printf("Scaling to %.2f%n", scaleValue);
+			Scale scale = new Scale(scaleValue,scaleValue);
 			imageNode.getTransforms().add(scale);
 			System.out.println(job.getJobSettings());
 			if (!job.printPage(imageNode))
 				System.err.println("Printing failed");
+        // imageNode.getTransforms().remove(scale);
 		}
 		job.endJob();
-        // imageNode.getTransforms().remove(scale);
     }
 
 	

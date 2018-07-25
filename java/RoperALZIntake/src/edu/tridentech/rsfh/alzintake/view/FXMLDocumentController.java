@@ -701,30 +701,39 @@ public class FXMLDocumentController implements Initializable {
 	
 	private void printForm()
     {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job.showPrintDialog(null)) {
+        	sendToPrinter(job);
+        }
+    }
+
+	private void sendToPrinter(PrinterJob job)
+	{
         Node[] pages = {page1, page2};
 
-        PrinterJob job = PrinterJob.createPrinterJob();
-        job.showPrintDialog(null);
 		Printer printer = job.getPrinter();
 		PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
 		for (Node pane : pages) {
 			WritableImage image= pane.snapshot(null, null);
 			ImageView imageNode = new ImageView(image);
 
-			double printWidth = pageLayout.getPrintableWidth();
-			double printHeight = pageLayout.getPrintableHeight();
-			double scaleX = printWidth/imageNode.getBoundsInParent().getWidth();
-			double scaleY = printHeight/imageNode.getBoundsInParent().getHeight();
-			double actualScale = Math.min(scaleX, scaleY);
-			Scale scale = new Scale(actualScale,actualScale);
+			Scale scale = getScalingForPrinter(imageNode, pageLayout);
 			imageNode.getTransforms().add(scale);
 			if (!job.printPage(imageNode))
 				System.err.println("Printing failed");
-        // imageNode.getTransforms().remove(scale);
 		}
 		job.endJob();
-    }
-
+	}
+	
+	private Scale getScalingForPrinter(Node nodeToPrint, PageLayout targetPage)
+	{
+			double pageWidth = targetPage.getPrintableWidth();
+			double pageHeight = targetPage.getPrintableHeight();
+			double widthScale = pageWidth/nodeToPrint.getBoundsInParent().getWidth();
+			double heightScale = pageHeight/nodeToPrint.getBoundsInParent().getHeight();
+			double actualScale = Math.min(widthScale, heightScale);
+			return new Scale(actualScale,actualScale);
+	}
 	
 	
 	public void setFilePath(String path)

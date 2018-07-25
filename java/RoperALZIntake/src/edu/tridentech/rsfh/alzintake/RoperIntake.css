@@ -1,11 +1,11 @@
-.root{
+.root {
 	-fx-font-size: 12px;
 }
 
-.text-feild{
+.text-feild {
 	-fx-font-size: 12px;
 }
-#groupLabel {
+.sectionLabel {
 	-fx-font-size: 27px;
 	-fx-font-family: Calibri;
 	-fx-font-style: italic;

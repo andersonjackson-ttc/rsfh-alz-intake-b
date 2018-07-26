@@ -11,16 +11,27 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.CreationHelper;
+import org.apache.poi.ss.usermodel.DataValidation;
+import org.apache.poi.ss.usermodel.DataValidationConstraint;
+import org.apache.poi.ss.usermodel.DataValidationHelper;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.ss.util.CellRangeAddressList;
 
 
 
 public class DataReadWrite 
 {
 	private static DataReadWrite dwr = null;
+	
+	DataValidationHelper dvHelper = null;
+    DataValidationConstraint dvConstraint = null;
+    DataValidation validation = null;
+    CellRangeAddressList addressList = null;
+    
+    
 	protected enum Fields
 	{
 		LAST_NAME, FIRST_NAME, DOB, RACE, GENDER,
@@ -36,7 +47,7 @@ public class DataReadWrite
 		POA_NAME, POA_PHONE, MARRIED, SPOUSE_NAME, SPOUSE_PHONE,
 		CHILD, CHILD_NAME, CHILD_PHONE, MENTAL_ILLNESS, SLEEP_DISORDER,
 		CANCER, CANCER_TYPE, PACEMAKER_MRI, DRUG_ALCHOHOL, ONGOING_ISSUES,
-		CLINICAN, DATE_DIAGNOSIS
+		CLINICAN, DATE_DIAGNOSIS, TERM_REASON
 	}
 	
 	
@@ -161,8 +172,10 @@ public class DataReadWrite
 		//Map for Status Sheep
 		HashMap<Fields, Integer> mapStatus = new HashMap<>();
 		
-		
-		
+		mapStatus.put(Fields.FIRST_NAME, 1);
+		mapStatus.put(Fields.LAST_NAME, 2);
+		mapStatus.put(Fields.DOB, 3);
+		mapStatus.put(Fields.TERM_REASON, 25);
 		
 		
 		
@@ -634,6 +647,28 @@ public class DataReadWrite
 			cell = row.createCell(map3.get(Fields.ONGOING_ISSUES));
 			cell.setCellValue(rd.getOngoingIssues());
 			
+			//Status Sheet
+            sheet = workbook.getSheetAt(4);
+			
+			rowCount = sheet.getLastRowNum();
+			
+			row = sheet.createRow(++rowCount);
+			
+			cell = row.createCell(mapStatus.get(Fields.FIRST_NAME));
+			cell.setCellValue(rd.getFirstName());
+			
+			cell = row.createCell(mapStatus.get(Fields.LAST_NAME));
+			cell.setCellValue(rd.getLastName());
+			
+			cell = row.createCell(mapStatus.get(Fields.DOB));
+			cell.setCellValue(rd.getDOB());
+			cell.setCellStyle(cellStyle);
+			
+			addressList = new CellRangeAddressList(rowCount ,rowCount , 25, 25);
+            dvHelper = sheet.getDataValidationHelper();
+            dvConstraint = dvHelper.createFormulaListConstraint("CHOICES");
+            validation = dvHelper.createValidation(dvConstraint, addressList);
+            sheet.addValidationData(validation);
 			
 			
 			inputStream.close();

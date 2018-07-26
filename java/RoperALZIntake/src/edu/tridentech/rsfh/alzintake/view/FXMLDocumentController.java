@@ -122,6 +122,18 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private RadioButton sleepDisorderStatusRadY;
 	@FXML private RadioButton deviseMRIConcernRadY;
 	@FXML private RadioButton drugAlcoholStatusRadY;
+	@FXML private RadioButton alzMemAgitationRadN;
+	@FXML private RadioButton alzMemSleepIssueRadN;
+	@FXML private RadioButton planSolveStatusRadN;
+	@FXML private RadioButton memLossDisruptRadN;
+	@FXML private RadioButton tasksStatusRadN;
+	@FXML private RadioButton conversationStatusRadN;
+	@FXML private RadioButton schizBiMddStatusRadN;
+	@FXML private RadioButton sleepDisorderStatusRadN;
+	@FXML private RadioButton drugAlcoholStatusRadN;
+	@FXML private RadioButton deviseMRIConcernRadN;
+	@FXML private RadioButton alzMemApathyRadN;
+	
 
 
 
@@ -129,7 +141,7 @@ public class FXMLDocumentController implements Initializable {
 
 
 	@FXML private ComboBox<String> subjectReferralDrpDn;
-	//	@FXML private ComboBox<String> gender;
+	@FXML private ComboBox<String> alzMemDiagnosisDrpDn;
 
 
 
@@ -179,6 +191,8 @@ public class FXMLDocumentController implements Initializable {
 
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
 
+	private ObservableList<String> DIAGNOSIS = FXCollections.observableArrayList("N/A", "MCI", "AD", "Dementia (unspecified)", "dementia (non-AD)", "Other");
+	
 
 	@FXML
 	private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
@@ -472,7 +486,7 @@ public class FXMLDocumentController implements Initializable {
 
 		//symptoms
 		familyHistoryRelationship = alzFamHistoryStatusRelationTxtBx.getText();
-		memDiagnosis = alzMemDiagnosisTxtBx.getText();
+		memDiagnosis = alzMemDiagnosisDrpDn.getSelectionModel().getSelectedItem();
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
 
 		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
@@ -548,6 +562,7 @@ public class FXMLDocumentController implements Initializable {
 			namzaricEndStr = nammzaricEndDateTxtBx.getText();
 			namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
 		}
+		
 
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
@@ -641,6 +656,71 @@ public class FXMLDocumentController implements Initializable {
 		subjectSpecialistTxtBx.setText("");
 		subjectReferralDrpDn.setValue(null);
 		subjectDOBTxtBx.setText("");
+		hpoaFirstNameTxtBx.setText("");
+		hpoaLastNameTxtBx.setText("");
+		hpoaPhoneTxtBx.setText("");
+		hpoaSpouseFirstNameTxtBx.setText("");
+		hpoaSpouseLastNameTxtBx.setText("");
+		hpoaSpousePhoneTxtBx.setText("");
+		hpoaChildFirstNameTxtBx.setText("");
+		hpoaChildLastNameTxtBx.setText("");
+		hpoaChildPhoneTxtBx.setText("");
+		alzMemDiagnosisClinicianTxtBx.setText("");
+		alzMemDiagnosisDateTxtBx.setText("");
+		donepezilStartDateTxtBx.setText("");
+		donepezilEndDateTxtBx.setText("");	
+		memantineStartDateTxtBx.setText("");
+		memantineEndDateTxtBx.setText("");
+		rivastigmineStartDateTxtBx.setText("");
+		rivastigmineEndDateTxtBx.setText("");	
+		galantamineStartDateTxtBx.setText("");
+		galantamineEndDateTxtBx.setText("");
+		nammzaricStartDateTxtBx.setText("");
+		nammzaricEndDateTxtBx.setText("");
+		studyPartnerFirstNameTxtBx.setText("");
+		studyPartnerLastNameTxtBx.setText("");
+		studyPartnerPhoneTxtBx.setText("");
+		studyPartnerEmailTxtBx.setText("");
+		studyPartnerRelationTxtBx.setText("");
+		alzFamHistoryStatusRelationTxtBx.setText("");
+		ongoingHealthConcernsTxtBx.setText("");
+		cancerStatusTypeTxtBx.setText("");
+		rsfhClinRecommendsTxtBx.setText("");
+		memLossNotedDateTxtBx.setText("");
+		race.setText("");
+		gender.setText("");
+		alzMemAgitationRadY.setSelected(false);
+		alzMemAgitationRadN.setSelected(false);
+		alzMemApathyRadY.setSelected(false);
+		alzMemApathyRadN.setSelected(false);
+		alzMemSleepIssueRadY.setSelected(false);
+		alzMemSleepIssueRadN.setSelected(false);
+		planSolveStatusRadY.setSelected(false);
+		planSolveStatusRadN.setSelected(false);
+		memLossDisruptRadY.setSelected(false);
+		memLossDisruptRadN.setSelected(false);
+		tasksStatusRadY.setSelected(false);
+		tasksStatusRadN.setSelected(false);
+		conversationStatusRadY.setSelected(false);
+		conversationStatusRadN.setSelected(false);
+		schizBiMddStatusRadY.setSelected(false);
+		schizBiMddStatusRadN.setSelected(false);
+		sleepDisorderStatusRadY.setSelected(false);
+		sleepDisorderStatusRadN.setSelected(false);
+		deviseMRIConcernRadY.setSelected(false);
+		deviseMRIConcernRadN.setSelected(false);
+		drugAlcoholStatusRadY.setSelected(false);
+		drugAlcoholStatusRadN.setSelected(false);
+		subjectReferralDrpDn.setValue(null);
+		alzMemDiagnosisDrpDn.setValue(null);
+		studyPartnerStatusTglBtn.setSelected(false);
+		nammzaricStatusTglBtn.setSelected(false);
+		galantamineStatusTglBtn.setSelected(false);
+		rivastigmineStatusTglBtn.setSelected(false);
+		memantineStatusTglBtn.setSelected(false);
+		donepezilStatusTglBtn.setSelected(false);
+		
+
 	}
 
 	
@@ -652,32 +732,39 @@ public class FXMLDocumentController implements Initializable {
 	
 	private void printForm()
     {
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job.showPrintDialog(null)) {
+        	sendToPrinter(job);
+        }
+    }
+
+	private void sendToPrinter(PrinterJob job)
+	{
         Node[] pages = {page1, page2};
 
-        PrinterJob job = PrinterJob.createPrinterJob();
-        job.showPrintDialog(null);
 		Printer printer = job.getPrinter();
 		PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
 		for (Node pane : pages) {
 			WritableImage image= pane.snapshot(null, null);
 			ImageView imageNode = new ImageView(image);
 
-			double scaleX = pageLayout.getPrintableWidth();
-			double scaleY = pageLayout.getPrintableHeight();
-			System.out.printf("pageWidth: %.2f, pageHeight: %.2f%n", scaleX, scaleY);
-			scaleX /= imageNode.getBoundsInParent().getWidth();
-			scaleY /= imageNode.getBoundsInParent().getHeight();
-			System.out.printf("Scaling to %.2f%n", Math.min(scaleX, scaleY));
-			Scale scale = new Scale(Math.min(scaleX, scaleY),Math.min(scaleX, scaleY));
+			Scale scale = getScalingForPrinter(imageNode, pageLayout);
 			imageNode.getTransforms().add(scale);
-			System.out.println(job.getJobSettings());
 			if (!job.printPage(imageNode))
 				System.err.println("Printing failed");
 		}
 		job.endJob();
-        // imageNode.getTransforms().remove(scale);
-    }
-
+	}
+	
+	private Scale getScalingForPrinter(Node nodeToPrint, PageLayout targetPage)
+	{
+			double pageWidth = targetPage.getPrintableWidth();
+			double pageHeight = targetPage.getPrintableHeight();
+			double widthScale = pageWidth/nodeToPrint.getBoundsInParent().getWidth();
+			double heightScale = pageHeight/nodeToPrint.getBoundsInParent().getHeight();
+			double actualScale = Math.min(widthScale, heightScale);
+			return new Scale(actualScale,actualScale);
+	}
 	
 	
 	public void setFilePath(String path)
@@ -856,7 +943,8 @@ public class FXMLDocumentController implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) 
 	{
 		subjectReferralDrpDn.setItems(TYPE);
-		// subjectReferralDrpDn.getSelectionModel().select(0);
+		alzMemDiagnosisDrpDn.setItems(DIAGNOSIS);
+
 	}    
 
 

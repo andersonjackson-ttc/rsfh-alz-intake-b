@@ -1,0 +1,19 @@
+.root {
+	-fx-font-size: 12px;
+}
+
+.text-feild {
+	-fx-font-size: 12px;
+}
+.sectionLabel {
+	-fx-font-size: 27px;
+	-fx-font-family: Calibri;
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+}
+#headerLabel {
+	-fx-font-size: 21px;
+	-fx-font-family: Calibri;
+	-fx-font-style: italic;
+	-fx-font-weight: bold;
+}

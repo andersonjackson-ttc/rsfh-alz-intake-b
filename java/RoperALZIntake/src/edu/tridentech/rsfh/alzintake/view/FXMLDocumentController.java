@@ -122,6 +122,18 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private RadioButton sleepDisorderStatusRadY;
 	@FXML private RadioButton deviseMRIConcernRadY;
 	@FXML private RadioButton drugAlcoholStatusRadY;
+	@FXML private RadioButton alzMemAgitationRadN;
+	@FXML private RadioButton alzMemSleepIssueRadN;
+	@FXML private RadioButton planSolveStatusRadN;
+	@FXML private RadioButton memLossDisruptRadN;
+	@FXML private RadioButton tasksStatusRadN;
+	@FXML private RadioButton conversationStatusRadN;
+	@FXML private RadioButton schizBiMddStatusRadN;
+	@FXML private RadioButton sleepDisorderStatusRadN;
+	@FXML private RadioButton drugAlcoholStatusRadN;
+	@FXML private RadioButton deviseMRIConcernRadN;
+	@FXML private RadioButton alzMemApathyRadN;
+	
 
 
 
@@ -550,6 +562,7 @@ public class FXMLDocumentController implements Initializable {
 			namzaricEndStr = nammzaricEndDateTxtBx.getText();
 			namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
 		}
+		
 
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
@@ -677,18 +690,36 @@ public class FXMLDocumentController implements Initializable {
 		race.setText("");
 		gender.setText("");
 		alzMemAgitationRadY.setSelected(false);
+		alzMemAgitationRadN.setSelected(false);
 		alzMemApathyRadY.setSelected(false);
+		alzMemApathyRadN.setSelected(false);
 		alzMemSleepIssueRadY.setSelected(false);
+		alzMemSleepIssueRadN.setSelected(false);
 		planSolveStatusRadY.setSelected(false);
+		planSolveStatusRadN.setSelected(false);
 		memLossDisruptRadY.setSelected(false);
+		memLossDisruptRadN.setSelected(false);
 		tasksStatusRadY.setSelected(false);
+		tasksStatusRadN.setSelected(false);
 		conversationStatusRadY.setSelected(false);
+		conversationStatusRadN.setSelected(false);
 		schizBiMddStatusRadY.setSelected(false);
+		schizBiMddStatusRadN.setSelected(false);
 		sleepDisorderStatusRadY.setSelected(false);
+		sleepDisorderStatusRadN.setSelected(false);
 		deviseMRIConcernRadY.setSelected(false);
+		deviseMRIConcernRadN.setSelected(false);
 		drugAlcoholStatusRadY.setSelected(false);
+		drugAlcoholStatusRadN.setSelected(false);
 		subjectReferralDrpDn.setValue(null);
 		alzMemDiagnosisDrpDn.setValue(null);
+		studyPartnerStatusTglBtn.setSelected(false);
+		nammzaricStatusTglBtn.setSelected(false);
+		galantamineStatusTglBtn.setSelected(false);
+		rivastigmineStatusTglBtn.setSelected(false);
+		memantineStatusTglBtn.setSelected(false);
+		donepezilStatusTglBtn.setSelected(false);
+		
 
 	}
 

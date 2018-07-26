@@ -490,7 +490,7 @@ public class FXMLDocumentController implements Initializable {
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
 
 		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
-		symptDOD = VerifyNonReqiuredDate(symptDOOStr);
+		symptDOD = VerifyNonReqiuredDate(symptDODStr);
 
 		alzDiagnose = alzMemStatusRadY.isSelected();
 		agitation = alzMemAgitationRadY.isSelected();

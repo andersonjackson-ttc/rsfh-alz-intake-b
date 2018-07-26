@@ -666,7 +666,7 @@ public class DataReadWrite
 			
 			addressList = new CellRangeAddressList(rowCount ,rowCount , 25, 25);
             dvHelper = sheet.getDataValidationHelper();
-            dvConstraint = dvHelper.createFormulaListConstraint("CHOICES");
+            dvConstraint = dvHelper.createFormulaListConstraint("termReason");
             validation = dvHelper.createValidation(dvConstraint, addressList);
             sheet.addValidationData(validation);
 			

@@ -265,7 +265,7 @@ public class FXMLDocumentController implements Initializable {
 		String subDOBStr = "";
 		String subGender = "";
 		String subRace = "";
-		Date subDOB = new Date();
+		Date subDOB = null;
 		String subAddress = "";
 		String subAddress2 = "";
 		String subCity = "";
@@ -454,29 +454,29 @@ public class FXMLDocumentController implements Initializable {
 
 
 		String symptDODStr = "";
-		Date symptDOD = new Date();
+		Date symptDOD = null;
 		String symptDOOStr = "";
-		Date symptDOO = new Date();
+		Date symptDOO = null;
 		String donepezilStartStr = "";
-		Date donepezilStart = new Date();
+		Date donepezilStart = null;
 		String donepezilEndStr = "";
-		Date donepezilEnd = new Date();
+		Date donepezilEnd = null;
 		String memantineStartStr = "";
-		Date memantineStart = new Date();
+		Date memantineStart = null;
 		String memantineEndStr = "";
-		Date memantineEnd = new Date();
+		Date memantineEnd = null;
 		String rivantigmineStartStr = "";
-		Date rivantigmineStart = new Date();
+		Date rivantigmineStart = null;
 		String rivantigmineEndStr = "";
-		Date rivantigmineEnd = new Date();
+		Date rivantigmineEnd = null;
 		String galantamineStartStr = "";
-		Date galantamineStart = new Date();
+		Date galantamineStart = null;
 		String galantamineEndStr = "";
-		Date galantamineEnd = new Date();
+		Date galantamineEnd = null;
 		String namzaricStartStr = "";
-		Date namzaricStart = new Date();
+		Date namzaricStart = null;
 		String namzaricEndStr = "";
-		Date namzaricEnd = new Date();
+		Date namzaricEnd = null;
 		boolean donepezil = false;
 		boolean memantine = false;
 		boolean rivastigmine = false;
@@ -490,7 +490,7 @@ public class FXMLDocumentController implements Initializable {
 		memClinician = alzMemDiagnosisClinicianTxtBx.getText();
 
 		symptDODStr = alzMemDiagnosisDateTxtBx.getText();
-		symptDOD = VerifyNonReqiuredDate(symptDOOStr);
+		symptDOD = VerifyNonReqiuredDate(symptDODStr);
 
 		alzDiagnose = alzMemStatusRadY.isSelected();
 		agitation = alzMemAgitationRadY.isSelected();
@@ -509,7 +509,7 @@ public class FXMLDocumentController implements Initializable {
 
 		donepezil = donepezilStatusTglBtn.isSelected();
 
-		if(!donepezil)
+		if(donepezil)
 		{
 			donepezilStartStr = donepezilStartDateTxtBx.getText();
 			donepezilStart = VerifyNonReqiuredDate(donepezilStartStr);
@@ -521,7 +521,7 @@ public class FXMLDocumentController implements Initializable {
 
 
 		memantine = memantineStatusTglBtn.isSelected();
-		if(!memantine)
+		if(memantine)
 		{
 			memantineStartStr = memantineStartDateTxtBx.getText();
 			memantineStart = VerifyNonReqiuredDate(memantineStartStr);
@@ -532,7 +532,7 @@ public class FXMLDocumentController implements Initializable {
 
 
 		rivastigmine = rivastigmineStatusTglBtn.isSelected();
-		if(!rivastigmine)
+		if(rivastigmine)
 		{
 			rivantigmineStartStr = rivastigmineStartDateTxtBx.getText();
 			rivantigmineStart = VerifyNonReqiuredDate(rivantigmineStartStr);
@@ -543,7 +543,7 @@ public class FXMLDocumentController implements Initializable {
 
 
 		galantamine = galantamineStatusTglBtn.isSelected();
-		if(!galantamine)
+		if(galantamine)
 		{
 			galantamineStartStr = galantamineStartDateTxtBx.getText();
 			galantamineStart = VerifyNonReqiuredDate(galantamineStartStr);
@@ -554,7 +554,7 @@ public class FXMLDocumentController implements Initializable {
 
 
 		namzaric = nammzaricStatusTglBtn.isSelected();
-		if(!namzaric)
+		if(namzaric)
 		{
 			namzaricStartStr = nammzaricStartDateTxtBx.getText();
 			namzaricStart = VerifyNonReqiuredDate(namzaricStartStr);
@@ -583,9 +583,11 @@ public class FXMLDocumentController implements Initializable {
 		partic.setAricept(donepezil);
 		partic.setAriceptStartDate(donepezilStart);
 		partic.setAriceptStopDate(donepezilEnd);
+		
 		partic.setNamenda(memantine);
 		partic.setNamendaStartDate(memantineStart);
 		partic.setNamendaStopDate(memantineEnd);
+		
 		partic.setExelon(rivastigmine);
 		partic.setExelonStartDate(rivantigmineStart);
 		partic.setExelonStopDate(rivantigmineEnd);

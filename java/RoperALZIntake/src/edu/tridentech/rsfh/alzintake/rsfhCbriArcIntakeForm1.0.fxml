@@ -22,24 +22,24 @@
          <children>
             <AnchorPane fx:id="page1" layoutX="19.98681640625" layoutY="53.0">
                <children>
-                  <DatePicker fx:id="intakeScreenDateTxtBx" layoutX="35.01318359375" layoutY="17.0" promptText="Intake date" />
-                  <TextField fx:id="intakeScreenByTxtBx" layoutX="249.01318359375" layoutY="18.0" prefHeight="25.0" prefWidth="222.0" promptText="Screened By" />
-                  <TextField fx:id="subjectFirstNameTxtBx" layoutX="35.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
-                  <TextField fx:id="subjectMITxtBx" layoutX="194.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="30.0" promptText="MI" />
-                  <TextField fx:id="subjectLastNameTxtBx" layoutX="242.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
+                  <DatePicker fx:id="intakeScreenDateTxtBx" layoutX="35.01318359375" layoutY="17.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="intakeScreenByTxtBx" layoutX="249.01318359375" layoutY="18.0" prefHeight="25.0" prefWidth="222.0" />
+                  <TextField fx:id="subjectFirstNameTxtBx" layoutX="35.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="150.0" />
+                  <TextField fx:id="subjectMITxtBx" layoutX="194.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="30.0" />
+                  <TextField fx:id="subjectLastNameTxtBx" layoutX="242.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="200.0" />
                   <TextField fx:id="subjectDOBTxtBx" layoutX="459.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="100.0" promptText="MM/DD/YYYY" />
-                  <TextField fx:id="subjectEmailTxtBx" layoutX="575.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
-                  <TextField fx:id="gender" layoutX="840.01318359375" layoutY="127.0" prefHeight="26.0" prefWidth="121.0" promptText="Gender" />
-                  <TextField fx:id="race" layoutX="968.01318359375" layoutY="127.0" prefHeight="26.0" prefWidth="121.0" promptText="Race" />
-                  <TextField fx:id="subjectAddressTxtBx" layoutX="35.01318359375" layoutY="188.0" prefHeight="20.0" prefWidth="363.0" promptText="Street Address" />
-                  <TextField fx:id="subjectCityTxtBx" layoutX="401.01318359375" layoutY="188.0" prefHeight="25.0" prefWidth="291.0" promptText="City" />
-                  <TextField fx:id="subjectStateTxtBx" layoutX="697.01318359375" layoutY="188.0" prefHeight="25.0" prefWidth="45.0" promptText="State" />
-                  <TextField fx:id="subjectZipTxtBx" layoutX="748.01318359375" layoutY="188.0" prefHeight="20.0" prefWidth="96.0" promptText="Zip Code" />
+                  <TextField fx:id="subjectEmailTxtBx" layoutX="575.01318359375" layoutY="127.0" prefHeight="20.0" prefWidth="250.0" />
+                  <TextField fx:id="gender" layoutX="840.01318359375" layoutY="127.0" prefHeight="26.0" prefWidth="121.0" />
+                  <TextField fx:id="race" layoutX="968.01318359375" layoutY="127.0" prefHeight="26.0" prefWidth="121.0" />
+                  <TextField fx:id="subjectAddressTxtBx" layoutX="35.01318359375" layoutY="188.0" prefHeight="20.0" prefWidth="363.0" />
+                  <TextField fx:id="subjectCityTxtBx" layoutX="401.01318359375" layoutY="188.0" prefHeight="25.0" prefWidth="291.0" />
+                  <TextField fx:id="subjectStateTxtBx" layoutX="697.01318359375" layoutY="188.0" prefHeight="25.0" prefWidth="45.0" />
+                  <TextField fx:id="subjectZipTxtBx" layoutX="748.01318359375" layoutY="188.0" prefHeight="20.0" prefWidth="96.0" />
                   <ComboBox fx:id="subjectReferralDrpDn" layoutX="862.01318359375" layoutY="188.0" prefHeight="25.0" prefWidth="229.0" promptText="Referral Source" />
-                  <TextField fx:id="subjectPhoneTxtBx" layoutX="35.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
-                  <TextField fx:id="subjectCellTxtBx" layoutX="175.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="136.0" promptText="Cell Phone" />
-                  <TextField fx:id="subjectPcpTxtBx" layoutX="367.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject PCP" />
-                  <TextField fx:id="subjectSpecialistTxtBx" layoutX="651.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="265.0" promptText="Subject Specialist" />
+                  <TextField fx:id="subjectPhoneTxtBx" layoutX="35.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="136.0" />
+                  <TextField fx:id="subjectCellTxtBx" layoutX="175.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="136.0" />
+                  <TextField fx:id="subjectPcpTxtBx" layoutX="367.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="265.0" />
+                  <TextField fx:id="subjectSpecialistTxtBx" layoutX="651.01318359375" layoutY="247.0" prefHeight="20.0" prefWidth="265.0" />
                   <CheckBox fx:id="subjectMailListStatusCkBxY" layoutX="977.01318359375" layoutY="251.0" mnemonicParsing="false" text="Yes" />
                   <Label layoutX="0.01318359375" layoutY="297.0" styleClass="sectionLabel" text="Study Partner Information">
                      <font>
@@ -47,11 +47,11 @@
                      </font>
                   </Label>
                   <CheckBox fx:id="studyPartnerStatusTglBtn" layoutX="35.01318359375" layoutY="348.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="481.0" text="Study partner that has contact 10 or more hours per week and can attend the visit" />
-                  <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="36.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="150.0" promptText="First Name" />
-                  <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="196.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="200.0" promptText="Last Name" />
-                  <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="406.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="136.0" promptText="Home Phone" />
-                  <TextField fx:id="studyPartnerEmailTxtBx" layoutX="551.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="250.0" promptText="Email" />
-                  <TextField fx:id="studyPartnerRelationTxtBx" layoutX="813.01318359375" layoutY="408.0" prefHeight="20.0" prefWidth="265.0" promptText="Relationship" />
+                  <TextField fx:id="studyPartnerFirstNameTxtBx" layoutX="36.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="150.0" />
+                  <TextField fx:id="studyPartnerLastNameTxtBx" layoutX="196.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="200.0" />
+                  <TextField fx:id="studyPartnerPhoneTxtBx" layoutX="406.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="136.0" />
+                  <TextField fx:id="studyPartnerEmailTxtBx" layoutX="551.01318359375" layoutY="407.0" prefHeight="20.0" prefWidth="250.0" />
+                  <TextField fx:id="studyPartnerRelationTxtBx" layoutX="813.01318359375" layoutY="408.0" prefHeight="20.0" prefWidth="265.0" />
                   <Label layoutX="0.01318359375" layoutY="463.0" styleClass="sectionLabel" text="Healthcare Power of  Attorney (HPOA)">
                      <font>
                         <Font name="Calibri Bold Italic" size="27.0" />
@@ -63,27 +63,27 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="hpoasRadN" layoutX="90.01318359375" layoutY="551.0" mnemonicParsing="false" text="No" toggleGroup="$hpoaRadTog" />
-                  <TextField fx:id="hpoaFirstNameTxtBx" layoutX="172.01318359375" layoutY="547.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA First Name" />
-                  <TextField fx:id="hpoaLastNameTxtBx" layoutX="427.01318359375" layoutY="547.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA Last Name" />
-                  <TextField fx:id="hpoaPhoneTxtBx" layoutX="687.01318359375" layoutY="547.0" prefHeight="20.0" prefWidth="229.0" promptText="HPOA Home Phone" />
+                  <TextField fx:id="hpoaFirstNameTxtBx" layoutX="172.01318359375" layoutY="547.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="hpoaLastNameTxtBx" layoutX="427.01318359375" layoutY="547.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="hpoaPhoneTxtBx" layoutX="687.01318359375" layoutY="547.0" prefHeight="20.0" prefWidth="229.0" />
                   <RadioButton fx:id="hpoaMarriedStatusRadY" layoutX="47.01318359375" layoutY="626.0" mnemonicParsing="false" text="Yes">
                      <toggleGroup>
                         <ToggleGroup fx:id="hpoaMarriedStatusRadTog" />
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="hpoaMarriedStatusRadN" layoutX="91.01318359375" layoutY="626.0" mnemonicParsing="false" text="No" toggleGroup="$hpoaMarriedStatusRadTog" />
-                  <TextField fx:id="hpoaSpouseFirstNameTxtBx" layoutX="173.01318359375" layoutY="622.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse First Name" />
-                  <TextField fx:id="hpoaSpouseLastNameTxtBx" layoutX="428.01318359375" layoutY="622.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse Last Name" />
-                  <TextField fx:id="hpoaSpousePhoneTxtBx" layoutX="688.01318359375" layoutY="622.0" prefHeight="20.0" prefWidth="229.0" promptText="Spouse Phone" />
+                  <TextField fx:id="hpoaSpouseFirstNameTxtBx" layoutX="173.01318359375" layoutY="622.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="hpoaSpouseLastNameTxtBx" layoutX="428.01318359375" layoutY="622.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="hpoaSpousePhoneTxtBx" layoutX="688.01318359375" layoutY="622.0" prefHeight="20.0" prefWidth="229.0" />
                   <RadioButton fx:id="hpoaChildStatusRadY" layoutX="48.01318359375" layoutY="703.0" mnemonicParsing="false" text="Yes">
                      <toggleGroup>
                         <ToggleGroup fx:id="hpoaChildStatusRadTog" />
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="hpoaChildStatusRadN" layoutX="92.01318359375" layoutY="703.0" mnemonicParsing="false" text="No" toggleGroup="$hpoaChildStatusRadTog" />
-                  <TextField fx:id="hpoaChildFirstNameTxtBx" layoutX="173.01318359375" layoutY="699.0" prefHeight="20.0" prefWidth="229.0" promptText="Child First Name" />
-                  <TextField fx:id="hpoaChildLastNameTxtBx" layoutX="428.01318359375" layoutY="699.0" prefHeight="20.0" prefWidth="229.0" promptText="Child  Last Name" />
-                  <TextField fx:id="hpoaChildPhoneTxtBx" layoutX="688.01318359375" layoutY="699.0" prefHeight="20.0" prefWidth="229.0" promptText="Child Phone" />
+                  <TextField fx:id="hpoaChildFirstNameTxtBx" layoutX="173.01318359375" layoutY="699.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="hpoaChildLastNameTxtBx" layoutX="428.01318359375" layoutY="699.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="hpoaChildPhoneTxtBx" layoutX="688.01318359375" layoutY="699.0" prefHeight="20.0" prefWidth="229.0" />
                   <Label layoutX="936.01318359375" layoutY="230.0" text="Include on mailing list?" />
                   <Label layoutX="36.01318359375" text="Intake date" />
                   <Label layoutX="37.01318359375" layoutY="110.0" text="First Name" />
@@ -136,8 +136,8 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="alzMemStatusRadN" layoutX="98.0" layoutY="90.0" mnemonicParsing="false" text="No" toggleGroup="$alzMemStatusRadTog" />
-                  <TextField fx:id="alzMemDiagnosisClinicianTxtBx" layoutX="430.0" layoutY="86.0" prefHeight="20.0" prefWidth="229.0" promptText="Clinician" />
-                  <TextField fx:id="alzMemDiagnosisDateTxtBx" layoutX="690.0" layoutY="86.0" prefHeight="25.0" prefWidth="127.0" promptText="Diagnosis Date" />
+                  <TextField fx:id="alzMemDiagnosisClinicianTxtBx" layoutX="430.0" layoutY="86.0" prefHeight="20.0" prefWidth="229.0" />
+                  <TextField fx:id="alzMemDiagnosisDateTxtBx" layoutX="690.0" layoutY="86.0" prefHeight="25.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <RadioButton fx:id="alzMemAgitationRadY" layoutX="109.0" layoutY="168.0" mnemonicParsing="false" text="Yes">
                      <toggleGroup>
                         <ToggleGroup fx:id="alzMemAgitationRadTog" />
@@ -162,7 +162,7 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="memLossNotedRadN" layoutX="364.0" layoutY="255.0" mnemonicParsing="false" text="No" toggleGroup="$memLossNotedRadTog" />
-                  <TextField fx:id="memLossNotedDateTxtBx" layoutX="563.0" layoutY="253.0" prefHeight="20.0" prefWidth="127.0" promptText="Date of occurrence" />
+                  <TextField fx:id="memLossNotedDateTxtBx" layoutX="563.0" layoutY="253.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <RadioButton fx:id="memLossDisruptRadY" layoutX="320.0" layoutY="291.0" mnemonicParsing="false" text="Yes">
                      <toggleGroup>
                         <ToggleGroup fx:id="memLossDisruptRadTog" />
@@ -193,22 +193,22 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="alzFamHistoryStatusRadN" layoutX="365.0" layoutY="440.0" mnemonicParsing="false" text="No" toggleGroup="$alzFamHistoryStatusRadTog" />
-                  <TextField fx:id="alzFamHistoryStatusRelationTxtBx" layoutX="575.0" layoutY="436.0" prefHeight="25.0" prefWidth="126.0" promptText="Relationship" />
+                  <TextField fx:id="alzFamHistoryStatusRelationTxtBx" layoutX="575.0" layoutY="436.0" prefHeight="25.0" prefWidth="126.0" />
                   <CheckBox fx:id="donepezilStatusTglBtn" layoutX="36.0" layoutY="529.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Donepezil (Aricept)" />
-                  <TextField fx:id="donepezilStartDateTxtBx" layoutX="321.0" layoutY="531.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
-                  <TextField fx:id="donepezilEndDateTxtBx" layoutX="471.0" layoutY="529.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
+                  <TextField fx:id="donepezilStartDateTxtBx" layoutX="321.0" layoutY="531.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="donepezilEndDateTxtBx" layoutX="471.0" layoutY="529.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <CheckBox fx:id="memantineStatusTglBtn" layoutX="36.0" layoutY="569.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Memantine (Namenda)" />
-                  <TextField fx:id="memantineStartDateTxtBx" layoutX="321.0" layoutY="569.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
-                  <TextField fx:id="memantineEndDateTxtBx" layoutX="471.0" layoutY="569.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
+                  <TextField fx:id="memantineStartDateTxtBx" layoutX="321.0" layoutY="569.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="memantineEndDateTxtBx" layoutX="471.0" layoutY="569.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <CheckBox fx:id="rivastigmineStatusTglBtn" layoutX="35.0" layoutY="604.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Rivastigmine (Exelon)" />
-                  <TextField fx:id="rivastigmineStartDateTxtBx" layoutX="320.0" layoutY="604.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
-                  <TextField fx:id="rivastigmineEndDateTxtBx" layoutX="470.0" layoutY="604.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
+                  <TextField fx:id="rivastigmineStartDateTxtBx" layoutX="320.0" layoutY="604.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="rivastigmineEndDateTxtBx" layoutX="470.0" layoutY="604.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <CheckBox fx:id="galantamineStatusTglBtn" layoutX="35.0" layoutY="644.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Galantamine (Razadyne)" />
-                  <TextField fx:id="galantamineStartDateTxtBx" layoutX="320.0" layoutY="644.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
-                  <TextField fx:id="galantamineEndDateTxtBx" layoutX="470.0" layoutY="644.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
+                  <TextField fx:id="galantamineStartDateTxtBx" layoutX="320.0" layoutY="644.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="galantamineEndDateTxtBx" layoutX="470.0" layoutY="644.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <CheckBox fx:id="nammzaricStatusTglBtn" layoutX="34.0" layoutY="683.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="Namzaric (Aricept-Namenda combination)" />
-                  <TextField fx:id="nammzaricStartDateTxtBx" layoutX="319.0" layoutY="683.0" prefHeight="20.0" prefWidth="127.0" promptText="Start date" />
-                  <TextField fx:id="nammzaricEndDateTxtBx" layoutX="469.0" layoutY="683.0" prefHeight="20.0" prefWidth="127.0" promptText="Stop date" />
+                  <TextField fx:id="nammzaricStartDateTxtBx" layoutX="319.0" layoutY="683.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="nammzaricEndDateTxtBx" layoutX="469.0" layoutY="683.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
                   <RadioButton fx:id="schizBiMddStatusRadY" layoutX="328.0" layoutY="834.0" mnemonicParsing="false" text="Yes">
                      <toggleGroup>
                         <ToggleGroup fx:id="schizBiMddStatusRadTog" />
@@ -227,7 +227,7 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="cancerStatusRadN" layoutX="373.0" layoutY="909.0" mnemonicParsing="false" text="No" toggleGroup="$cancerStatusRadTog" />
-                  <TextField fx:id="cancerStatusTypeTxtBx" layoutX="533.0" layoutY="905.0" prefHeight="20.0" prefWidth="127.0" promptText="Type of Cancer" />
+                  <TextField fx:id="cancerStatusTypeTxtBx" layoutX="533.0" layoutY="905.0" prefHeight="20.0" prefWidth="127.0" />
                   <RadioButton fx:id="deviseMRIConcernRadY" layoutX="329.0" layoutY="948.0" mnemonicParsing="false" text="Yes">
                      <toggleGroup>
                         <ToggleGroup fx:id="deviseMRIConcernRadTog" />
@@ -240,7 +240,7 @@
                      </toggleGroup>
                   </RadioButton>
                   <RadioButton fx:id="drugAlcoholStatusRadN" layoutX="374.0" layoutY="983.0" mnemonicParsing="false" text="No" toggleGroup="$drugAlcoholStatusRadTog" />
-                  <TextField fx:id="ongoingHealthConcernsTxtBx" alignment="TOP_LEFT" layoutX="712.0" layoutY="843.0" prefHeight="166.0" prefWidth="294.0" promptText="Type conditions and concerns here" />
+                  <TextField fx:id="ongoingHealthConcernsTxtBx" alignment="TOP_LEFT" layoutX="712.0" layoutY="843.0" prefHeight="166.0" prefWidth="294.0" />
                   <Label layoutX="53.0" layoutY="168.0" text="Agitation" />
                   <Label layoutX="232.0" layoutY="168.0" text="Apathy" />
                   <Label layoutX="390.0" layoutY="168.0" text="Sleep Problems" />
@@ -262,8 +262,8 @@
                   <CheckBox fx:id="rsfhObtainRoiStatusTglBtn" layoutX="39.0" layoutY="1220.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="ROI Obtained" />
                   <CheckBox fx:id="rsfhFaxRoiStatusTglBtn" layoutX="39.0" layoutY="1252.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="ROI faxed" />
                   <CheckBox fx:id="rsfhFileStatusTglBtn" layoutX="38.0" layoutY="1285.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="258.0" text="File in appropriate drawer in record room" />
-                  <TextField fx:id="rsfhClinAssessDateTxtBx" layoutX="324.0" layoutY="1116.0" prefHeight="20.0" prefWidth="127.0" promptText="Assessment date" />
-                  <TextField fx:id="rsfhClinRecommendsTxtBx" alignment="TOP_LEFT" layoutX="475.0" layoutY="1114.0" prefHeight="166.0" prefWidth="294.0" promptText="Clinician Recommendation" />
+                  <TextField fx:id="rsfhClinAssessDateTxtBx" layoutX="324.0" layoutY="1116.0" prefHeight="20.0" prefWidth="127.0" promptText="MM/DD/YYYY" />
+                  <TextField fx:id="rsfhClinRecommendsTxtBx" alignment="TOP_LEFT" layoutX="475.0" layoutY="1114.0" prefHeight="166.0" prefWidth="294.0" />
                   <Label layoutX="20.0" layoutY="784.0" text="Are any of the following conditions applicable?" />
                   <Label layoutX="709.0" layoutY="825.0" text="Ongoing health problems or conditions?" />
                   <Label layoutX="5.0" layoutY="1038.0" styleClass="sectionLabel" text="CBRI staff documentation">

@@ -134,6 +134,16 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private RadioButton deviseMRIConcernRadN;
 	@FXML private RadioButton alzMemApathyRadN;
 	
+	@FXML private RadioButton hpoasRadN;
+	@FXML private RadioButton hpoaMarriedStatusRadN;
+	@FXML private RadioButton hpoaChildStatusRadN;
+	@FXML private RadioButton alzMemStatusRadN;
+	@FXML private RadioButton memLossNotedRadN;
+	@FXML private RadioButton alzFamHistoryStatusRadN;
+	@FXML private RadioButton cancerStatusRadN;
+	
+	
+	
 
 
 
@@ -721,6 +731,22 @@ public class FXMLDocumentController implements Initializable {
 		rivastigmineStatusTglBtn.setSelected(false);
 		memantineStatusTglBtn.setSelected(false);
 		donepezilStatusTglBtn.setSelected(false);
+		subjectMailListStatusCkBxY.setSelected(false);
+		hpoaRadY.setSelected(false);
+		hpoasRadN.setSelected(false);
+		hpoaMarriedStatusRadY.setSelected(false);
+		hpoaMarriedStatusRadN.setSelected(false);
+		hpoaChildStatusRadY.setSelected(false);
+		hpoaChildStatusRadN.setSelected(false);
+		alzMemStatusRadY.setSelected(false);
+		alzMemStatusRadN.setSelected(false);
+		memLossNotedRadY.setSelected(false);
+		memLossNotedRadN.setSelected(false);
+		alzFamHistoryStatusRadY.setSelected(false);
+		alzFamHistoryStatusRadN.setSelected(false);
+		cancerStatusRadY.setSelected(false);
+		cancerStatusRadN.setSelected(false);
+		
 		
 
 	}

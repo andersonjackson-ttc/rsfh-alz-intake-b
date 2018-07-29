@@ -980,7 +980,7 @@ public class FXMLDocumentController implements Initializable {
 	{	
 //		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
 //		return tempEmail.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
-		return tempEmail.matches("^[a-zA-Z_0-9-]*@[a-zA-Z_0-9]*.[a-zA-Z]*$");
+		return tempEmail.matches("^[a-zA-Z_0-9-.]*@[a-zA-Z_0-9.-]*.[a-zA-Z]*$");
 		
 	}
 

@@ -312,7 +312,7 @@ public class FXMLDocumentController implements Initializable {
 		subRace = race.getText();
 		subGender = gender.getText();
 		subCity = subjectCityTxtBx.getText();
-		subState = subjectStateTxtBx.getText();
+		subState = subjectStateTxtBx.getText().toUpperCase();
 		subZip = subjectZipTxtBx.getText();
 		subEmail = subjectEmailTxtBx.getText();
 		VerifyEmail(subEmail);
@@ -908,7 +908,7 @@ public class FXMLDocumentController implements Initializable {
 		{
 			if(!CheckPhone(tempPhone1))
 			{
-				String msg = String.format("Phone Number not Valid: %s. \\nPlease enter a valid phone number", tempPhone1);
+				String msg = String.format("Phone Number -- %s -- is not Valid:. \\nPlease enter a phone number as ###-###-####", tempPhone1);
 				Alert emailError = new Alert(AlertType.ERROR, msg);
 				emailError.showAndWait();
 				throw new Exception ("Invalid homme or cell phone");
@@ -987,7 +987,7 @@ public class FXMLDocumentController implements Initializable {
 
 	private boolean CheckPhone(String tempPhone)
 	{
-		return tempPhone.matches("^[0-9]{3}-[0-9]{3}-[0-9]{4}$");
+		return tempPhone.matches("^[0-9]{3}[.-]{1}[0-9]{3}[.-]{1}[0-9]{4}$");
 	} 
 
 	

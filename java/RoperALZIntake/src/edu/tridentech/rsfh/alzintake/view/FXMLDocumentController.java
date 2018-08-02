@@ -133,7 +133,7 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private RadioButton drugAlcoholStatusRadN;
 	@FXML private RadioButton deviseMRIConcernRadN;
 	@FXML private RadioButton alzMemApathyRadN;
-	
+
 	@FXML private RadioButton hpoasRadN;
 	@FXML private RadioButton hpoaMarriedStatusRadN;
 	@FXML private RadioButton hpoaChildStatusRadN;
@@ -141,9 +141,9 @@ public class FXMLDocumentController implements Initializable {
 	@FXML private RadioButton memLossNotedRadN;
 	@FXML private RadioButton alzFamHistoryStatusRadN;
 	@FXML private RadioButton cancerStatusRadN;
-	
-	
-	
+
+
+
 
 
 
@@ -202,7 +202,7 @@ public class FXMLDocumentController implements Initializable {
 	private ObservableList<String> TYPE = FXCollections.observableArrayList(" ", "23andMe referral", "A4 AARP Ad", "A4 direct mailing", "A4 Facebook Ad", "ADNI3 - Brain Health Registry","Advantage Magazine", "Community Event", "Facebook Ad - Biogen", "GeneMatch ", "GeneMatch- community event", "Health Fair", "Housecalls Magazine", "Housecalls TV", "Memory Screen Day", "Merck Referral", "News Story-Print/TV", "Other", "P&C Ad", "Radio", "Referral- Friend", "Referral- Patient", "Referral- study website", "Referral-Community Partner", "Referral-Physician", "Referral-VA", "Roper Recording", "Web Search", "Word of Mouth");        
 
 	private ObservableList<String> DIAGNOSIS = FXCollections.observableArrayList("N/A", "MCI", "AD", "Dementia (unspecified)", "dementia (non-AD)", "Other");
-	
+
 
 	@FXML
 	private void handleSubmitButtonAction(ActionEvent event) /*throws ParseException*/ {
@@ -219,7 +219,7 @@ public class FXMLDocumentController implements Initializable {
 			consumeHPOA();
 
 			consumeSymptomsInfo(); 
-			
+
 			consumeMedicaInfo();		
 
 		}
@@ -289,25 +289,25 @@ public class FXMLDocumentController implements Initializable {
 		String subjectReferral = "";
 		boolean mailList = false;
 
-		
+
 
 		subDOBStr = subjectDOBTxtBx.getText();
 
-		
+
 		subFirstName = subjectFirstNameTxtBx.getText();
 		subMiddleInit = subjectMITxtBx.getText();
 		subLastName = subjectLastNameTxtBx.getText();
 		subPhone = subjectPhoneTxtBx.getText();
 		subCell = subjectCellTxtBx.getText();	
-		
+
 		VerifyRequiredFields(subFirstName, subLastName, subDOBStr, subPhone, subCell);
-		
+
 		subDOB = VerifyReqiuredDate(subDOBStr);
 		VerifyRequiredName(subFirstName);
 		VerifyRequiredName(subLastName);
 		VerifyParticipantPhone(subCell, subPhone);
-		
-		
+
+
 		subAddress = subjectAddressTxtBx.getText();
 		subRace = race.getText();
 		subGender = gender.getText();
@@ -522,6 +522,7 @@ public class FXMLDocumentController implements Initializable {
 		if(donepezil)
 		{
 			donepezilStartStr = donepezilStartDateTxtBx.getText();
+			//			System.out.println(donepezilStartStr);
 			donepezilStart = VerifyNonReqiuredDate(donepezilStartStr);
 
 			donepezilEndStr = donepezilEndDateTxtBx.getText();
@@ -572,7 +573,7 @@ public class FXMLDocumentController implements Initializable {
 			namzaricEndStr = nammzaricEndDateTxtBx.getText();
 			namzaricEnd = VerifyNonReqiuredDate(namzaricEndStr);
 		}
-		
+
 
 		//symptoms
 		partic.setFamilyRelation(familyHistoryRelationship);
@@ -593,11 +594,11 @@ public class FXMLDocumentController implements Initializable {
 		partic.setAricept(donepezil);
 		partic.setAriceptStartDate(donepezilStart);
 		partic.setAriceptStopDate(donepezilEnd);
-		
+
 		partic.setNamenda(memantine);
 		partic.setNamendaStartDate(memantineStart);
 		partic.setNamendaStopDate(memantineEnd);
-		
+
 		partic.setExelon(rivastigmine);
 		partic.setExelonStartDate(rivantigmineStart);
 		partic.setExelonStopDate(rivantigmineEnd);
@@ -746,29 +747,29 @@ public class FXMLDocumentController implements Initializable {
 		alzFamHistoryStatusRadN.setSelected(false);
 		cancerStatusRadY.setSelected(false);
 		cancerStatusRadN.setSelected(false);
-		
-		
+
+
 
 	}
 
-	
+
 	@FXML 
 	private void handlePrintButtonAction(ActionEvent event)
 	{
 		printForm();
 	}
-	
+
 	private void printForm()
-    {
-        PrinterJob job = PrinterJob.createPrinterJob();
-        if (job.showPrintDialog(null)) {
-        	sendToPrinter(job);
-        }
-    }
+	{
+		PrinterJob job = PrinterJob.createPrinterJob();
+		if (job.showPrintDialog(null)) {
+			sendToPrinter(job);
+		}
+	}
 
 	private void sendToPrinter(PrinterJob job)
 	{
-        Node[] pages = {page1, page2};
+		Node[] pages = {page1, page2};
 
 		Printer printer = job.getPrinter();
 		PageLayout pageLayout = printer.createPageLayout(Paper.NA_LETTER, PageOrientation.PORTRAIT, Printer.MarginType.DEFAULT);
@@ -783,18 +784,18 @@ public class FXMLDocumentController implements Initializable {
 		}
 		job.endJob();
 	}
-	
+
 	private Scale getScalingForPrinter(Node nodeToPrint, PageLayout targetPage)
 	{
-			double pageWidth = targetPage.getPrintableWidth();
-			double pageHeight = targetPage.getPrintableHeight();
-			double widthScale = pageWidth/nodeToPrint.getBoundsInParent().getWidth();
-			double heightScale = pageHeight/nodeToPrint.getBoundsInParent().getHeight();
-			double actualScale = Math.min(widthScale, heightScale);
-			return new Scale(actualScale,actualScale);
+		double pageWidth = targetPage.getPrintableWidth();
+		double pageHeight = targetPage.getPrintableHeight();
+		double widthScale = pageWidth/nodeToPrint.getBoundsInParent().getWidth();
+		double heightScale = pageHeight/nodeToPrint.getBoundsInParent().getHeight();
+		double actualScale = Math.min(widthScale, heightScale);
+		return new Scale(actualScale,actualScale);
 	}
-	
-	
+
+
 	public void setFilePath(String path)
 	{
 		filePath =  path;
@@ -806,7 +807,7 @@ public class FXMLDocumentController implements Initializable {
 		SimpleDateFormat dateParser = new SimpleDateFormat("MM/dd/yyyy");
 		Date tempDate;
 
-		if (!tempDateStr.equals(""))
+		if (tempDateStr.matches("^[0-9]{1,2}[/-][0-9]{1,2}[/-][0-9]{4}$"))
 		{
 			try 
 			{
@@ -828,10 +829,10 @@ public class FXMLDocumentController implements Initializable {
 		//		New Stuff
 		else
 		{
-			String msg = String.format("Please enter a Valid Date");
+			String msg = String.format("Please enter a Valid Date: MM/DD/YYYY");
 			Alert dateError = new Alert(AlertType.ERROR, msg);
 			dateError.showAndWait();
-			throw new Exception ("No Date");
+			throw new Exception ("No Date or Invalid format");
 		}
 	}
 
@@ -862,20 +863,31 @@ public class FXMLDocumentController implements Initializable {
 
 		if (!tempDateStr.equals(""))
 		{
-			try 
+			if (tempDateStr.matches("^[0-9]{1,2}[/-][0-9]{1,2}[/-][0-9]{4}$"))
 			{
-				dateParser.setLenient(false);
-				tempDate = dateParser.parse(tempDateStr);
+				try 
+				{
+					dateParser.setLenient(false);
+					//				System.out.println(tempDateStr);
+					tempDate = dateParser.parse(tempDateStr);
+					//				System.out.println(tempDate);
 
-
-				return tempDate;
+					return tempDate;
+				}
+				catch (ParseException e)
+				{
+					String msg = String.format("Date is not Valid: %s. \nPlease enter date as MM/DD/YYYY", tempDateStr);
+					Alert dateError = new Alert(AlertType.ERROR, msg);
+					dateError.showAndWait();
+					throw new Exception ("Bad Date");
+				}
 			}
-			catch (ParseException e)
+			else
 			{
-				String msg = String.format("Date is not Valid: %s. \nPlease enter date as MM/DD/YYYY", tempDateStr);
+				String msg = String.format("Date is not Valid: %s. \nPlease enter date as: MM/DD/YYYY", tempDateStr);
 				Alert dateError = new Alert(AlertType.ERROR, msg);
 				dateError.showAndWait();
-				throw new Exception ("Bad Date");
+				throw new Exception ("No Date or Invalid format");
 			}
 		}
 
@@ -978,10 +990,10 @@ public class FXMLDocumentController implements Initializable {
 
 	private boolean CheckEmail(String tempEmail)
 	{	
-//		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
-//		return tempEmail.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
+		//		return tempEmail.matches("^[a-zA-Z_0-9-]@[a-zA-Z_0-9].[a-zA-Z]$");
+		//		return tempEmail.matches("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\\\.[A-Z]{2,6}$");
 		return tempEmail.matches("^[a-zA-Z_0-9-.]*@[a-zA-Z_0-9.-]*.[a-zA-Z]*$");
-		
+
 	}
 
 
@@ -990,11 +1002,12 @@ public class FXMLDocumentController implements Initializable {
 		return tempPhone.matches("^[0-9]{3}[.-]{1}[0-9]{3}[.-]{1}[0-9]{4}$");
 	} 
 
-	
+
 	private boolean CheckName(String tempName)
 	{
 		return tempName.matches("^[a-zA-Z_0-9-]$");
 	}
+
 
 
 }
